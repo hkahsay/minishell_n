@@ -103,6 +103,13 @@ typedef struct s_redir_type
 }  t_redir_type;
 
 
+typedef struct s_parser
+{
+	char	*input;
+	int		index;
+
+}				t_parser;
+
 
 //-------------------END OF PARSER------------------------
 
@@ -177,23 +184,15 @@ t_token *new_token(char *content, t_toktype type);
 void add_token(t_token **head, char *content, t_toktype type);
 void print_token(t_token *temp);
 void add_token(t_token **head, char *content, t_toktype type);
-char    *skip_spaces(char *str);
+char	*skip_spaces(char *str);
 // t_token *ft_split_line(t_token *head, char *input_str, t_toktype *delimiters);
 // void	print_tokens(t_token *token_list);
-
-// t_token	*init_token(char *line);
-// int	classification(t_token *token, char *line);
-// int		ft_strlen(char *str);
-// void	ft_putstr_fd(char *str, int fd);
-// char	*classification(t_token *token, char *content, int id);
-// char	*word_token(char *word);
-// int		is_word(const char *str);
-// int	is_space(char c);
-// char	**ft_split(const char *s, char c);
-// int	ft_strlen(const char *str);
-// char	*ft_substr(char const *s, unsigned int start, size_t len);
-
+//------------parsser----------
+t_parser	*tok_parser(char *input);
+t_parser	*init_parser(t_parser *parse);
 // typedef int(*t_builtin_ptr)(t_llist *, t_info *);
+char	*new_parser(t_parser *parse, char *line);
+
 
 //init minishell
 //void	init_minishell();

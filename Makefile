@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vgejno <vgejno@student.42.fr>              +#+  +:+       +#+         #
+#    By: hkahsay <hkahsay@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/23 11:19:05 by vgejno            #+#    #+#              #
-#    Updated: 2023/03/22 20:54:05 by vgejno           ###   ########.fr        #
+#    Updated: 2023/03/24 13:30:41 by hkahsay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,8 @@ SRCS =	srcs/main.c \
 		srcs/lexer/interp_quotes.c \
 		srcs/lexer/interp_word.c \
 		srcs/lexer/token.c \
+		srcs/lexer/parser.c \
+
 		
 
 DFILES = srcs/${addprefix ${DIR_OBJS}/, ${notdir ${SRCS:.c=.d}}}
