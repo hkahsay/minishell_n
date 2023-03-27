@@ -6,7 +6,7 @@
 #    By: hkahsay <hkahsay@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/23 11:19:05 by vgejno            #+#    #+#              #
-#    Updated: 2023/03/24 13:30:41 by hkahsay          ###   ########.fr        #
+#    Updated: 2023/03/27 17:05:33 by hkahsay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ RM = rm -rf
 # << SOURCES >> #
 DIR_SRCS = ./srcs
 DIR_SRCS += ./srcs/lexer
+DIR_SRCS += ./srcs/parser
 SRCS = ${DIR_SRCS}/main.c
 #SRCS += ${DIR_SRCS}/..
 
@@ -49,8 +50,8 @@ SRCS =	srcs/main.c \
 		srcs/lexer/interp_quotes.c \
 		srcs/lexer/interp_word.c \
 		srcs/lexer/token.c \
-		srcs/lexer/parser.c \
-
+		srcs/parser/pt.c \
+		
 		
 
 DFILES = srcs/${addprefix ${DIR_OBJS}/, ${notdir ${SRCS:.c=.d}}}

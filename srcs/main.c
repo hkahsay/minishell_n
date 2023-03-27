@@ -4,10 +4,11 @@ void	prompt(char	*line) //t_envnode *my_envp,
 {
 	int		fd;
 	t_token *head;
-	t_parser	*parse;
+	t_cmd	*cmd;
+
 
 	head = NULL;
-	parse = NULL;
+	cmd = NULL;
 	line = readline ("minishell_VH>> 😜 ");
 	// index = getpid();
 	if (!line)
@@ -18,13 +19,15 @@ void	prompt(char	*line) //t_envnode *my_envp,
 	if (ft_strlen(line) > 0)
 	{
 		printf("propmt line: %s\n", line);
-		// head = interp(line);
-		parse = tok_parser(line);
+		head = interp(line);
+		// args = eval_token(head);
+		cmd = parse(head);
 		printf("OK head is back\n");
 		add_history(line);
 		fd = open("history.log", O_CREAT | O_WRONLY | O_APPEND, 0777);
 		ft_putstr_fd(line, fd);
 		ft_putstr_fd("\n", fd);
+		// cmd = parse(line, cmd);
 	}
 	else
 		free(line);
