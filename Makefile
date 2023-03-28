@@ -6,7 +6,7 @@
 #    By: hkahsay <hkahsay@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/23 11:19:05 by vgejno            #+#    #+#              #
-#    Updated: 2023/03/27 17:05:33 by hkahsay          ###   ########.fr        #
+#    Updated: 2023/03/28 17:19:25 by hkahsay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,8 @@ RM = rm -rf
 DIR_SRCS = ./srcs
 DIR_SRCS += ./srcs/lexer
 DIR_SRCS += ./srcs/parser
+DIR_SRCS += ./srcs/built_in
+
 SRCS = ${DIR_SRCS}/main.c
 #SRCS += ${DIR_SRCS}/..
 
@@ -51,6 +53,10 @@ SRCS =	srcs/main.c \
 		srcs/lexer/interp_word.c \
 		srcs/lexer/token.c \
 		srcs/parser/pt.c \
+		srcs/built_in/pwd.c \
+		# srcs/built_in/cd.c \
+		
+
 		
 		
 

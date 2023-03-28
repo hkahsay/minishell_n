@@ -202,6 +202,9 @@ t_cmd	*parse(t_token *head);
 // t_cmd_node	*parse(char *line, t_cmd_node *first_cmd);
 int	empty_str(char *str);
 // t_redir_args	*eval_token(t_token *head);
+//-----------built_in-----------------
+int	mini_pwd2(t_envnode *env_list);
+// int	mini_pwd(void);
 
 
 // t_cmd	*tok_parser(char *input);

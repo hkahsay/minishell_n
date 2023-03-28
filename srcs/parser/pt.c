@@ -135,6 +135,8 @@ static void	eval_token(t_token *head, t_cmd **cmd)
 			{
 				(*cmd)->cmd_args = add_args_to_list(&args, head_ptr->id, head_ptr->content);
 				printf("add_args ok\n");	
+				printf("add_args ok\n");	
+
 			}
 			else if (head_ptr->id == TOK_REDIR_IN || head_ptr->id == TOK_REDIR_OUT || head_ptr->id == TOK_REDIR_OUT_APPEND ||
 				head_ptr->id == TOK_HEREDOC)
@@ -143,7 +145,10 @@ static void	eval_token(t_token *head, t_cmd **cmd)
 				printf("add_redi ok\n");	
 			}
 			else if (head_ptr->id == TOK_ERRQUOTE)
+			{
+				printf("hello error\n");
 				exit (0);
+			}
 		}
 		// else
 		head_ptr = head_ptr->next;
@@ -156,13 +161,16 @@ t_cmd	*parse(t_token *head)
 {
 	t_cmd	*cmd;
 	t_token *temp = head;
+	// t_envnode	*env = NULL;
 	// t_cmd_node	*single_cmd;
 
 	eval_token(head, &cmd);
-	execute(cmd);
+	// execute(cmd);
 	print_token(temp);
 	// if (!head)
 	// 	return (NULL);
+	// mini_pwd2(env);
+
 	printf("Print token OK\n");
 	// token_analysis(head, eval_token);
 	printf("Returned from token_analysis OK\n");

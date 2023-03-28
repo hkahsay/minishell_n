@@ -7,6 +7,7 @@ void	prompt(char	*line) //t_envnode *my_envp,
 	t_cmd	*cmd;
 
 
+
 	head = NULL;
 	cmd = NULL;
 	line = readline ("minishell_VH>> 😜 ");
@@ -56,7 +57,11 @@ int main(int argc, char **argv, char **envp)
 	temp = my_envp;
 	print_my_envp(temp);
 	while (1)
+	{
 		prompt(line); //my_envp, 
+		mini_pwd2(my_envp);
+
+	}
 	free_myenvp(my_envp);	
 	return (0);
 }
