@@ -1,5 +1,47 @@
 #include"../../headers/minishell.h"
 
+int	ft_cd(t_cmd *cmd, t_envnode *env_list)
+{
+	char	*path;
+	t_envnode	*pwd;
+	
+	if (cmd->cmd_args->args[1] == 0)
+	{
+		env_list = find_env_var("HOME", env_list);
+		if (ft_strlen(env_list->value) != 0)
+			path = env_list->value;
+		else
+		{
+			printf("HOME is not being set \n");
+			return (1);
+		}
+	}
+	else
+		path = &cmd->cmd_args->args[1];
+	// update_env_var("PWD", path);
+	// Change the current working directory and update PWD variable
+	if (chdir(path) == -1)
+	{
+		if (access(path, F_OK) == -1)
+			printf("bash: cd: %s: No such file or directory\n", path);
+		else
+			printf("bash: cd: %s: Not a directory\n", path);
+	}
+	else
+	{
+		pwd = find_env_var("PWD", env_list);
+        if (pwd)
+		{
+            free(pwd->value);
+            pwd->value = getcwd(NULL, 0);
+        } 
+		else
+            ft_setenv("PWD", getcwd(NULL, 0), env_list);
+        return 0;
+	}
+	return (0);
+}
+
 // int	check_built_in(char **arg)
 // {
 // 	if (strcmp(arg[0], "cd\n" == 0)
@@ -97,62 +139,40 @@
 // }
 
 
-// int	check_built_in(t_envnode *list, char *path)
+// void	cd(t_envnode *curr_var, char *path)
 // {
-// 	if (path == "cd\n")
-// 			b_cd(list, path);
-// 	if (path == "pwd")
-// 	{
-// 		mini_pwd2(list);
-// 		// || strcmp(arg[0], "echo\n" == 0)
-// 		// || strcmp(arg[0], "export\n" == 0)
-// 		// || strcmp(arg[0], "unset\n" == 0)
-// 		// || strcmp(arg[0], "env\n" == 0)
-// 		// || strcmp(arg[0], "exit\n" == 0))
-// 		return (0);
+// 	char *norm_path;
+// 	char 		*pwd;
+// 	size_t		pwd_len;
+// 	size_t		path_len;
+// 	// char		*old_pwd;
+// 	char		*new_dir;
 
+// 	if (path == 0 || path[0] == '~')
+// 	{
+// 		curr_var = find_env_name(curr_var, "HOME");
+// 		if (curr_var == 0)
+// 			ft_error("cd: HOME is not set");
+// 		//absolute path
+// 		norm_path = normalize_path(curr_var->value);
 // 	}
+// 	else if (path[0] == '/')
+// 		norm_path = normalize_path(path);
 // 	else
 // 	{
-// 		perror("command not found");
-// 		return(1);
+// 		//relative path
+// 		curr_var = find_env_name(curr_var, "PWD");
+// 		if (curr_var == 0)
+// 			ft_error("cd: PWD is not set");
+// 		pwd = curr_var->value;
+// 		pwd_len = strlen(pwd);
+// 		path_len = strlen(path);
+// 		new_dir = (char *)malloc(sizeof(pwd_len + path_len + 2));
+// 		// snprintf(buf, pwd_len + path_len + 2, "%s/%s", pwd, path);
+// 		printf("%s %s",pwd, path);
+// 		norm_path = normalize_path(new_dir);
+// 		free(new_dir);		
 // 	}
+// 	if (chdir(norm_path) != 0)
+// 		ft_error("cd: failed to change directory");
 // }
-
-void	cd(t_envnode *curr_var, char *path)
-{
-	char *norm_path;
-	char 		*pwd;
-	size_t		pwd_len;
-	size_t		path_len;
-	// char		*old_pwd;
-	char		*new_dir;
-
-	if (path == 0 || path[0] == '~')
-	{
-		curr_var = find_env_name(curr_var, "HOME");
-		if (curr_var == 0)
-			ft_error("cd: HOME is not set");
-		//absolute path
-		norm_path = normalize_path(curr_var->value);
-	}
-	else if (path[0] == '/')
-		norm_path = normalize_path(path);
-	else
-	{
-		//relative path
-		curr_var = find_env_name(curr_var, "PWD");
-		if (curr_var == 0)
-			ft_error("cd: PWD is not set");
-		pwd = curr_var->value;
-		pwd_len = strlen(pwd);
-		path_len = strlen(path);
-		new_dir = (char *)malloc(sizeof(pwd_len + path_len + 2));
-		// snprintf(buf, pwd_len + path_len + 2, "%s/%s", pwd, path);
-		printf("%s %s",pwd, path);
-		norm_path = normalize_path(new_dir);
-		free(new_dir);		
-	}
-	if (chdir(norm_path) != 0)
-		ft_error("cd: failed to change directory");
-}

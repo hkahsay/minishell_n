@@ -38,6 +38,14 @@
 
 # define RS      "\033[0m"
 # define clear() printf("\033[H\033[J");
+//---------------built-in----------------
+# define PWD 1
+# define CD 2
+# define CMD_ECHO 3
+# define UNSET 4
+# define EXPORT 5
+# define ENV 6
+# define EXIT 7
 
 //-------------------MY_ENV-----------------------
 
@@ -168,14 +176,13 @@ typedef struct s_info
 
 /*MY_ENV*/
 t_envnode	*dublicate_env(char **envp);
-t_envnode	*create_my_envvar_node(char *key, char *value, int i);
+t_envnode	*create_my_envvar_node(char *key, char *value);
 void		free_myenvp(t_envnode *head);
-
-void print_my_envp(t_envnode *temp);
-
+t_envnode	*find_env_var(char *key, t_envnode *current_dir);
+void 		print_my_envp(t_envnode *temp);
+void 		update_env_var(char *key, char *value);
 /*PROMPT*/
-void	prompt(char	*line); //t_envnode *my_envp, 
-
+void	prompt(char	*line); 
 /*LEXER*/
 t_token    *interp(char *input_str);
 char    *skip_spaces(char *str);
@@ -204,6 +211,10 @@ int	empty_str(char *str);
 // t_redir_args	*eval_token(t_token *head);
 //-----------built_in-----------------
 int	mini_pwd2(t_envnode *env_list);
+// int is_builtins(t_cmd   *cmd);
+int	ft_cd(t_cmd *cmd, t_envnode *env_list);
+
+
 // int	mini_pwd(void);
 
 

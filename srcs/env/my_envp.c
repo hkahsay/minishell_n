@@ -28,7 +28,7 @@ void free_myenvp(t_envnode *head)
 	}
 }
 
-t_envnode *create_my_envvar_node(char *key, char *value, int i)
+t_envnode *create_my_envvar_node(char *key, char *value)//, int i
 {
 	t_envnode *my_node = NULL;
 
@@ -50,7 +50,7 @@ t_envnode *create_my_envvar_node(char *key, char *value, int i)
 	}
 	my_node->prev = NULL;
 	my_node->next = NULL;
-	printf("nodes %d OK %s = %s\n", i, my_node->key, my_node->value);
+	printf("nodes %d OK %s = %s\n", my_node->key, my_node->value);
 	return (my_node);
 }
 
@@ -80,7 +80,7 @@ t_envnode *dublicate_env(char **envp) // fnct returns a starting address of the 
 		// key = ft_strdup(envp_var[0]);
 		// value = ft_strdup(envp_var[1]);
 		// printf("%d %s %s\n", (envp_lines + 1), key, value);
-		node = create_my_envvar_node(key, value, i);
+		node = create_my_envvar_node(key, value);
 		printf("Node %d OK\n", i);
 		// usleep(100000000);
 		if (!node)

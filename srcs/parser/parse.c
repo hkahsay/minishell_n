@@ -180,7 +180,7 @@ t_cmd	*parse(t_token *head)
 
 	if (head && (t_toktype)(head->id) != TOK_PIPE)
 		eval_token(head, &cmd);
-	execute(cmd);
+	// execute(cmd);
 	print_token(temp);
 	// if (!head)
 	// 	return (NULL);

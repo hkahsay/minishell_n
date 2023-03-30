@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hkahsay <hkahsay@student.42.fr>            +#+  +:+       +#+         #
+#    By: mac <mac@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/23 11:19:05 by vgejno            #+#    #+#              #
-#    Updated: 2023/03/28 17:19:25 by hkahsay          ###   ########.fr        #
+#    Updated: 2023/03/29 15:19:09 by mac              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ RM = rm -rf
 DIR_SRCS = ./srcs
 DIR_SRCS += ./srcs/lexer
 DIR_SRCS += ./srcs/parser
+DIR_SRCS += ./srcs/env
 DIR_SRCS += ./srcs/built_in
 
 SRCS = ${DIR_SRCS}/main.c
@@ -46,15 +47,19 @@ OBJS = ${addprefix ${DIR_OBJS}/, ${notdir ${SRCS:.c=.o}}}
 
 
 SRCS =	srcs/main.c \
-		srcs/lexer/my_envp.c \
+		srcs/env/my_envp.c \
+		srcs/env/env_util.c \
 		srcs/lexer/interpret.c \
 		srsc/lexer/interp_delim.c \
 		srcs/lexer/interp_quotes.c \
 		srcs/lexer/interp_word.c \
 		srcs/lexer/token.c \
-		srcs/parser/pt.c \
 		srcs/built_in/pwd.c \
-		# srcs/built_in/cd.c \
+		srcs/parser/parse.c \
+		srcs/built_in/cd.c \
+		# srcs/built_in/builtin.c \
+		# srcs/parser/pt.c \
+		
 		
 
 		

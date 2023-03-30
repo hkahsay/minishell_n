@@ -1,15 +1,13 @@
 #include "../headers/minishell.h"
 
-void	prompt(char	*line) //t_envnode *my_envp, 
+void	prompt(char	*line, t_envnode *my_envp) //t_envnode *my_envp, 
 {
 	int		fd;
 	t_token *head;
-	t_cmd	*cmd;
-
-
+	t_cmd	*cmd = NULL;
 
 	head = NULL;
-	cmd = NULL;
+	// cmd = NULL;
 	line = readline ("minishell_VH>> 😜 ");
 	// index = getpid();
 	if (!line)
@@ -21,13 +19,18 @@ void	prompt(char	*line) //t_envnode *my_envp,
 	{
 		printf("propmt line: %s\n", line);
 		head = interp(line);
-		// args = eval_token(head);
+		// is_builtins(cmd);
 		cmd = parse(head);
+		printf("value of cmd %s\n", cmd->cmd_args->args);
+		// cd(cmd);
+		// args = eval_token(head);
 		printf("OK head is back\n");
 		add_history(line);
 		fd = open("history.log", O_CREAT | O_WRONLY | O_APPEND, 0777);
 		ft_putstr_fd(line, fd);
 		ft_putstr_fd("\n", fd);
+		if (ft_strcmp(cmd->cmd_args->args[0], "cd") == 0)
+        	ft_cd(cmd->cmd_args->args, my_envp);
 		// cmd = parse(line, cmd);
 	}
 	else
@@ -58,8 +61,12 @@ int main(int argc, char **argv, char **envp)
 	print_my_envp(temp);
 	while (1)
 	{
-		prompt(line); //my_envp, 
-		mini_pwd2(my_envp);
+		prompt(line,temp); //my_envp, 
+		// mini_pwd2(my_envp);
+		// Call cd function
+    	
+		// cd(my_envp);
+
 
 	}
 	free_myenvp(my_envp);	
