@@ -6,7 +6,7 @@
 #    By: mac <mac@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/23 11:19:05 by vgejno            #+#    #+#              #
-#    Updated: 2023/03/29 15:19:09 by mac              ###   ########.fr        #
+#    Updated: 2023/03/31 19:39:45 by mac              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ FLAGS = -Wall -Werror -Wextra
 FLAGS += -g
 FLAGS += ${SANITIZE}
 
-RLIB = -L/Users/$(USER)/.brew/Cellar/readline/8.2.1/lib -lreadline
-RINC = -I.brew/Cellar/readline/8.2.1/include/readline
+RLIB = -L/usr/local/Cellar/readline/8.2.1/lib -lreadline
+RINC = -I/usr/local/Cellar/readline/8.2.1/include
 LIBFT = libft/libft.a
 
 # << HEADERS >> #
