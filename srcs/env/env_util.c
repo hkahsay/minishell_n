@@ -1,9 +1,9 @@
 #include"../../headers/minishell.h"
 
- ;  // current directory environment variable
+  // current directory environment variable
 
 /* Helper function to find an environment variable by key */
-t_envnode *find_env_var(char* key, t_envnode *current_dir)
+t_envnode *find_env_var(char *key, t_envnode *current_dir)
 {
     t_envnode *current;
 
@@ -25,6 +25,7 @@ void update_env_var(char* key, char* value)
     
     // if (!key || !value)
     //     return (NULL);
+    var = NULL;
     var = find_env_var(key, var);
     if (var != NULL)
     {
@@ -33,7 +34,7 @@ void update_env_var(char* key, char* value)
     }
 }
 
-int ft_setenv(const char *name, const char *value, t_envnode **env)
+int ft_setenv(char *name, char *value, t_envnode **env)
 {
     t_envnode *var = find_env_var(name, *env);
 

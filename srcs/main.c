@@ -29,8 +29,8 @@ void	prompt(char	*line, t_envnode *my_envp) //t_envnode *my_envp,
 		fd = open("history.log", O_CREAT | O_WRONLY | O_APPEND, 0777);
 		ft_putstr_fd(line, fd);
 		ft_putstr_fd("\n", fd);
-		if (ft_strcmp(cmd->cmd_args->args[0], "cd") == 0)
-        	ft_cd(cmd->cmd_args->args, my_envp);
+		if (strncmp(&cmd->cmd_args->args[0], "cd", 2) == 0)
+        	ft_cd(cmd, my_envp);
 		// cmd = parse(line, cmd);
 	}
 	else
@@ -61,7 +61,7 @@ int main(int argc, char **argv, char **envp)
 	print_my_envp(temp);
 	while (1)
 	{
-		prompt(line,temp); //my_envp, 
+		prompt(line, my_envp); //my_envp, 
 		// mini_pwd2(my_envp);
 		// Call cd function
     	

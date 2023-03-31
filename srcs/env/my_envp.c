@@ -50,7 +50,7 @@ t_envnode *create_my_envvar_node(char *key, char *value)//, int i
 	}
 	my_node->prev = NULL;
 	my_node->next = NULL;
-	printf("nodes %d OK %s = %s\n", my_node->key, my_node->value);
+	// printf("nodes %d OK %s = %s\n", my_node->key, my_node->value);
 	return (my_node);
 }
 

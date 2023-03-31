@@ -57,7 +57,7 @@ int	ft_pwd(void)
 // 		curr_var = curr_var->next;
 // 	}
 // 	return (0);
-}
+// }
 
 // int	mini_pwd2(t_envnode *env_list)
 // {

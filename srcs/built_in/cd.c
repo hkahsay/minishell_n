@@ -3,7 +3,7 @@
 int	ft_cd(t_cmd *cmd, t_envnode *env_list)
 {
 	char	*path;
-	t_envnode	*pwd;
+	// t_envnode	*pwd;
 	
 	if (cmd->cmd_args->args[1] == 0)
 	{
@@ -18,7 +18,7 @@ int	ft_cd(t_cmd *cmd, t_envnode *env_list)
 	}
 	else
 		path = &cmd->cmd_args->args[1];
-	// update_env_var("PWD", path);
+	ft_setenv("PWD", env_list->value,  &env_list);
 	// Change the current working directory and update PWD variable
 	if (chdir(path) == -1)
 	{
@@ -27,18 +27,18 @@ int	ft_cd(t_cmd *cmd, t_envnode *env_list)
 		else
 			printf("bash: cd: %s: Not a directory\n", path);
 	}
-	else
-	{
-		pwd = find_env_var("PWD", env_list);
-        if (pwd)
-		{
-            free(pwd->value);
-            pwd->value = getcwd(NULL, 0);
-        } 
-		else
-            ft_setenv("PWD", getcwd(NULL, 0), env_list);
-        return 0;
-	}
+	// else
+	// {
+	// 	pwd = find_env_var("PWD", env_list);
+    //     if (pwd)
+	// 	{
+    //         free(pwd->value);
+    //         pwd->value = getcwd(NULL, 0);
+    //     } 
+	// 	else
+    //         ft_setenv("PWD", getcwd(NULL, 0), env_list);
+    //     return 0;
+	// }
 	return (0);
 }
 

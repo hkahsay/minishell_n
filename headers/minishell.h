@@ -181,8 +181,10 @@ void		free_myenvp(t_envnode *head);
 t_envnode	*find_env_var(char *key, t_envnode *current_dir);
 void 		print_my_envp(t_envnode *temp);
 void 		update_env_var(char *key, char *value);
+void ft_add_envlist(t_envnode *new_node, t_envnode **env);
+int ft_setenv(char *name, char *value, t_envnode **env);
 /*PROMPT*/
-void	prompt(char	*line); 
+void	prompt(char	*line, t_envnode *my_envp); 
 /*LEXER*/
 t_token    *interp(char *input_str);
 char    *skip_spaces(char *str);
