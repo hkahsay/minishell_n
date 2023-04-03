@@ -38,14 +38,17 @@
 
 # define RS      "\033[0m"
 # define clear() printf("\033[H\033[J");
+
+#define MAXLINE 1024
+#define MAXARGS 100
 //---------------built-in----------------
-# define PWD 1
-# define CD 2
-# define CMD_ECHO 3
-# define UNSET 4
-# define EXPORT 5
-# define ENV 6
-# define EXIT 7
+// # define PWD 1
+// # define CD 2
+// # define CMD_ECHO 3
+// # define UNSET 4
+// # define EXPORT 5
+// # define ENV 6
+// # define EXIT 7
 
 //-------------------MY_ENV-----------------------
 
@@ -78,6 +81,7 @@ typedef struct s_node
 # define OPEN 1
 
 // //assigning integer value to tokens = enumeration
+
 typedef enum	e_toktype
 {
 	TOK_ERROR,
@@ -106,6 +110,7 @@ typedef	struct s_quote
 	int			quote_len;
 	t_toktype	quote_type;
 } t_quote;
+
 
 // //define the delimiters as an array of t_toktype values
 // t_delim delimiters[] = {
@@ -152,9 +157,27 @@ typedef struct s_cmd
 typedef struct	s_pipeline
 {
 	int			cmd_index;
+	char		**all_cmds;
 	t_cmd	*cmd_node;
 } t_pipeline;
 
+typedef enum e_builtin_type
+{
+	PWD,
+	CD,
+	CMD_ECHO,
+	UNSET,
+	EXPORT,
+	ENV,
+	EXIT
+} t_builtin_type;
+
+typedef	struct s_builtins
+{
+	char		*builtins_str;
+	int			builtins_len;
+	t_builtin_type	builtins_type;
+} t_builtins;
 typedef struct s_info
 {
 	// t_builtin_ptr	builtin[7];
@@ -181,10 +204,10 @@ void		free_myenvp(t_envnode *head);
 t_envnode	*find_env_var(char *key, t_envnode *current_dir);
 void 		print_my_envp(t_envnode *temp);
 void 		update_env_var(char *key, char *value);
-void ft_add_envlist(t_envnode *new_node, t_envnode **env);
-int ft_setenv(char *name, char *value, t_envnode **env);
+void 		ft_add_envlist(t_envnode *new_node, t_envnode **env);
+int 		ft_setenv(char *name, char *value, t_envnode **env);
 /*PROMPT*/
-void	prompt(char	*line, t_envnode *my_envp); 
+void	prompt(char	*line, t_envnode *my_envp); //, t_envnode *my_envp
 /*LEXER*/
 t_token    *interp(char *input_str);
 char    *skip_spaces(char *str);
@@ -207,14 +230,23 @@ char	*get_next_token(t_token *token, char *temp);
 // void	print_tokens(t_token *token_list);
 
 /*PARSER*/
-t_cmd	*parse(t_token *head);
+t_cmd	*parse(t_token *head, t_cmd *cmd);
 // t_cmd_node	*parse(char *line, t_cmd_node *first_cmd);
 int	empty_str(char *str);
 // t_redir_args	*eval_token(t_token *head);
 //-----------built_in-----------------
 int	mini_pwd2(t_envnode *env_list);
 // int is_builtins(t_cmd   *cmd);
-int	ft_cd(t_cmd *cmd, t_envnode *env_list);
+int	ft_cd(char *args, t_envnode *env_list);
+int ft_echo(t_cmd *cmds);//, t_envnode *env
+int count_char(char *str, char c);
+int	export(t_cmd *cmd, t_envnode *env_var);
+int	ft_unset(t_cmd *cmd, t_envnode *env_var);
+
+
+// int	b_cd(t_envnode *list, char *input)
+
+int ft_strcmp(const char *s1, const char *s2);
 
 
 // int	mini_pwd(void);

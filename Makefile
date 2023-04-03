@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mac <mac@student.42.fr>                    +#+  +:+       +#+         #
+#    By: hkahsay <hkahsay@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/23 11:19:05 by vgejno            #+#    #+#              #
-#    Updated: 2023/03/29 15:19:09 by mac              ###   ########.fr        #
+#    Updated: 2023/04/03 16:13:15 by hkahsay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,16 @@ FLAGS = -Wall -Werror -Wextra
 FLAGS += -g
 FLAGS += ${SANITIZE}
 
-RLIB = -L/Users/$(USER)/.brew/Cellar/readline/8.2.1/lib -lreadline
-RINC = -I.brew/Cellar/readline/8.2.1/include/readline
+#RLIB = -L/Users/$(USER)/.brew/Cellar/readline/8.2.1/lib -lreadline
+#RINC = -I.brew/Cellar/readline/8.2.1/include/readline
+
+RLIB = -L$(HOME)/.brew/opt/readline/lib -lreadline
+RINC = -I$(HOME)/.brew/opt/readline/include
+
+ifeq ($(shell echo $(USER)), mac)
+	RLIB = -L/usr/local/Cellar/readline/8.2.1/lib -lreadline
+	RINC = -I/usr/local/Cellar/readline/8.2.1/include
+endif
 LIBFT = libft/libft.a
 
 # << HEADERS >> #
@@ -57,8 +65,11 @@ SRCS =	srcs/main.c \
 		srcs/built_in/pwd.c \
 		srcs/parser/parse.c \
 		srcs/built_in/cd.c \
+		srcs/built_in/utils.c \
+		srcs/built_in/echo.c \
+		srcs/built_in/export.c \
+		# srcs/built_in/unset.c \
 		# srcs/built_in/builtin.c \
-		# srcs/parser/pt.c \
 		
 		
 

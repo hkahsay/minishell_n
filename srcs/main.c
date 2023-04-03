@@ -5,9 +5,12 @@ void	prompt(char	*line, t_envnode *my_envp) //t_envnode *my_envp,
 	int		fd;
 	t_token *head;
 	t_cmd	*cmd = NULL;
+	char	*built;
 
 	head = NULL;
 	// cmd = NULL;
+	//       0123
+	built = "srcs/built_in";// is_builtin_type(built); //
 	line = readline ("minishell_VH>> 😜 ");
 	// index = getpid();
 	if (!line)
@@ -20,8 +23,18 @@ void	prompt(char	*line, t_envnode *my_envp) //t_envnode *my_envp,
 		printf("propmt line: %s\n", line);
 		head = interp(line);
 		// is_builtins(cmd);
-		cmd = parse(head);
-		printf("value of cmd %s\n", cmd->cmd_args->args);
+		cmd = parse(head, cmd);
+		char buff[1024];
+		printf("PWD current directory befor cd: %s\n", getcwd(buff, 1024));
+		ft_cd(built, my_envp);
+		printf("from cd: %s\n", getcwd(buff, 1024));
+		mini_pwd2(my_envp);
+		// if (strcmp(cmd->cmd_args->args[0], "echo") == 0)
+		// {
+		printf("ARGUMENT IN MAIN: %p\n", cmd->cmd_args);
+		ft_echo(cmd);
+    	// }
+		// ft_echo();
 		// cd(cmd);
 		// args = eval_token(head);
 		printf("OK head is back\n");
@@ -29,8 +42,8 @@ void	prompt(char	*line, t_envnode *my_envp) //t_envnode *my_envp,
 		fd = open("history.log", O_CREAT | O_WRONLY | O_APPEND, 0777);
 		ft_putstr_fd(line, fd);
 		ft_putstr_fd("\n", fd);
-		if (strncmp(&cmd->cmd_args->args[0], "cd", 2) == 0)
-        	ft_cd(cmd, my_envp);
+		close(fd);
+		// ft_cd(built, my_envp);
 		// cmd = parse(line, cmd);
 	}
 	else
@@ -62,9 +75,8 @@ int main(int argc, char **argv, char **envp)
 	while (1)
 	{
 		prompt(line, my_envp); //my_envp, 
-		// mini_pwd2(my_envp);
 		// Call cd function
-    	
+    	// echo(line, my_envp);
 		// cd(my_envp);
 
 

@@ -1,57 +1,64 @@
 #include"../../headers/minishell.h"
 
-// int is_builtins(t_cmd   *cmd)
-// {
-//     t_envnode   *env = NULL;
-//     int builtin;
-//     while (cmd)
-//     {
-//         ft_tolower_str(cmd);
-//         builtin = check_builtin_type(cmd, "pwd", PWD);
-//             if (builtin)
-//                 return (builtin);
-//             printf("pwd");
-//         builtin = check_builtin_type(cmd, "cd", CD);
-//             if (builtin)
-//                 return (builtin);
-//         builtin = check_builtin_type(cmd, "echo", CMD_ECHO);
-//             // exc_echo(env, cmd);
-//             if (builtin)
-//                 return (builtin);
-//         builtin = check_builtin_type(cmd, "unset", UNSET);
-//             // exc_unset(env, cmd);
-//             if (builtin)
-//                 return (builtin);
-//         builtin = check_builtin_type(cmd, "export", EXPORT);
-//             // exc_export(env, cmd);
-//             if (builtin)
-//                 return (builtin);
-//         builtin = check_builtin_type(cmd, "env", ENV);
-//             // exc_env(env,cmd);
-//             if (builtin)
-//                 return (builtin);
-//         builtin = check_builtin_type(cmd, "exit", EXIT);
-//             // exc_exit(env, cmd);
-//             if (builtin)
-//                 return (builtin);
-//         else
-//         {
-//             perror("command not found");
-//             // or check 
-//             return (1);
-//         }
-//     }
-//     return (0);
-// }
+char *builtins(char *cmd)
+{
+	char *commands = cmd;
+    int builtin;
 
-//  static int    check_builtin_type(t_redir_args *args, char *str, int type)
-//  {
-//     t_redir_args    *string = new_redir_args(str, type);
-//     if (!str)
-//         return (-1);
-//     if(!args || !string)
-//         return (0);
-//     if(ft_strncm(args->args, string->args, ))
-//  }
+	t_pipeline builtins[] = {
+    {"pwd", 3, PWD},
+    {"cd", 2, CD},
+	{"echo", 4, CMD_ECHO},
+    {"unset", 5, UNSET},
+    {"export", 6, EXPORT},
+	{"env", 3, ENV},
+	{"exit", 4, EXIT}
+	};
+	
+	// commands = builtins;
+    // t_envnode   *env = NULL;
 
+}
+
+ static int    is_builtin_type(char *content)
+ {
+	if (ft_strncmp(content, "echo", ft_strlen(content)))
+		return (1);
+	if (ft_strncmp(content, "cd", ft_strlen(content)))
+		return (1);
+	if (ft_strncmp(content, "pwd", ft_strlen(content)))
+		return (1);
+	if (ft_strncmp(content, "env", ft_strlen(content)))
+		return (1);
+	if (ft_strncmp(content, "export", ft_strlen(content)))
+		return (1);
+	if (ft_strncmp(content, "unset", ft_strlen(content)))
+		return (1);
+	if (ft_strncmp(content, "exit", ft_strlen(content)))
+		return (1);
+	return (0);
+ }
+
+char	ft_cmp(char *commands, char *arg)
+{
+	t_envnode	*env_list;
+	t_token		*head;
+	// t_cmd	num_args;
+
+	head = NULL;
+	env_list = NULL;
+	// parse(head);
+
+	while (head)
+	{
+		if (ft_strcmp(arg[0], is_builtin_type(commands)) == 0)
+		{
+			
+			
+		}
+	}
+	
+
+
+}
  

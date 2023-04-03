@@ -102,14 +102,16 @@ static void	eval_token(t_token *head, t_cmd **cmd)
 {
 	// int		i;
 	// int	counter;
-	t_redir_args *args = NULL;
+	t_redir_args *new_args = NULL;
 	//t_redir_args *redir = NULL;
 	t_token *head_ptr = NULL;
 	// t_token *temp = NULL;
 	*cmd = init_cmd();
 	int i = 2;
 	
-	// args = init_args(args);
+	new_args = init_args(new_args);
+	new_args->args = strdup("echo");
+	new_args->args = strdup("hello");
 	head_ptr = head;
 	printf("1\n");
 	while (head_ptr && (t_toktype)(head->id) != TOK_PIPE)
@@ -123,7 +125,7 @@ static void	eval_token(t_token *head, t_cmd **cmd)
 				printf("4\n");
 				// if tok dollar
 				// convertir 
-				(*cmd)->cmd_args = add_args_to_list(&args, head_ptr->id, head_ptr->content);
+				(*cmd)->cmd_args = add_args_to_list(&new_args, head_ptr->id, head_ptr->content);
 				while((*cmd)->cmd_args)
 				{
 					printf(OR "WORD list: %d %s, ", (*cmd)->cmd_args->type, (*cmd)->cmd_args->args);
@@ -143,7 +145,7 @@ static void	eval_token(t_token *head, t_cmd **cmd)
 					printf("7\n");
 					while (i > 0)
 					{
-						(*cmd)->cmd_redir = add_args_to_list(&args, head_ptr->id, head_ptr->content);
+						(*cmd)->cmd_redir = add_args_to_list(&new_args, head_ptr->id, head_ptr->content);
 						i--;
 					}
 					printf("8\n");
@@ -172,18 +174,21 @@ static void	eval_token(t_token *head, t_cmd **cmd)
 	// return (cmd);
 }
 
-t_cmd	*parse(t_token *head)
+t_cmd	*parse(t_token *head, t_cmd *cmd)
 {
-	t_cmd	*cmd = NULL;
+	// t_cmd	*cmd = NULL;
 	t_token *temp = head;
 	// t_cmd_node	*single_cmd;
 
 	if (head && (t_toktype)(head->id) != TOK_PIPE)
 		eval_token(head, &cmd);
+	// printf(OR "WORD list: %d %s, ", cmd->cmd_args->type, cmd->cmd_args->args);
 	// execute(cmd);
 	print_token(temp);
 	// if (!head)
 	// 	return (NULL);
 	// token_analysis(head, eval_token);
+	printf("parse ok \n");
+	// printf("cmd->cmd_args %s", cmd->cmd_args->args);
 	return (cmd);
 }
