@@ -71,7 +71,7 @@ int main(int argc, char **argv, char **envp)
 		return (1);
 	}
 	temp = my_envp;
-	print_my_envp(temp);
+	print_mini_envp(temp);
 	while (1)
 	{
 		prompt(line, my_envp); //my_envp, 
@@ -81,6 +81,6 @@ int main(int argc, char **argv, char **envp)
 
 
 	}
-	free_myenvp(my_envp);	
+	free_mini_envp(my_envp);	
 	return (0);
 }

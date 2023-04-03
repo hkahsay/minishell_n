@@ -47,7 +47,7 @@ int ft_setenv(char *name, char *value, t_envnode **env)
     else 
     {
         // Variable does not exist, add it to the list
-        t_envnode *new_var = create_my_envvar_node(ft_strdup(name), ft_strdup(value));
+        t_envnode *new_var = create_mini_envvar_node(ft_strdup(name), ft_strdup(value));
         ft_add_envlist(new_var, env);
     }
     return 0;  // Success
