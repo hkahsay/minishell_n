@@ -1,68 +1,77 @@
 #include"../../headers/minishell.h"
 
-static void ft_putchar(char c)
+int ft_echo(char **args, t_envnode **env_var)
 {
-    write(1, &c, 1);
+    (void)args;
+    (void)env_var;
+    printf("ft_echo\n");
+    return 0;
 }
 
-static int    ft_putstr(char *str)
-{
-    int i;
 
-    i = 0;
-    while (str[i])
-    {
-        ft_putchar(*str);
-        i++;
-    }
-    return(i);
-}
 
-int ft_echo(t_cmd *cmds)//, t_envnode *env
-{
-    int i = 1;  // Start with the first argument (skip "echo")
-    char    **argv; //= {" echo", "hello"};
-    t_redir_args *node;
-    // init_args
-    // printf("Cmd->cmd_args: %p\n", cmds->cmd_args);
-    node = (t_redir_args *)cmds->cmd_args;
-    // node = strdup()
-    if (!node)
-        return (0);
-    argv = &node->args;
-    // while (node)
-    // {
-    //     ft_putstr(node->args);
-    //     if (node->next)
-    //         node = node->next;
-    //     else
-    //         break ;
-    // }
-    // ft_putstr("\n");
+// static void ft_putchar(char c)
+// {
+//     write(1, &c, 1);
+// }
+
+// static int    ft_putstr(char *str)
+// {
+//     int i;
+
+//     i = 0;
+//     while (str[i])
+//     {
+//         ft_putchar(*str);
+//         i++;
+//     }
+//     return(i);
+// }
+
+// int ft_echo(t_cmd *cmds)//, t_envnode *env
+// {
+//     int i = 1;  // Start with the first argument (skip "echo")
+//     char    **arg; //= {" echo", "hello"};
+   
+//     arg = create_array(cmds);
+//     // init_args
+//     // printf("Cmd->cmd_args: %p\n", cmds->cmd_args);
+//     // node = (t_redir_args *)cmds->cmd_args;
+//     // node = strdup()
+//     // if (!node)
+//     //     return (0);
+//     // arg = &node->args;
+//     // while (node)
+//     // {
+//     //     ft_putstr(node->args);
+//     //     if (node->next)
+//     //         node = node->next;
+//     //     else
+//     //         break ;
+//     // }
+//     // ft_putstr("\n");
     
-    // argv = node->args;
+//     // argv = node->args;
 
-    // Check for the "-n" flag
-    if (argv[i] && strcmp(argv[i], "-n") == 0) {
-        i++;  // Skip the flag
-    }
+//     // Check for the "-n" flag
+//     if (arg[i] && strcmp(arg[i], "-n") == 0) {
+//         i++;  // Skip the flag
+//     }
 
-    // Print each argument followed by a space, except the last one
-    while (argv[i]) {
-        ft_putstr(argv[i]);
-        if (argv[i + 1]) {
-            ft_putchar(' ');
-        }
-        i++;
-    }
-
-    // Print a newline character unless the "-n" flag was used
-    if (argv[1] && ft_strcmp(argv[1], "-n") != 0) {
-        ft_putchar('\n');
-    }
-
-    return 0;  // Return success
-}
+//     // Print each argument followed by a space, except the last one
+//     while (arg[i])
+//     {
+//         ft_putstr(arg[i]);
+//         if (arg[i + 1])
+//             ft_putchar(' ');
+//         i++;
+//     }
+//     // Print a newline character unless the "-n" flag was used
+//     if (arg[1] && ft_strcmp(arg[1], "-n") != 0) {
+//         ft_putchar('\n');
+//     }
+//     return 0;  // Return success
+// }
 
 //   flag_n = 1; option -n is exists
 //     counter[0] = 0;  loop counter

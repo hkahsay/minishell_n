@@ -1,16 +1,15 @@
 #include "../headers/minishell.h"
 
-void	prompt(char	*line, t_envnode *my_envp) //t_envnode *my_envp, 
+void	prompt(char	*line, t_envnode *mini_env) //t_envnode *mini_env, 
 {
 	int		fd;
-	t_token *head;
+	// t_token *token_head;
 	t_cmd	*cmd = NULL;
-	char	*built;
+	// char	**arg_cmds;
 
-	head = NULL;
-	// cmd = NULL;
+	// head = NULL;
+	cmd = NULL;
 	//       0123
-	built = "srcs/built_in";// is_builtin_type(built); //
 	line = readline ("minishell_VH>> 😜 ");
 	// index = getpid();
 	if (!line)
@@ -21,18 +20,19 @@ void	prompt(char	*line, t_envnode *my_envp) //t_envnode *my_envp,
 	if (ft_strlen(line) > 0)
 	{
 		printf("propmt line: %s\n", line);
-		head = interp(line);
+		interp(line, mini_env);
+		
 		// is_builtins(cmd);
-		cmd = parse(head, cmd);
-		char buff[1024];
-		printf("PWD current directory befor cd: %s\n", getcwd(buff, 1024));
-		ft_cd(built, my_envp);
-		printf("from cd: %s\n", getcwd(buff, 1024));
-		mini_pwd2(my_envp);
-		// if (strcmp(cmd->cmd_args->args[0], "echo") == 0)
-		// {
-		printf("ARGUMENT IN MAIN: %p\n", cmd->cmd_args);
-		ft_echo(cmd);
+		// cmd = parse(head, cmd);
+		// char buff[1024];
+		// printf("PWD current directory befor cd: %s\n", getcwd(buff, 1024));
+		// ft_cd(arg_cmds, mini_env);
+		// printf("from cd: %s\n", getcwd(buff, 1024));
+		// // mini_pwd2(mini_env);
+		// // if (strcmp(cmd->cmd_args->args[0], "echo") == 0)
+		// // {
+		// printf("ARGUMENT IN MAIN: %p\n", cmd->cmd_wnode);
+		// ft_echo(cmd);
     	// }
 		// ft_echo();
 		// cd(cmd);
@@ -43,7 +43,7 @@ void	prompt(char	*line, t_envnode *my_envp) //t_envnode *my_envp,
 		ft_putstr_fd(line, fd);
 		ft_putstr_fd("\n", fd);
 		close(fd);
-		// ft_cd(built, my_envp);
+		// ft_cd(built, mini_env);
 		// cmd = parse(line, cmd);
 	}
 	else
@@ -54,9 +54,9 @@ int main(int argc, char **argv, char **envp)
 {
 	(void)argv;
 	char	*line;
-	t_envnode *my_envp;
+	t_envnode *mini_env;
 	line = NULL;
-	my_envp = NULL;
+	mini_env = NULL;
 	t_envnode *temp = NULL;
 
 	if (argc != 1 || !argv || !envp)
@@ -64,23 +64,23 @@ int main(int argc, char **argv, char **envp)
 		printf("Error arguments\n");
 		return (-1);
 	}
-	my_envp = dublicate_env(envp);
-	if (!my_envp)
+	mini_env = dublicate_env(envp);
+	if (!mini_env)
 	{
 		printf("Failed to create my_environment list\n");
 		return (1);
 	}
-	temp = my_envp;
+	temp = mini_env;
 	print_mini_envp(temp);
 	while (1)
 	{
-		prompt(line, my_envp); //my_envp, 
+		prompt(line, mini_env); //mini_env, 
 		// Call cd function
-    	// echo(line, my_envp);
-		// cd(my_envp);
+    	// echo(line, mini_env);
+		// cd(mini_env);
 
 
 	}
-	free_mini_envp(my_envp);	
+	free_mini_envp(mini_env);	
 	return (0);
 }

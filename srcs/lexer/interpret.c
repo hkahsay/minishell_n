@@ -1,17 +1,21 @@
 #include "../../headers/minishell.h"
 
-t_token    *interp(char *input_str)
+t_token    *lexer(char *input_str)
 {
     char *p;
     t_token *token;
     t_token *head;
+	char	*space; //*space?
 
     token = NULL;
     head = NULL;
     p = input_str;
+	space = " ";
     init_token(token);
     while (p && *p)
     {
+		if (ft_isspace(*p))
+			add_token(&head, space, TOK_SPACE);	
 		p = skip_spaces(p);
 		if (!*p)
 			break;
@@ -21,10 +25,7 @@ t_token    *interp(char *input_str)
 		{
 			check_quotes(&p, &head);
 			if (*p == '\0')
-			{
-				print_token(head);
 			 	return (head);
-			}
 		}
 		else
 		{
@@ -36,9 +37,36 @@ t_token    *interp(char *input_str)
 			}
 		}
     }
-	print_token(head);
-	// eval_token(head);
+	// print_token(head);
+	// parse(head);
     return(head);
+}
+
+void interp(char *line, t_envnode *mini_env)
+{
+	t_token	*token_head;
+	// t_token	*token_exp_head;
+
+	token_head = lexer(line);
+	if (!token_head)
+		return ;
+	print_token(token_head);	
+	// token_exp_head = expand_token_list(token_head, mini_env);
+	// if (!token_exp_head)
+		// return ;
+	print_token(token_head);		
+	// free_token_list(token_head);
+	if (token_head)
+	{
+		parse(&token_head, mini_env);
+		free_token_list(token_head);
+	}
+	// if (token_exp_head)
+	// {
+	// 	parse(&token_exp_head);
+	// 	free_token_list(token_exp_head);
+	// }
+	// return (0);
 }
 
 

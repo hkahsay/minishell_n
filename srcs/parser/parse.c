@@ -1,194 +1,210 @@
 #include "../../headers/minishell.h"
 
-static t_redir_args	*init_args(t_redir_args *new_redir_args)
+t_wr_node	*fill_wr_node(t_wr_node **wr_node, int id, char *word)
 {
-	new_redir_args = malloc(sizeof(t_redir_args) * 1);
-	if (!new_redir_args)
-		return (NULL);
-	new_redir_args->type = 0;
-	new_redir_args->args = NULL;
-	return (new_redir_args);
+	(*wr_node)->type = id;
+	(*wr_node)->file = word;
+	(*wr_node)->close_fd = 0;
+	(*wr_node)->next = NULL;
+	printf(GREEN "init: new_wr_node content %p %s %d\n" RS, (*wr_node)->file, (*wr_node)->file, (*wr_node)->type);
+	return (*wr_node);
 }
 
-static t_cmd	*init_cmd(void)
-{
-	t_cmd	*new_cmd;
-	
-	new_cmd = malloc(sizeof(t_cmd) * 1);
-	if (!new_cmd)
-		return (NULL);
-	new_cmd->cmd_args = NULL;
-	new_cmd->cmd_redir = NULL;
-	return (new_cmd);
-}
-
-// // static t_redir_args *new_cmd(char *content, t_toktype type)
-// // {
-// //     // t_cmd_node *new_cmds = NULL;
-// // 	new_cmds = init_cmds(new_cmds);
-
-// //     // new_cmds = malloc(sizeof(t_cmd));
-// //     // if (!new_cmds)
-// //     //     return (NULL);
-// //     new_cmds->cmd_args = ft_strdup(content);
-// //     new_cmds->cmd_redir = type;
-// //     return (new_cmds);
-// // }
-
-static t_redir_args *new_redir_args(char *content, t_toktype type)
-{
-    t_redir_args *new_args = NULL;
-	new_args = init_args(new_args);
-
-    // new_args = malloc(sizeof(t_redir_args));
-    // if (!new_args)
-    //     return (NULL);
-    new_args->args = ft_strdup(content);
-    new_args->type = type;
-    new_args->next = NULL;
-    return (new_args);
-}
-
-// t_token *new_token(char *content, t_toktype type)
+// static int	get_q_wordlen(char *p)
 // {
-//     t_token *new_token;
-
-//     new_token = malloc(sizeof(t_token));
-//     if (!new_token)
-//         return (NULL);
-//     new_token->content = ft_strdup(content);
-//     new_token->id = type;
-//     new_token->next = NULL;
-//     return (new_token);
+// 	int	len;
+	
+// 	len = 0;
+// 	while (p && *p) //important order
+// 	{
+// 		if (ft_isspace(*p))
+// 			return (len);
+// 		len++;
+// 		p++;
+// 	}
+// 	// printf("len: %d\n", len);
+// 	return (len);
 // }
 
-void print_t_redir_args(t_redir_args *temp)
-{
-	int i = 0;
 
-	while (temp)
-	{
-		temp = temp->next;
-		i++;
-	}
-}
+// static void	*interpret_dollar(t_token **head, char **clean_word)
+// {
+// 	t_token	*token = NULL;
+// 	char	*p;
 
-static t_redir_args *add_args_to_list(t_redir_args **head_args, int type, char *content) //t_redir_args *args, 
-{
-	t_redir_args *temp = NULL;
+// 	while (*clean_word && **clean_word)
+// 	{
+// 		p = *clean_word;
+// 		printf("*clean_word: %s\n", *clean_word);
+// 		if (p && *p && *p != '$')
+// 		{
+// 			p = *clean_word;
+// 			while (p && *p && *p != '$')
+// 			{
+// 				printf("*p: %c\n", *p);
+// 				p++;
+// 			}
+// 			token = init_token(token);
+// 			printf("*p: %c\n", *p);
+// 			int len = p - *clean_word;
+// 			printf("len: %d\n", len);
+// 			add_token(head, ft_substr(p, 0, len), TOK_WORD);
+// 			print_token(token);
+// 			sleep(100000);
+// 		}	
+// 			if (*p == '$')
+// 			{
+// 				p = *clean_word;
+// 				if (*p == '\0' || *p ==  ' ' || **clean_word == '\t' || *p == '\n')
+// 				{
+// 					add_token(head, ft_substr(p, 0, get_q_wordlen(p)), TOK_WORD);
+// 					printf("token added\n");
+// 					p = p + get_wordlen(p);
+// 				}
+// 				p++;
+// 			}
+			
+// 	}
+// 	return (0);
+// }
 
-   
-    t_redir_args *args = new_redir_args(content, type);
+// static t_token	*expand_d_quote(t_token **head, char *word) // t_cmd **cmd, t_wr_node **head_wnode, int id, 
+// {
+// 	// print_wr_node(*cmd); 
+// 	// print_cmd(*cmd);
+// 	// print_token(*head);
+// 	// printf(OR "expand_add_w_to_cmd_wnode received: %s %d\n" RS, word, id);
 
-    if (*head_args == NULL)
-    {
-        *head_args = args;
-    }
-    else
-    {
-        t_redir_args *current = *head_args;
-        while (current->next != NULL)
-        {
-            current = current->next;
-        }
-        current->next = args;
-    }
-	temp = *head_args;
-	print_t_redir_args(temp);
-	return (*head_args);
-}
-
-static void	eval_token(t_token *head, t_cmd **cmd)
-{
-	// int		i;
-	// int	counter;
-	t_redir_args *new_args = NULL;
-	//t_redir_args *redir = NULL;
-	t_token *head_ptr = NULL;
-	// t_token *temp = NULL;
-	*cmd = init_cmd();
-	int i = 2;
+// 	// t_wr_node	*new_wnode = NULL;
+// 	// t_wr_node	*temp = NULL;
+// 	char		*s_quote = "\"";
+// 	char 		*clean_word;
 	
-	new_args = init_args(new_args);
-	new_args->args = strdup("echo");
-	new_args->args = strdup("hello");
-	head_ptr = head;
-	printf("1\n");
-	while (head_ptr && (t_toktype)(head->id) != TOK_PIPE)
-	{
-		printf("2\n");
-		// if (head_ptr->id != TOK_PIPE)
-		// {
-			printf("3\n");
-			while (head_ptr && head_ptr->next && (head_ptr->id == TOK_WORD || head_ptr->id == TOK_D_QUOTE || head_ptr->id == TOK_S_QUOTE)) // || head_ptr->id == TOK_DOLLAR
-			{
-				printf("4\n");
-				// if tok dollar
-				// convertir 
-				(*cmd)->cmd_args = add_args_to_list(&new_args, head_ptr->id, head_ptr->content);
-				while((*cmd)->cmd_args)
-				{
-					printf(OR "WORD list: %d %s, ", (*cmd)->cmd_args->type, (*cmd)->cmd_args->args);
-					(*cmd)->cmd_args = (*cmd)->cmd_args->next;
-				}
-				printf("\n"RS);
-				head_ptr = head_ptr->next;
-				printf("5\n");
-			}
-			if ((head_ptr->id == TOK_REDIR_IN || head_ptr->id == TOK_REDIR_OUT || head_ptr->id == TOK_REDIR_OUT_APPEND ||
-				head_ptr->id == TOK_HEREDOC)) // && (head_ptr->next && head_ptr->next->id == TOK_WORD)
-			{
-				printf("6\n");
+// 	clean_word = ft_strtrim(word, s_quote);
+// 	printf("clean_word: %s\n", clean_word);
+// 	// sleep(100000);
+// 	interpret_dollar(head, &clean_word);
+// 	return (*head);
+// 	new_wnode = init_wr_node(new_wnode);
+// 	if (id == TOK_D_QUOTE)
+	
+// 	dollar_split(clean_word);
 
-				if (head_ptr->next && head_ptr->next->id == TOK_WORD)
-				{
-					printf("7\n");
-					while (i > 0)
-					{
-						(*cmd)->cmd_redir = add_args_to_list(&new_args, head_ptr->id, head_ptr->content);
-						i--;
-					}
-					printf("8\n");
-				}
-				// else
-				// {
-				// 	printf("9\n");
-				// }
-				printf("10\n");
-			}
-			else if (head_ptr->id == TOK_ERRQUOTE)
+// 	new_wnode = fill_wr_node(&new_wnode, id, ft_strtrim(word, s_quote));
+	
+// 	if (!new_wnode)
+// 		return (NULL);
+// 	if (*head_wnode == NULL)
+// 		*head_wnode = new_wnode;
+// 	else
+// 	{
+// 		temp = *head_wnode;
+// 		while (temp->next)
+// 			temp = temp->next;	
+// 		temp->next = new_wnode;
+// 	}
+// 	return (*head_wnode);
+// }
+
+static void	eval_token(t_token **tok_head, t_cmd **cmd, t_cmd **cmd_pline_tail, t_envnode *mini_env)
+{
+	printf("1\n");
+	printf("TOK_WORD %p %s %d\n", (*tok_head)->content, (*tok_head)->content, (*tok_head)->id);
+	print_cmd(*cmd);
+	print_cmd(*cmd_pline_tail);
+	print_mini_envp(mini_env);
+
+	t_wr_node	*wr_node = NULL;
+	// t_token		*ptr_tok_head = NULL;
+
+	wr_node = init_wr_node(wr_node);
+	// tok_head = tok_head;
+	while ((*tok_head) && (t_toktype)((*tok_head)->id) != TOK_PIPE)
+	{
+		if ((*tok_head)->id == TOK_WORD || (*tok_head)->id == TOK_S_QUOTE || (*tok_head)->id == TOK_D_QUOTE)
+		{
+			while ((*tok_head) && ((*tok_head)->id == TOK_WORD || (*tok_head)->id == TOK_D_QUOTE || (*tok_head)->id == TOK_S_QUOTE || (*tok_head)->id == TOK_SPACE))
 			{
-				printf("11\n");
-				exit (0);
+				if ((*tok_head)->id == TOK_WORD || (*tok_head)->id == TOK_D_QUOTE)
+				{
+					printf("4a\n");
+					(*cmd)->cmd_wnode = check_$_add_w_to_cmd_wnode(&(*tok_head), cmd, &(*cmd)->cmd_wnode, (*tok_head)->id, (*tok_head)->content);
+					// tok_head = tok_head->next;
+					// *tok_head = (*tok_head)->next;
+					printf(BLUE "rentree, new_token head:\n");
+					print_token(*tok_head);
+					print_cmd(*cmd);
+					printf(RS);
+				}
+				else if ((*tok_head)->id == TOK_S_QUOTE)
+				{
+					printf("4b\n");
+					(*cmd)->cmd_wnode = add_w_to_cmd_wnode(&(*tok_head), cmd, &(*cmd)->cmd_wnode, (*tok_head)->id, (*tok_head)->content);
+				}
+				// else if ((*tok_head)->id == TOK_D_QUOTE)
+				// {
+				// 	printf("4c\n");
+				// 	*tok_head = expand_d_quote((tok_head), (*tok_head)->content); //cmd, &(*cmd)->cmd_wnode, (*tok_head)->id, 
+				// 	(*cmd)->cmd_wnode = add_w_to_cmd_wnode(&(*tok_head), cmd, &(*cmd)->cmd_wnode, (*tok_head)->id, (*tok_head)->content);
+				// 	// (*cmd)->cmd_wnode = expand_d_quote_add(&(*cmd)->cmd_wnode, tok_head->id, tok_head->content);
+				// }
+				else if (tok_head && ((*tok_head)->id == TOK_REDIR_IN || (*tok_head)->id == TOK_REDIR_OUT || (*tok_head)->id == TOK_REDIR_OUT_APPEND ||
+					(*tok_head)->id == TOK_HEREDOC))
+				{
+					printf("4d\n");
+					// (*cmd)->cmd_rnode = add_r_to_cmd_rnode(&(*cmd)->cmd_wnode, tok_head->id, tok_head->content);
+				}
+				printf("4e\n");
+				*tok_head = (*tok_head)->next;
 			}
-			printf("12\n");
-		// }
-		// else
-		printf("13\n");
-		printf("Head content: %s\n", head_ptr->content);
-		head_ptr = head_ptr->next;
-		printf("Next: %p\n", head_ptr);
-		printf("14\n");
+		}
+		else if (tok_head && ((*tok_head)->id == TOK_REDIR_IN || (*tok_head)->id == TOK_REDIR_OUT || (*tok_head)->id == TOK_REDIR_OUT_APPEND ||
+					(*tok_head)->id == TOK_HEREDOC))
+		{
+			printf("5\n");
+			// (*cmd)->cmd_rnode = add_r_to_cmd_rnode(&(*cmd)->cmd_wnode, tok_head->id, tok_head->content);
+		}
+		else if (tok_head && (*tok_head)->id == TOK_PIPE)
+		{
+			printf("6\n");
+			*cmd_pline_tail = (*cmd)->next;
+		}
 	}
-	printf("15\n");
-	// return (cmd);
 }
 
-t_cmd	*parse(t_token *head, t_cmd *cmd)
+void	*parse(t_token **tok_head, t_envnode *mini_env)
 {
-	// t_cmd	*cmd = NULL;
-	t_token *temp = head;
-	// t_cmd_node	*single_cmd;
+	t_cmd	*cmd;
+	t_token *tok_temp;
+	t_cmd	**cmd_pline_tail;
 
-	if (head && (t_toktype)(head->id) != TOK_PIPE)
-		eval_token(head, &cmd);
-	// printf(OR "WORD list: %d %s, ", cmd->cmd_args->type, cmd->cmd_args->args);
-	// execute(cmd);
-	print_token(temp);
-	// if (!head)
-	// 	return (NULL);
-	// token_analysis(head, eval_token);
-	printf("parse ok \n");
-	// printf("cmd->cmd_args %s", cmd->cmd_args->args);
-	return (cmd);
+	// cmd = init_cmd();
+	tok_temp = NULL;
+	// cmd_pline_tail = NULL;
+	tok_temp = *tok_head; //preserve the head of token list to be able to free tok_list
+	
+	cmd_pline_tail = &cmd;
+	printf("init cmd_pline_tail OK\n");
+	while (tok_temp)
+	{
+		cmd = init_cmd();
+		cmd_pline_tail = &cmd;
+		if (tok_temp->id != TOK_PIPE)
+		{
+			
+			eval_token(&tok_temp, &cmd, cmd_pline_tail, mini_env);
+			printf(R "ok\n" RS);
+			// tok_temp = tok_temp->next;
+		}
+		else
+		{
+			tok_temp = tok_temp->next;
+			
+			cmd_pline_tail = &(*cmd_pline_tail)->next;
+			printf(GREEN "ok\n" RS);
+		}
+		// execute(cmd);
+	}
+	execute(cmd, mini_env);
+	return (0);
 }

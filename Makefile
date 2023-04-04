@@ -6,7 +6,7 @@
 #    By: hkahsay <hkahsay@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/23 11:19:05 by vgejno            #+#    #+#              #
-#    Updated: 2023/04/03 16:13:15 by hkahsay          ###   ########.fr        #
+#    Updated: 2023/04/04 21:34:10 by hkahsay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,8 @@ DIR_SRCS += ./srcs/lexer
 DIR_SRCS += ./srcs/parser
 DIR_SRCS += ./srcs/env
 DIR_SRCS += ./srcs/built_in
+DIR_SRCS += ./srcs/executor
+
 
 SRCS = ${DIR_SRCS}/main.c
 #SRCS += ${DIR_SRCS}/..
@@ -55,21 +57,33 @@ OBJS = ${addprefix ${DIR_OBJS}/, ${notdir ${SRCS:.c=.o}}}
 
 
 SRCS =	srcs/main.c \
-		srcs/env/my_envp.c \
+		srcs/env/mini_env.c \
 		srcs/env/env_util.c \
 		srcs/lexer/interpret.c \
 		srsc/lexer/interp_delim.c \
 		srcs/lexer/interp_quotes.c \
 		srcs/lexer/interp_word.c \
+		srcs/lexer/interp_space.c \
 		srcs/lexer/token.c \
-		srcs/built_in/pwd.c \
+		srcs/lexer/token_expand.c \
+		srcs/lexer/token_utils.c \
 		srcs/parser/parse.c \
+		srcs/parser/init_parse.c \
+		srcs/parser/add_wnode.c \
+		srcs/parser/list_array.c \
+		srcs/parser/print.c \
+		srcs/parser/parse_utiles.c \
+		srcs/parser/free_token.c \
+		srcs/executer/execute.c \
+		srcs/built_in/pwd.c \
 		srcs/built_in/cd.c \
-		srcs/built_in/utils.c \
 		srcs/built_in/echo.c \
+		srcs/built_in/utils.c \
 		srcs/built_in/export.c \
-		# srcs/built_in/unset.c \
-		# srcs/built_in/builtin.c \
+		srcs/built_in/env.c \
+		srcs/built_in/unset.c \
+		srcs/built_in/exit.c \
+		srcs/built_in/builtin.c \
 		
 		
 

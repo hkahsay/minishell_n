@@ -35,6 +35,7 @@ t_envnode *create_mini_envvar_node(char *key, char *value)//, int i
 	my_node = malloc(sizeof(t_envnode) * 1);
 	if (!my_node)
 		return (NULL);
+	// printf("&new_env_var %p\n", new_env_var);
 	my_node->key = ft_strdup(key);
 	if (!my_node->key)
 	{
@@ -71,17 +72,17 @@ t_envnode *dublicate_env(char **envp) // fnct returns a starting address of the 
 		j = 0;
 		while (envp[i][j] != '=')
 			j++;
-		printf("j avant '=': %d\n", j);
+		// printf("j avant '=': %d\n", j);
 		key = ft_substr(envp[i], 0, j);
-		printf("%s\n", key);
+		// printf("%s\n", key);
 		value = ft_substr(envp[i], (j + 1), ft_strlen(envp[i]));
-		printf("%s\n", value);
+		// printf("%s\n", value);
 		// envp_var = ft_split(envp[i], '=');
 		// key = ft_strdup(envp_var[0]);
 		// value = ft_strdup(envp_var[1]);
 		// printf("%d %s %s\n", (envp_lines + 1), key, value);
 		node = create_mini_envvar_node(key, value);
-		printf("Node %d OK\n", i);
+		// printf("Node %d OK\n", i);
 		// usleep(100000000);
 		if (!node)
 			return (NULL);
