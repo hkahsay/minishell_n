@@ -12,9 +12,9 @@ int	is_quote(char c)
 int eval_quote_type(char *q)
 {
 	if (*q == '\"')
-		return (1);
+		return (TOK_D_QUOTE);
 	else	
-		return (0);
+		return (TOK_S_QUOTE);
 }
 
 char *check_quotes(char **p, t_token **head)
@@ -44,9 +44,9 @@ char *check_quotes(char **p, t_token **head)
 			quote_status = CLOSED;
 			quote_len++;
 			if (((eval_quote_type(*p)) + (eval_quote_type(ptr_quote))) % 2 == 0)
-				add_token(head, ft_substr(*p, 0, quote_len), TOK_D_QUOTE);
-			else if (!(eval_quote_type(ptr_quote)))
-				add_token(head, ft_substr(*p, 0, quote_len), TOK_S_QUOTE);
+				add_token(head, ft_substr(*p, 0, quote_len), eval_quote_type(*p));
+			// else if (!(eval_quote_type(ptr_quote)))
+			// 	add_token(head, ft_substr(*p, 0, quote_len), eval_quote_type(*p));
 			*p += quote_len;
 			return (*p);
 		}

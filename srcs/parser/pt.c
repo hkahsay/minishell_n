@@ -51,6 +51,7 @@ static t_redir_args *new_redir_args(char *content, t_toktype type)
     // new_args = malloc(sizeof(t_redir_args));
     // if (!new_args)
     //     return (NULL);
+
     new_args->args = ft_strdup(content);
     printf(R "new_args->content: %s\n" RS, new_args->args);
     new_args->type = type;
@@ -123,9 +124,10 @@ static void	eval_token(t_token *head, t_cmd **cmd)
 	//t_redir_args *redir = NULL;
 	t_token *head_ptr = NULL;
 	*cmd = init_cmd();
+	printf("init cmds ok\n");
 	
-	// args = init_args(args);
-	// printf("init args ok\n");
+	// args = init_args(args->args);
+	// cmd->cmd_args_args;
 	head_ptr = head;
 	while (head_ptr)
 	{
