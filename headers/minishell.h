@@ -201,6 +201,8 @@ typedef struct s_builtin
 
 
 /*MY_ENV*/
+void ft_putchar(char c);
+int    ft_putstr(char *str);
 t_envnode	*dublicate_env(char **envp);
 t_envnode	*create_mini_envvar_node(char *key, char *value);
 void		free_mini_envp(t_envnode *head);

@@ -4,11 +4,11 @@ void	prompt(char	*line, t_envnode *mini_env) //t_envnode *mini_env,
 {
 	int		fd;
 	// t_token *token_head;
-	t_cmd	*cmd = NULL;
+	// t_cmd	*cmd = NULL;
 	// char	**arg_cmds;
 
 	// head = NULL;
-	cmd = NULL;
+	// cmd = NULL;
 	//       0123
 	line = readline ("minishell_VH>> 😜 ");
 	// index = getpid();

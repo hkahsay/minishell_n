@@ -48,10 +48,10 @@ static void	*expand_content_token(t_token **head, char *$content)
 static void	*eval_d_quote_token(t_token **head, char *t_quote)
 {
 	char	*p;
-	char	*dollar;
+	// char	*dollar;
 
 	p = t_quote;
-	dollar = "$";
+	// dollar = "$";
 	while (p && *p)
     {
 		printf(BLUE "$ content: %c\n" RS, *p);	

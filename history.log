@@ -784,3 +784,18 @@ export VAR="args cs"
 export VAR=args
 export VAR1="args"
 export VAR="args"
+cd
+echo
+echo h
+echo helo
+echo hello
+echo hello world
+echo -n hello world
+echo hello world -n
+echo "hello world"
+e'ch'o "hello world"
+env
+export var=new
+export var=new
+export hello=world
+export hello=world

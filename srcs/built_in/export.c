@@ -8,7 +8,7 @@ int ft_export(char **cmd_args, t_envnode **mini_env)
 	int		i;
 	// int	len = 0;
 	// (void)env_var;
-    t_envnode *new_env_var = NULL;
+    //t_envnode *new_env_var = NULL;
 	// (void)new_env_var;
 	i = 0;
 	printf("*cmd_args[1] %s\n", cmd_args[1]);
@@ -32,8 +32,8 @@ int ft_export(char **cmd_args, t_envnode **mini_env)
 	new_value = ft_substr((char *)cmd_args[1], i, j);
 	printf(R"new_value: %s\n"RS, new_value);
 
-	new_env_var = create_mini_envvar_node(new_key, new_value);
-	ft_add_envlist(new_env_var, mini_env);
+	//new_env_var = create_mini_envvar_node(new_key, new_value);
+	ft_setenv(new_key, new_value, mini_env);
 	print_mini_envp(*mini_env);
     return (0);
 }
