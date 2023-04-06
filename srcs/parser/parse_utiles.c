@@ -16,17 +16,17 @@
 //     return copy;
 // }
 
-int ft_list_size(t_cmd *node)
-{
-    t_wr_node *args = node->cmd_wnode;
-    int size = 0;
-    while (args != NULL) {
-        if (args->file != NULL)
-            size++;
-        args= args->next;
-    }
-    return size;
-}
+// int ft_list_size(t_cmd *node)
+// {
+//     t_wr_node *args = node->cmd_wnode;
+//     int size = 0;
+//     while (args != NULL) {
+//         if (args->file != NULL)
+//             size++;
+//         args= args->next;
+//     }
+//     return size;
+// }
 
 // create double pointer array from list cmds
 

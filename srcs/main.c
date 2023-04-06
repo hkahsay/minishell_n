@@ -64,7 +64,7 @@ int main(int argc, char **argv, char **envp)
 		printf("Error arguments\n");
 		return (-1);
 	}
-	mini_env = dublicate_env(envp);
+	mini_env = duplicate_env(envp);
 	if (!mini_env)
 	{
 		printf("Failed to create my_environment list\n");

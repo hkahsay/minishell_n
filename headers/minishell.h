@@ -155,6 +155,12 @@ typedef struct	s_pline
 	struct s_pline	*next;
 } t_pline;
 
+// typedef struct s_env_exp
+// {
+//     char *ex_name;
+//     char *ex_value;
+//     struct s_env_exp *next;
+// } t_env_exp;
 // typedef enum e_builtin_type
 // {
 // 	PWD,
@@ -201,10 +207,12 @@ typedef struct s_builtin
 
 
 /*MY_ENV*/
-t_envnode	*dublicate_env(char **envp);
+void ft_putchar(char c);
+int    ft_putstr(char *str);
+t_envnode	*duplicate_env(char **envp);
 t_envnode	*create_mini_envvar_node(char *key, char *value);
 void		free_mini_envp(t_envnode *head);
-t_envnode	*find_env_var(char *key, t_envnode *current_dir);
+t_envnode	*find_env_var(char *key, t_envnode **current_dir);
 void 		print_mini_envp(t_envnode *temp);
 void 		update_env_var(char *key, char *value);
 void 		ft_add_envlist(t_envnode *new_node, t_envnode **env);
@@ -266,17 +274,30 @@ void execute(t_cmd *cmd, t_envnode *mini_env);
 // int	export(t_cmd *cmd, t_envnode *env_var);
 // int	ft_unset(t_cmd *cmd, t_envnode *env_var);
 int is_builtin(char **cmd, t_envnode *env_var);
-int ft_pwd(char **args, t_envnode **env_var);
-int ft_cd(char **args, t_envnode **env_var);
+int ft_pwd(char **args, t_envnode **mini_env);
+int ft_cd(char **args, t_envnode **mini_env);
 int ft_echo(char **args, t_envnode **env_var);
 int ft_unset(char **args, t_envnode **env_var);
 int ft_export(char **cmd_args, t_envnode **mini_env);
-int ft_env(char **args, t_envnode **env_var);
+int ft_env(char **args, t_envnode **mini_env);
 int ft_exit(char **args, t_envnode **env_var);
+void print_ex_envp(t_envnode *temp);
 
 
 void	print_cmd(t_cmd *cmd);
 void	print_array(char **array);
+// t_envnode	*sort_envnode(t_envnode *lst, int (*cmp)(char *, char *));
+t_envnode	*sort_envnode(t_envnode *lst);
+
+// int compare_cmd_wnode(char *a, char *b);
+//-----------sort--------
+void merge_sort_env(t_envnode **head_ref);
+t_envnode* sorted_merge_env(t_envnode* a, t_envnode* b);
+void front_back_split(t_envnode* source, t_envnode** front_ref, t_envnode** back_ref);
+
+
+
+
 // 
 // int	b_cd(t_envnode *list, char *input)
 

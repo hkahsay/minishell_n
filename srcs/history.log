@@ -49,3 +49,8 @@ cd built_in/
 pwd
 cd built_in/
 cd built_in/
+cd srcs
+cd srcs
+cd ..
+pwd
+env
