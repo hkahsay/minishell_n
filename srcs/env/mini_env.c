@@ -1,80 +1,5 @@
 #include "../../headers/minishell.h"
 
-#include <stdlib.h>
-#include <string.h>
-
-// Definition of linked list node for environment variables
-// typedef struct EnvVar {
-//     char *name;
-//     char *value;
-//     struct EnvVar *next;
-// } EnvVar;
-
-// int main(int argc, char **argv, EnvVar **mini_env) {
-//     // Check if args[1] is null
-//     if (argv[1] == NULL) {
-//         // Count the number of environment variables in mini_env
-//         int env_count = 0;
-//         EnvVar *curr = *mini_env;
-//         while (curr != NULL) {
-//             env_count++;
-//             curr = curr->next;
-//         }
-
-//         // Create a new linked list with the same environment variables
-//         EnvVar *new_env = NULL;
-//         curr = *mini_env;
-//         for (int i = 0; i < env_count; i++) {
-//             EnvVar *node = malloc(sizeof(EnvVar));
-//             size_t name_len = strlen(curr->name) + 1;
-//             size_t value_len = strlen(curr->value) + 1;
-//             node->name = malloc(name_len);
-//             node->value = malloc(value_len);
-//             memcpy(node->name, curr->name, name_len);
-//             memcpy(node->value, curr->value, value_len);
-//             node->next = new_env;
-//             new_env = node;
-//             curr = curr->next;
-//         }
-
-//         // Do something with the new environment variable linked list
-//         // ...
-
-//         // Free the memory allocated for the new linked list
-//         while (new_env != NULL) {
-//             EnvVar *node = new_env;
-//             new_env = new_env->next;
-//             free(node->name);
-//             free(node->value);
-//             free(node);
-//         }
-//     }
-
-//     return 0;
-// }
-
-
-
-
-
-
-
-
-
-void print_mini_envp(t_envnode *temp)
-{
-	int i = 0;
-
-	while (temp)
-	{
-		printf("LIST: %s=%s\n", temp->key, temp->value);
-		temp = temp->next;
-		i++;
-	}
-	printf("%d\n", i);
-}
-
-
 void free_mini_envp(t_envnode *head)
 {
 	t_envnode *temp;
@@ -103,6 +28,8 @@ t_envnode *create_mini_envvar_node(char *key, char *value)//, int i
 		free(my_node);
 		return (NULL);
 	}
+	// if (value == NULL)
+	// 	my_node->value = NULL;
 	my_node->value = ft_strdup(value);
 	if (!my_node->value)
 	{

@@ -6,7 +6,7 @@
 #    By: hkahsay <hkahsay@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/23 11:19:05 by vgejno            #+#    #+#              #
-#    Updated: 2023/04/04 21:34:10 by hkahsay          ###   ########.fr        #
+#    Updated: 2023/04/06 20:42:51 by hkahsay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ OBJS = ${addprefix ${DIR_OBJS}/, ${notdir ${SRCS:.c=.o}}}
 SRCS =	srcs/main.c \
 		srcs/env/mini_env.c \
 		srcs/env/env_util.c \
+		srcs/env/print_env.c \
 		srcs/lexer/interpret.c \
 		srsc/lexer/interp_delim.c \
 		srcs/lexer/interp_quotes.c \

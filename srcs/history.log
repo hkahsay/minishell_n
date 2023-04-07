@@ -54,3 +54,5 @@ cd srcs
 cd ..
 pwd
 env
+cd srcs/
+pwd

@@ -57,6 +57,7 @@ void ft_add_envlist(t_envnode *new_node, t_envnode **env)
 {
     t_envnode *curr_node = *env;
 
+
     // If the list is empty, set the new node as the head of the list
     if (curr_node == NULL)
     {

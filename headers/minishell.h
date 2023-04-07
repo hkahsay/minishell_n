@@ -213,17 +213,24 @@ t_envnode	*duplicate_env(char **envp);
 t_envnode	*create_mini_envvar_node(char *key, char *value);
 void		free_mini_envp(t_envnode *head);
 t_envnode	*find_env_var(char *key, t_envnode **current_dir);
-void 		print_mini_envp(t_envnode *temp);
 void 		update_env_var(char *key, char *value);
 void 		ft_add_envlist(t_envnode *new_node, t_envnode **env);
 int 		ft_setenv(char *name, char *value, t_envnode **env);
+
+////----print_env_dif_level-----------
+void 		print_mini_envp(t_envnode *temp);
+void 		print_ex_envp(t_envnode *temp, char **cmd_arg);
+void 		print_envp_nvalue(t_envnode *mini_env);
+void 		print_ex_no_value(t_envnode *mini_env);
+
+
 /*PROMPT*/
 void	prompt(char	*line, t_envnode *my_envp); //, t_envnode *my_envp
+
 /*LEXER*/
 void interp(char *line, t_envnode *mini_env);
 char    *skip_spaces(char *str);
 int	is_space(char c);
-
 char *check_delim(char **p, t_token **head);
 int	is_delim_char(char c);
 // t_token	*create_list_token(char  *epline); //, int id
@@ -259,6 +266,7 @@ t_wr_node	*check_$_add_w_to_cmd_wnode(t_token **head, t_cmd **cmd, t_wr_node **h
 t_wr_node	*fill_wr_node(t_wr_node **wr_node, int id, char *word);
 char    **create_array(t_cmd **node);
 int ft_list_size(t_cmd *node);
+void ft_envnode_sort(t_envnode *mini_env);
 
 /*EXECUTER*/
 void execute(t_cmd *cmd, t_envnode *mini_env);
@@ -281,7 +289,8 @@ int ft_unset(char **args, t_envnode **env_var);
 int ft_export(char **cmd_args, t_envnode **mini_env);
 int ft_env(char **args, t_envnode **mini_env);
 int ft_exit(char **args, t_envnode **env_var);
-void print_ex_envp(t_envnode *temp);
+
+
 
 
 void	print_cmd(t_cmd *cmd);

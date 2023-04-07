@@ -1,81 +1,33 @@
 #include "../../headers/minishell.h"      
 
-static void print_ex_no_value(t_envnode *mini_env)
+t_envnode	*envdup(t_envnode *prev, t_envnode **mini_env)
 {
-    while (mini_env)
-    {
-        if (mini_env->value && mini_env->value[0] != '\0')
-        {
-            printf("%s", mini_env->key);
-            if (mini_env->value)
-                printf("%s", mini_env->value);
-            printf("\n");
-        }
-        mini_env = mini_env->next;
-    }
+	t_envnode	*node;
+
+	if (!(*mini_env))
+		return (NULL);
+	node = create_mini_envvar_node((*mini_env)->key, (*mini_env)->value);
+	if (!node)
+		return (NULL);
+	printf("NODE: %s = %s\n", (*mini_env)->key, (*mini_env)->value);
+	node->prev = prev;
+	if ((*mini_env)->next)
+	{
+		node->next = envdup(node, &(*mini_env)->next);
+		if (!node->next)
+		{
+			while (node->prev)
+				node = node->prev;
+			free_mini_envp(node);
+			return (NULL);
+		}
+	}
+	return (node);
 }
 
-static int	export_no_cmd(t_envnode **mini_env)
+t_envnode	*export_no_cmd(t_envnode **mini_env)
 {
-	int i = 0;
-
-	// Count the number of environment variables in mini_env
-	int env_count = 0;
-	t_envnode *curr = *mini_env;
-	while (curr != NULL)
-	{
-		env_count++;
-		curr = curr->next;
-	}
-
-	// Create a new linked list with the same environment variables
-	t_envnode *new_env = NULL;
-	curr = *mini_env;
-	while (i < env_count)
-	{
-		t_envnode *node = malloc(sizeof(t_envnode));
-		size_t key_len = strlen(curr->key) + 1;
-		size_t value_len = strlen(curr->value) + 1;
-		node->key = malloc(key_len + 2);
-		node->value = malloc(value_len);
-		node->key[0] = '\"'; 
-		// printf("node->key[1] %c\n", node->key[1]);
-		memcpy(node->key + 1, curr->key, key_len - 1);
-		node->key[key_len - 1] = '\"';
-		memcpy(node->value, curr->value, value_len);
-		node->next = new_env;
-		new_env = node;
-		curr = curr->next;
-		i++;
-	}
-	// node->key[0] = '\"'; 
-	// node->key[key_len - 1] = '\"';
-	// print_ex_envp(*mini_env);
-	// merge_sort(mini_env);
-	while (new_env != NULL)
-	{
-		t_envnode *node = new_env;
-		new_env = new_env->next;
-		free(node->key);
-		free(node->value);
-		free(node);
-	}
-	return (0);
-}
-
-void print_ex_envp(t_envnode *temp)
-{
-	// int i = 0;
-
-	while (temp)
-	{
-		export_no_cmd(&temp);
-		merge_sort_env(&temp);
-		printf("declare -x %s=%s\n", temp->key, temp->value);
-		temp = temp->next;
-		// i++;
-	}
-	// printf("%d\n", i);
+	return (envdup(NULL, mini_env));
 }
 
 int ft_export(char **cmd_args, t_envnode **mini_env)
@@ -88,12 +40,24 @@ int ft_export(char **cmd_args, t_envnode **mini_env)
     t_envnode *new_env_var = NULL;
 	i = 0;
 	if (cmd_args[1] == NULL && mini_env)
-		print_ex_envp(*mini_env);
+	{
+		new_env_var = export_no_cmd(mini_env);
+		// printf("Mini env: %p\n", (*mini_env)->value);
+		// printf("New env var: %p\n", new_env_var->value);
+		// print_ex_envp(new_env_var, cmd_args);
+		ft_envnode_sort(new_env_var);
+		printf("Sorted: %s = %s\n", new_env_var->key, new_env_var->value);
+        // print_mini_envp(*mini_env);
+		print_ex_envp(new_env_var, cmd_args);
+		printf(YELLOW"only expo\n"RS);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+	}
 	if (cmd_args[1] && ft_strchr(cmd_args[1], '='))//ft_strchr(const char	*s, int c)
 	{
 		while (cmd_args[1][i] != '=')
 		{
 			printf(BLUE "*cmd_args[1] %c\n"RS, cmd_args[1][i]);
+			printf(R"there is == sign in key\n"RS);
 			i++;
 		}
 		new_key = ft_substr((char *)cmd_args[1], 0, i);
@@ -106,37 +70,40 @@ int ft_export(char **cmd_args, t_envnode **mini_env)
 		while (cmd_args[1][j] != '\0')
 		{
 			printf(GREEN"*cmd_args[1] %c\n"RS, cmd_args[1][j]);
+			printf(OR"there is == sign in value\n"RS);
 			j++;
 		}
 		new_value = ft_substr((char *)cmd_args[1], i, j);
 		// printf(R"new_value: %s\n"RS, new_value);
 		ft_setenv(new_key, new_value, mini_env);
-		print_ex_envp(*mini_env);
+		print_mini_envp(*mini_env);
 	}
 	if (cmd_args[1] && !ft_strchr(cmd_args[1], '='))
 	{
 		 // Extract key from cmd_args[1]
         new_key = ft_strdup(cmd_args[1]);
         new_env_var = find_env_var(new_key, mini_env);
-
+		printf(GREEN"there is != sign\n"RS);
         if (new_env_var)
         {
             // If environment variable already exists, set its value to empty string
             free(new_env_var->value);
-            new_env_var->value = ft_strdup("");
+            new_env_var->value = ft_strdup("");//ft_strdup("");
+			// printf(BLUE"already exist var != sign\n"RS);
         	// print_ex_no_value(*mini_env);
 
         }
 		  else
         {
             // If environment variable does not exist, create a new one with empty value
-            new_value = ft_strdup("");
+			// printf(OL"not exsist != sign\n"RS);
+            new_value = ft_strdup(""); //ft_strdup("");
             new_env_var = create_mini_envvar_node(new_key, new_value);
             ft_add_envlist(new_env_var, mini_env);
-        	print_ex_no_value(*mini_env);
+        	// print_ex_no_value(*mini_env);
 
         }
-
+		printf(R"print all cmd_args and return new prompt\n"RS);
         // print_ex_no_value(*mini_env);
 	}
     return (0);
