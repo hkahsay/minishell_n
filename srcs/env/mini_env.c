@@ -63,7 +63,7 @@ t_envnode *duplicate_env(char **envp) // fnct returns a starting address of the 
 		// printf("j avant '=': %d\n", j);
 		key = ft_substr(envp[i], 0, j);
 		// printf("%s\n", key);
-		value = ft_substr(envp[i], (j + 1), ft_strlen(envp[i]));
+		value = ft_substr(envp[i], (j), ft_strlen(envp[i]));
 		// printf("%s\n", value);
 		// envp_var = ft_split(envp[i], '=');
 		// key = ft_strdup(envp_var[0]);

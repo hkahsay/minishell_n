@@ -9,7 +9,6 @@ t_envnode	*envdup(t_envnode *prev, t_envnode **mini_env)
 	node = create_mini_envvar_node((*mini_env)->key, (*mini_env)->value);
 	if (!node)
 		return (NULL);
-	printf("NODE: %s = %s\n", (*mini_env)->key, (*mini_env)->value);
 	node->prev = prev;
 	if ((*mini_env)->next)
 	{
@@ -42,12 +41,8 @@ int ft_export(char **cmd_args, t_envnode **mini_env)
 	if (cmd_args[1] == NULL && mini_env)
 	{
 		new_env_var = export_no_cmd(mini_env);
-		// printf("Mini env: %p\n", (*mini_env)->value);
-		// printf("New env var: %p\n", new_env_var->value);
-		// print_ex_envp(new_env_var, cmd_args);
 		ft_envnode_sort(new_env_var);
 		printf("Sorted: %s = %s\n", new_env_var->key, new_env_var->value);
-        // print_mini_envp(*mini_env);
 		print_ex_envp(new_env_var, cmd_args);
 		printf(YELLOW"only expo\n"RS);
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
@@ -61,11 +56,7 @@ int ft_export(char **cmd_args, t_envnode **mini_env)
 			i++;
 		}
 		new_key = ft_substr((char *)cmd_args[1], 0, i);
-		// printf(R"new_key: %s\n"RS, new_key);
-
 		i++;
-		
-		// printf("i: %d\n", i);
 		int	j = 0;
 		while (cmd_args[1][j] != '\0')
 		{
@@ -73,14 +64,12 @@ int ft_export(char **cmd_args, t_envnode **mini_env)
 			printf(OR"there is == sign in value\n"RS);
 			j++;
 		}
-		new_value = ft_substr((char *)cmd_args[1], i, j);
-		// printf(R"new_value: %s\n"RS, new_value);
+		new_value = ft_substr((char *)cmd_args[1], i - 1, j);
 		ft_setenv(new_key, new_value, mini_env);
 		print_mini_envp(*mini_env);
 	}
 	if (cmd_args[1] && !ft_strchr(cmd_args[1], '='))
 	{
-		 // Extract key from cmd_args[1]
         new_key = ft_strdup(cmd_args[1]);
         new_env_var = find_env_var(new_key, mini_env);
 		printf(GREEN"there is != sign\n"RS);
@@ -89,22 +78,17 @@ int ft_export(char **cmd_args, t_envnode **mini_env)
             // If environment variable already exists, set its value to empty string
             free(new_env_var->value);
             new_env_var->value = ft_strdup("");//ft_strdup("");
-			// printf(BLUE"already exist var != sign\n"RS);
-        	// print_ex_no_value(*mini_env);
 
         }
 		  else
         {
             // If environment variable does not exist, create a new one with empty value
-			// printf(OL"not exsist != sign\n"RS);
             new_value = ft_strdup(""); //ft_strdup("");
             new_env_var = create_mini_envvar_node(new_key, new_value);
             ft_add_envlist(new_env_var, mini_env);
-        	// print_ex_no_value(*mini_env);
 
         }
 		printf(R"print all cmd_args and return new prompt\n"RS);
-        // print_ex_no_value(*mini_env);
 	}
     return (0);
 }

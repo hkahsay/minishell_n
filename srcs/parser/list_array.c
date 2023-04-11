@@ -55,7 +55,7 @@ void ft_envnode_sort(t_envnode *mini_env)
         }
     }
 
-    printf("DECLARE -X %s = %s\n", current->key, current->value);
+    // printf("DECLARE -X %s = %s\n", current->key, current->value);
 }
 
 // t_envnode	*sort_envnode(t_envnode *lst, int (*cmp)(char *, char *))

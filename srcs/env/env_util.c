@@ -10,7 +10,7 @@ t_envnode *find_env_var(char *key, t_envnode **current_dir)
     current = *current_dir;
     while (current != NULL)
     {
-        if (strcmp(current->key, key) == 0)
+        if (ft_strcmp(current->key, key) == 0)
             return current;
         current = current->next;
     }
