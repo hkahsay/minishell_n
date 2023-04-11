@@ -3,6 +3,7 @@
 int ft_unset(char **args, t_envnode **mini_env)
 {
     int i;
+    char    *res;
 
     i = 1;
     // (*mini_env)->content = malloc(sizeof(t_envnode) + 1);
@@ -12,46 +13,43 @@ int ft_unset(char **args, t_envnode **mini_env)
         return(0);
     while (args[i])
     {
-       if (check_if_in_env(*mini_env, args[i]) == NULL)
+        res = check_if_in_env(*mini_env, args[i]);
+       if (res == NULL)
        {
             printf("1\n");
             printf("args[i]1 %s\n", args[i]);
 			// return (0);
-		    remove_from_list(mini_env, args[i]);
+		    remove_from_list(*mini_env, args[i]);
        }
-        printf("2\n");
 		i++;
     }
-    
-    printf("ft_unset\n");
 	return (0);
 }
 
 
-void    remove_from_list(t_envnode **mini_env, char *key)
+void    remove_from_list(t_envnode *mini_env, char *key)
 {
     t_envnode   *curr;
     t_envnode   *temp;
     int     len;
 
-    curr = *mini_env;
-    temp = NULL;
-    len = ft_strlen((key));
-    if (delete_first_node(mini_env, curr, key))
+    curr = mini_env;
+    len = ft_strlen((key) + 1);
+    if (delete_first_node(&mini_env, curr, key))
         return;
     // printf("curr->content%s\n", curr->key);
-    while (curr && ft_strncmp(curr->key, key, len))
+    while (curr && ft_strncmp(curr->key, key, len + 1))
     {
         temp = curr;
         curr = curr->next;
+        // printf("temp%s\n", temp->key);
         printf("4\n");
     }
-    if(curr && !ft_strncmp(curr->key, key, len))
+    // if((curr->key = NULL))
+    //     return ;
+    if( curr && !ft_strncmp(curr->key, key, len + 1))
     {
-        if (temp)
-            temp->next = curr->next;
-        else
-            *mini_env = curr->next;
+        temp->next = curr->next;
         free (curr->key);
         free (curr->value);
         curr->key = NULL;
@@ -59,14 +57,12 @@ void    remove_from_list(t_envnode **mini_env, char *key)
         free (curr);
         curr = NULL;
     }
-    // else
-    //     return;
+    else
+        return;
 }
 
 int delete_first_node(t_envnode **head, t_envnode *curr, char *key)
 {
-    t_envnode   *temp;
-
     if (head == NULL || *head == NULL)
     {
         printf("env is empty. Cannot remove node.\n");
@@ -75,14 +71,14 @@ int delete_first_node(t_envnode **head, t_envnode *curr, char *key)
     if (ft_strcmp(curr->key, key) == 0)
     {
         printf("are we here\n");
-        temp = *head;
+        curr = *head;
         (*head) = (*head)->next;
         printf("curr->next->key------ %s\n", curr->next->key);
         printf("head------ %s\n", (*head)->key);
 
-        free(temp->key);
-        free(temp->value);
-        free(temp);
+        // free(curr->key);
+        // free(curr->value);
+        // free(curr);
         // printf("3\n");
         return(1);
     }
@@ -100,8 +96,8 @@ char	*check_if_in_env(t_envnode *mini_env, char *arg)
 	i = 0;
 	while (curr)
 	{
-		if (ft_strncmp(curr->content, arg, l + 1) == 0)
-			return (curr->content);
+		if (ft_strncmp(curr->key, arg, l + 1) == 0)
+			return (curr->key);
 		curr = curr->prev;
 	}
 	return (NULL);

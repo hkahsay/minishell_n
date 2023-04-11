@@ -282,7 +282,7 @@ int ft_unset(char **args, t_envnode **env_var);
 int ft_export(char **cmd_args, t_envnode **mini_env);
 int ft_env(char **args, t_envnode **mini_env);
 int ft_exit(char **args, t_envnode **mini_env);
-void    remove_from_list(t_envnode **mini_env, char *key);
+void    remove_from_list(t_envnode *mini_env, char *key);
 int delete_first_node(t_envnode **head, t_envnode *curr, char *key);
 
 int	ft_strncmp2(char *s1, char *s2, int n);
