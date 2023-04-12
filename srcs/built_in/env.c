@@ -3,21 +3,20 @@
 int ft_env(char **args, t_envnode **mini_env)
 {
     (void)args;
-    int     i = 0;
+    t_envnode *mini_envp = *mini_env;
+    // int     i = 0;
 
 
     if(!mini_env)
         return(0);
-    while ((*mini_env)->key && (*mini_env)->value)
+    while (mini_envp)
     {
-        if ((*mini_env)->value[i] == '=')
+        if (mini_envp->value[0] == '=')
         {
-            print_mini_envp((*mini_env));
-            printf("env is ok\n");
-            break;
+            printf("%s%s\n", mini_envp->key, mini_envp->value);
         }
-        i++;
-        (*mini_env) = (*mini_env)->prev;
+        // i++;
+        mini_envp = mini_envp->next;
     }
     return(0);  
 }
