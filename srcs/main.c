@@ -21,22 +21,6 @@ void	prompt(char	*line, t_envnode *mini_env) //t_envnode *mini_env,
 	{
 		printf("propmt line: %s\n", line);
 		interp(line, mini_env);
-		
-		// is_builtins(cmd);
-		// cmd = parse(head, cmd);
-		// char buff[1024];
-		// printf("PWD current directory befor cd: %s\n", getcwd(buff, 1024));
-		// ft_cd(arg_cmds, mini_env);
-		// printf("from cd: %s\n", getcwd(buff, 1024));
-		// // mini_pwd2(mini_env);
-		// // if (strcmp(cmd->cmd_args->args[0], "echo") == 0)
-		// // {
-		// printf("ARGUMENT IN MAIN: %p\n", cmd->cmd_wnode);
-		// ft_echo(cmd);
-    	// }
-		// ft_echo();
-		// cd(cmd);
-		// args = eval_token(head);
 		printf("OK head is back\n");
 		add_history(line);
 		fd = open("history.log", O_CREAT | O_WRONLY | O_APPEND, 0777);
@@ -64,7 +48,7 @@ int main(int argc, char **argv, char **envp)
 		printf("Error arguments\n");
 		return (-1);
 	}
-	mini_env = dublicate_env(envp);
+	mini_env = duplicate_env(envp);
 	if (!mini_env)
 	{
 		printf("Failed to create my_environment list\n");

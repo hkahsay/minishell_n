@@ -155,6 +155,12 @@ typedef struct	s_pline
 	struct s_pline	*next;
 } t_pline;
 
+// typedef struct s_env_exp
+// {
+//     char *ex_name;
+//     char *ex_value;
+//     struct s_env_exp *next;
+// } t_env_exp;
 // typedef enum e_builtin_type
 // {
 // 	PWD,
@@ -201,23 +207,28 @@ typedef struct s_builtin
 
 
 /*MY_ENV*/
-void ft_putchar(char c);
-int    ft_putstr(char *str);
 t_envnode	*dublicate_env(char **envp);
 t_envnode	*create_mini_envvar_node(char *key, char *value);
 void		free_mini_envp(t_envnode *head);
-t_envnode	*find_env_var(char *key, t_envnode *current_dir);
-void 		print_mini_envp(t_envnode *temp);
+t_envnode	*find_env_var(char *key, t_envnode **current_dir);
 void 		update_env_var(char *key, char *value);
 void 		ft_add_envlist(t_envnode *new_node, t_envnode **env);
 int 		ft_setenv(char *name, char *value, t_envnode **env);
+
+////----print_env_dif_level-----------
+void 		print_mini_envp(t_envnode *temp);
+void 		print_ex_envp(t_envnode *temp, char **cmd_arg);
+void 		print_envp_nvalue(t_envnode *mini_env);
+void 		print_ex_no_value(t_envnode *mini_env);
+
+
 /*PROMPT*/
 void	prompt(char	*line, t_envnode *my_envp); //, t_envnode *my_envp
+
 /*LEXER*/
 void interp(char *line, t_envnode *mini_env);
 char    *skip_spaces(char *str);
 int	is_space(char c);
-
 char *check_delim(char **p, t_token **head);
 int	is_delim_char(char c);
 // t_token	*create_list_token(char  *epline); //, int id
@@ -253,6 +264,7 @@ t_wr_node	*check_$_add_w_to_cmd_wnode(t_token **head, t_cmd **cmd, t_wr_node **h
 t_wr_node	*fill_wr_node(t_wr_node **wr_node, int id, char *word);
 char    **create_array(t_cmd **node);
 int ft_list_size(t_cmd *node);
+void ft_envnode_sort(t_envnode *mini_env);
 
 /*EXECUTER*/
 void execute(t_cmd *cmd, t_envnode *mini_env);
@@ -268,17 +280,31 @@ void execute(t_cmd *cmd, t_envnode *mini_env);
 // int	export(t_cmd *cmd, t_envnode *env_var);
 // int	ft_unset(t_cmd *cmd, t_envnode *env_var);
 int is_builtin(char **cmd, t_envnode *env_var);
-int ft_pwd(char **args, t_envnode **env_var);
-int ft_cd(char **args, t_envnode **env_var);
+int ft_pwd(char **args, t_envnode **mini_env);
+int ft_cd(char **args, t_envnode **mini_env);
 int ft_echo(char **args, t_envnode **env_var);
 int ft_unset(char **args, t_envnode **env_var);
 int ft_export(char **cmd_args, t_envnode **mini_env);
-int ft_env(char **args, t_envnode **env_var);
+int ft_env(char **args, t_envnode **mini_env);
 int ft_exit(char **args, t_envnode **env_var);
+
+
 
 
 void	print_cmd(t_cmd *cmd);
 void	print_array(char **array);
+// t_envnode	*sort_envnode(t_envnode *lst, int (*cmp)(char *, char *));
+t_envnode	*sort_envnode(t_envnode *lst);
+
+// int compare_cmd_wnode(char *a, char *b);
+//-----------sort--------
+void merge_sort_env(t_envnode **head_ref);
+t_envnode* sorted_merge_env(t_envnode* a, t_envnode* b);
+void front_back_split(t_envnode* source, t_envnode** front_ref, t_envnode** back_ref);
+
+
+
+
 // 
 // int	b_cd(t_envnode *list, char *input)
 

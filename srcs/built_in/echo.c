@@ -21,8 +21,6 @@ int ft_echo(char **args, t_envnode **env_var)
     return 0;
 }
 
-
-
 void ft_putchar(char c)
 {
     write(1, &c, 1);

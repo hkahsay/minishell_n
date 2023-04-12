@@ -1,19 +1,5 @@
 #include "../../headers/minishell.h"
 
-void print_mini_envp(t_envnode *temp)
-{
-	int i = 0;
-
-	while (temp)
-	{
-		printf("LIST: %s=%s\n", temp->key, temp->value);
-		temp = temp->next;
-		i++;
-	}
-	printf("%d\n", i);
-}
-
-
 void free_mini_envp(t_envnode *head)
 {
 	t_envnode *temp;
@@ -42,6 +28,8 @@ t_envnode *create_mini_envvar_node(char *key, char *value)//, int i
 		free(my_node);
 		return (NULL);
 	}
+	// if (value == NULL)
+	// 	my_node->value = NULL;
 	my_node->value = ft_strdup(value);
 	if (!my_node->value)
 	{
@@ -55,7 +43,7 @@ t_envnode *create_mini_envvar_node(char *key, char *value)//, int i
 	return (my_node);
 }
 
-t_envnode *dublicate_env(char **envp) // fnct returns a starting address of the linked list env
+t_envnode *duplicate_env(char **envp) // fnct returns a starting address of the linked list env
 {
 	// char **envp_var;
 	char *key;

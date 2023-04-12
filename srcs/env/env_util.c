@@ -3,11 +3,11 @@
   // current directory environment variable
 
 /* Helper function to find an environment variable by key */
-t_envnode *find_env_var(char *key, t_envnode *current_dir)
+t_envnode *find_env_var(char *key, t_envnode **current_dir)
 {
     t_envnode *current;
 
-    current = current_dir;
+    current = *current_dir;
     while (current != NULL)
     {
         if (strcmp(current->key, key) == 0)
@@ -27,7 +27,7 @@ void update_env_var(char* key, char* value)
     // if (!key || !value)
     //     return (NULL);
     var = NULL;
-    var = find_env_var(key, var);
+    var = find_env_var(key, &var);
     if (var != NULL)
     {
         free(var->value);
@@ -37,7 +37,7 @@ void update_env_var(char* key, char* value)
 
 int ft_setenv(char *name, char *value, t_envnode **env)
 {
-    t_envnode *var = find_env_var(name, *env);
+    t_envnode *var = find_env_var(name, env);
 
     if (var)
     {
@@ -57,6 +57,7 @@ int ft_setenv(char *name, char *value, t_envnode **env)
 void ft_add_envlist(t_envnode *new_node, t_envnode **env)
 {
     t_envnode *curr_node = *env;
+
 
     // If the list is empty, set the new node as the head of the list
     if (curr_node == NULL)
