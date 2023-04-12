@@ -3,7 +3,7 @@
 int ft_unset(char **args, t_envnode **mini_env)
 {
     int i;
-    char    *res;
+    //char    *res;
 
     i = 1;
     // (*mini_env)->content = malloc(sizeof(t_envnode) + 1);
@@ -13,43 +13,59 @@ int ft_unset(char **args, t_envnode **mini_env)
         return(0);
     while (args[i])
     {
-        res = check_if_in_env(*mini_env, args[i]);
-       if (res == NULL)
-       {
-            printf("1\n");
-            printf("args[i]1 %s\n", args[i]);
-			// return (0);
-		    remove_from_list(*mini_env, args[i]);
-       }
-		i++;
+        //res = check_if_in_env(*mini_env, args[i]);
+        //if (res == NULL)
+        //{
+        printf("args[i]1 %s\n", args[i]);
+        // return (0);
+        remove_from_list(mini_env, args[i]);
+        //}
+        i++;
     }
-	return (0);
+    return (0);
 }
 
 
-void    remove_from_list(t_envnode *mini_env, char *key)
+void    remove_from_list(t_envnode **mini_env, char *key)
 {
     t_envnode   *curr;
     t_envnode   *temp;
     int     len;
 
-    curr = mini_env;
-    len = ft_strlen((key) + 1);
-    if (delete_first_node(&mini_env, curr, key))
-        return;
-    // printf("curr->content%s\n", curr->key);
-    while (curr && ft_strncmp(curr->key, key, len + 1))
+    curr = *mini_env;
+    temp = NULL;
+    len = ft_strlen(key);
+    printf("len: %d\n", len);
+    //if (delete_first_node(&mini_env, curr, key))
+    //    return;
+    //printf("min_env: %p\n", mini_env);
+    while (curr && ft_strncmp(curr->key, key, len))
     {
+        printf("curr->key: %s\n", curr->key);
         temp = curr;
         curr = curr->next;
         // printf("temp%s\n", temp->key);
-        printf("4\n");
     }
+
+    if(temp != NULL) {
+        printf("temp->key: %s\n", temp->key);
+    } else {
+        printf("temp is NULL\n");
+    }
+    printf("curr->key: %s\n", curr->key);
+
     // if((curr->key = NULL))
     //     return ;
-    if( curr && !ft_strncmp(curr->key, key, len + 1))
+    if(curr && !ft_strncmp(curr->key, key, len))
     {
-        temp->next = curr->next;
+        printf("Remove node\n");
+        curr->next->prev = temp; // Update prev pointer
+        if(temp != NULL) {
+            temp->next = curr->next; // Update next pointer
+        } else {
+            printf("Update mini_env to previous second node\n");
+            *mini_env = curr->next;
+        }
         free (curr->key);
         free (curr->value);
         curr->key = NULL;
@@ -88,12 +104,10 @@ int delete_first_node(t_envnode **head, t_envnode *curr, char *key)
 char	*check_if_in_env(t_envnode *mini_env, char *arg)
 {
 	t_envnode	*curr;
-	int		i;
 	int		l;
 
 	curr = mini_env;
 	l = ft_strlen(arg);
-	i = 0;
 	while (curr)
 	{
 		if (ft_strncmp(curr->key, arg, l + 1) == 0)

@@ -17,6 +17,7 @@ t_envnode *find_env_var(char *key, t_envnode **current_dir)
     return NULL;
 }
 
+
 /* Helper function to update an environment variable by key */
 void update_env_var(char* key, char* value)
 {

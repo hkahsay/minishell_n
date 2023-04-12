@@ -80,7 +80,7 @@ int ft_export(char **cmd_args, t_envnode **mini_env)
             new_env_var->value = ft_strdup("");//ft_strdup("");
 
         }
-		  else
+		else
         {
             // If environment variable does not exist, create a new one with empty value
             new_value = ft_strdup(""); //ft_strdup("");
