@@ -20,13 +20,13 @@ void	prompt(char	*line, t_envnode *mini_env) //t_envnode *mini_env,
 	if (ft_strlen(line) > 0)
 	{
 		printf("propmt line: %s\n", line);
-		interp(line, mini_env);
-		printf("OK head is back\n");
 		add_history(line);
 		fd = open("history.log", O_CREAT | O_WRONLY | O_APPEND, 0777);
 		ft_putstr_fd(line, fd);
 		ft_putstr_fd("\n", fd);
 		close(fd);
+		interp(line, mini_env);
+		printf("OK head is back\n");
 		// ft_cd(built, mini_env);
 		// cmd = parse(line, cmd);
 	}

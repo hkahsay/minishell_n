@@ -8,7 +8,7 @@ void print_mini_envp(t_envnode *temp)
 	{
 		// printf("VALUE: %s\n", temp->value);
 			// if (temp->value[0] == '=')
-				printf("LIST: %s%s\n", temp->key, temp->value);
+				printf("%s%s\n", temp->key, temp->value);
 		// if (temp->key == '=')
 		temp = temp->next;
 		// i++;
@@ -43,7 +43,7 @@ void print_ex_envp(t_envnode *mini_env, char **cmd_arg)
 
 	while (mini_env != NULL)
 	{
-		printf("declare -x %s=%s\n", mini_env->key, mini_env->value);
+		printf("declare -x %s%s\n", mini_env->key, mini_env->value);
 		i++;
 		mini_env = mini_env->next;
 	}

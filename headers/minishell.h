@@ -13,6 +13,7 @@
 # include <sys/uio.h>
 # include "../libft/libft.h"
 
+int g_status;
 # define WHITE      "\033[38;2;255;255;255m"
 # define BLACK      "\033[38;2;0;0;0m"
 # define R        "\033[38;2;255;0;0m"
@@ -56,6 +57,7 @@ typedef struct s_envnode
 {
 	char *key;
 	char *value;
+	char	*content;
 	struct s_envnode *prev;
 	struct s_envnode *next;
 } t_envnode;
@@ -268,17 +270,8 @@ void ft_envnode_sort(t_envnode *mini_env);
 
 /*EXECUTER*/
 void execute(t_cmd *cmd, t_envnode *mini_env);
-// t_cmd_node	*parse(char *line, t_cmd_node *first_cmd);
-// int	empty_str(char *str);
-// t_redir_args	*eval_token(t_token *head);
-//-----------built_in-----------------
-// int	mini_pwd2(t_envnode *env_list);
-// int is_builtins(t_builtin_cmds commands);
-// int	ft_cd(char **args, t_envnode *env_list);
-// int ft_echo(t_cmd *cmds);//, t_envnode *env
-// int count_char(char *str, char c);
-// int	export(t_cmd *cmd, t_envnode *env_var);
-// int	ft_unset(t_cmd *cmd, t_envnode *env_var);
+
+/*----------builtins---------------*/
 int is_builtin(char **cmd, t_envnode *env_var);
 int ft_pwd(char **args, t_envnode **mini_env);
 int ft_cd(char **args, t_envnode **mini_env);
@@ -286,10 +279,13 @@ int ft_echo(char **args, t_envnode **env_var);
 int ft_unset(char **args, t_envnode **env_var);
 int ft_export(char **cmd_args, t_envnode **mini_env);
 int ft_env(char **args, t_envnode **mini_env);
-int ft_exit(char **args, t_envnode **env_var);
+int ft_exit(char **args, t_envnode **mini_env);
+void    remove_from_list(t_envnode *mini_env, char *key);
+int delete_first_node(t_envnode **head, t_envnode *curr, char *key);
 
+int	ft_strncmp2(char *s1, char *s2, int n);
 
-
+char	*check_if_in_env(t_envnode *mini_env, char *arg);
 
 void	print_cmd(t_cmd *cmd);
 void	print_array(char **array);
