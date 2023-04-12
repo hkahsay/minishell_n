@@ -224,3 +224,6 @@ exit
 env
 make
 cd ..
+export hello
+export
+env

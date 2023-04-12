@@ -9,7 +9,7 @@ int ft_env(char **args, t_envnode **mini_env)
 
     if(!mini_env)
         return(0);
-    while ((*mini_env)->key && (*mini_env)->value)
+    while (mini_envp)
     {
         if (mini_envp->value[0] == '=')
         {
