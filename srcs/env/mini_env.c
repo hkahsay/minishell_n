@@ -64,7 +64,7 @@ t_envnode *duplicate_env(char **envp) // fnct returns a starting address of the 
 		key = ft_substr(envp[i], 0, j);
 		// printf("%s\n", key);
 		value = ft_substr(envp[i], (j), ft_strlen(envp[i]));
-		// printf("%s\n", value);
+		printf("from mini_env %s\n", value);
 		// envp_var = ft_split(envp[i], '=');
 		// key = ft_strdup(envp_var[0]);
 		// value = ft_strdup(envp_var[1]);

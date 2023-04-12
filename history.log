@@ -136,3 +136,37 @@ unset _
 env
 unset SECURITYSESSIONID
 env
+unset SECURITYSESSIONID
+env
+export hello
+export
+env
+export hgf
+export
+env
+exit
+export hello
+env
+./minishell 
+export nikki
+export nikki=vio
+env
+export hello
+export
+env
+export hello
+export
+env
+env
+export hello
+env
+exit
+export
+export hello
+env
+export hello
+env
+export hello
+env
+export hello
+env

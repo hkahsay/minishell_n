@@ -64,7 +64,7 @@ int ft_export(char **cmd_args, t_envnode **mini_env)
 			printf(OR"there is == sign in value\n"RS);
 			j++;
 		}
-		new_value = ft_substr((char *)cmd_args[1], i - 1, j);
+		new_value = ft_substr((char *)cmd_args[1], i + 1, j);
 		ft_setenv(new_key, new_value, mini_env);
 		print_mini_envp(*mini_env);
 	}
