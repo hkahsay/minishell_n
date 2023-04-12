@@ -223,3 +223,4 @@ env
 exit
 env
 make
+cd ..
