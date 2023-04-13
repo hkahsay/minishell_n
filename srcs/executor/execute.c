@@ -6,6 +6,7 @@ void execute(t_cmd *cmd, t_envnode *mini_env) //t_pipeline *pipeline
 	printf(R "EXECUTE: " RS);
 	print_cmd(cmd);
 	arg_cmds = create_array(&cmd);
+	// mini_env = ft_join_env(&mini_env);
 	printf("argcmd_exc %s\n", *arg_cmds);
 	if (is_builtin(arg_cmds, mini_env) == -1)
 		printf("NOT builtin\n");

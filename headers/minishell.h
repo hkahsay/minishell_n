@@ -57,7 +57,7 @@ typedef struct s_envnode
 {
 	char *key;
 	char *value;
-	char	*content;
+	char *content;
 	struct s_envnode *prev;
 	struct s_envnode *next;
 } t_envnode;
@@ -210,12 +210,13 @@ typedef struct s_builtin
 
 /*MY_ENV*/
 t_envnode	*duplicate_env(char **envp);
-t_envnode	*create_mini_envvar_node(char *key, char *value);
+t_envnode	*create_mini_envvar_node(char *key, char *value, char *content);
 void		free_mini_envp(t_envnode *head);
 t_envnode	*find_env_var(char *key, t_envnode **current_dir);
 void 		update_env_var(char *key, char *value);
 void 		ft_add_envlist(t_envnode *new_node, t_envnode **env);
-int 		ft_setenv(char *name, char *value, t_envnode **env);
+int 		ft_setenv(char *name, char *value, char *content, t_envnode **env);
+t_envnode *create_fuck(char *key);
 
 ////----print_env_dif_level-----------
 void 		print_mini_envp(t_envnode *temp);
@@ -266,7 +267,7 @@ t_wr_node	*check_$_add_w_to_cmd_wnode(t_token **head, t_cmd **cmd, t_wr_node **h
 t_wr_node	*fill_wr_node(t_wr_node **wr_node, int id, char *word);
 char    **create_array(t_cmd **node);
 int ft_list_size(t_cmd *node);
-void ft_envnode_sort(t_envnode *mini_env);
+void ft_envnode_sort(t_envnode **mini_env);
 
 /*EXECUTER*/
 void execute(t_cmd *cmd, t_envnode *mini_env);
@@ -284,13 +285,18 @@ void    remove_from_list(t_envnode **mini_env, char *key);
 int delete_first_node(t_envnode **head, t_envnode *curr, char *key);
 int    ft_putstr(char *str);
 void ft_putchar(char c);
+// t_envnode *init_content(char *content);
+t_envnode	*ft_join_env(t_envnode **mini_env);
+// void	ft_join_env2(t_envnode **mini_env);
 
-int	ft_strncmp2(char *s1, char *s2, int n);
+
+
 
 char	*check_if_in_env(t_envnode *mini_env, char *arg);
 
 void	print_cmd(t_cmd *cmd);
 void	print_array(char **array);
+void print_ex_sorted_envp(t_envnode *mini_env, char **cmd_arg);
 // t_envnode	*sort_envnode(t_envnode *lst, int (*cmp)(char *, char *));
 t_envnode	*sort_envnode(t_envnode *lst);
 

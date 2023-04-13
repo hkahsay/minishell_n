@@ -32,7 +32,7 @@ int	ft_cd(char **args, t_envnode **mini_env)
         perror("getcwd");
         return 1;
     }
-	ft_setenv("PWD", cwd, &env_var);
+	ft_setenv("PWD", cwd, (*mini_env)->content, &env_var);
     printf ("env_var%s\n", env_var->value);
     return (0);
 }

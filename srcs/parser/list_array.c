@@ -13,50 +13,7 @@ int ft_cmd_size(t_cmd *node)
 }
 
 
-void ft_envnode_sort(t_envnode *mini_env)
-{
-    int sorted = 0; // flag to indicate if list is sorted
-    t_envnode *current;
-    // t_envnode *next;
-    t_envnode  temp;
 
-    while (!sorted)
-    {
-        sorted = 1; // assume the list is sorted initially
-        current = mini_env;
-
-        while (current && current->next)
-        {
-            if (ft_strcmp(current->key, current->next->key) > 0)
-            {
-                // swap the key of the current and next nodes
-                // temp = ft_strdup(current->key);
-                // free(current->key);
-                // current->key = ft_strdup(current->next->key);
-                // free(current->next->key);
-                // current->next->key = ft_strdup(temp);
-                // free(temp);
-                // printf("key: %s\n", current->key);
-                // printf("value: %s\n", current->value);
-                temp.key = ft_strdup(current->key);
-                temp.value = ft_strdup(current->value);
-                free(current->key);
-                free(current->value);
-                current->key = ft_strdup(current->next->key);
-                current->value = ft_strdup(current->next->value);
-                free(current->next->key);
-                free(current->next->value);
-                current->next->key = ft_strdup(temp.key);
-                current->next->value = ft_strdup(temp.value);
-
-                sorted = 0; // the list is not sorted yet
-            }
-            current = current->next;
-        }
-    }
-
-    // printf("DECLARE -X %s = %s\n", current->key, current->value);
-}
 
 // t_envnode	*sort_envnode(t_envnode *lst, int (*cmp)(char *, char *))
 // {

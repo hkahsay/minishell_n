@@ -30,6 +30,7 @@ void    remove_from_list(t_envnode **mini_env, char *key)
 {
     t_envnode   *curr;
     t_envnode   *temp;
+    t_envnode   *delete;
     int     len;
 
     curr = *mini_env;
@@ -56,6 +57,7 @@ void    remove_from_list(t_envnode **mini_env, char *key)
 
     // if((curr->key = NULL))
     //     return ;
+    delete = curr;
     if(curr && !ft_strncmp(curr->key, key, len))
     {
         printf("Remove node\n");
@@ -64,13 +66,17 @@ void    remove_from_list(t_envnode **mini_env, char *key)
             temp->next = curr->next; // Update next pointer
         } else {
             printf("Update mini_env to previous second node\n");
-            *mini_env = curr->next;
+            **mini_env = *curr->next;
         }
-        free (curr->key);
-        free (curr->value);
-        curr->key = NULL;
-        curr->value = NULL;
-        free (curr);
+        //curr goest to next item??? can't free because it makes a segfault
+        if (delete != NULL)
+        {
+            // free (delete->key);
+            // free (delete->value);
+            // delete->key = NULL;
+            // delete->value = NULL;
+            // free (delete);
+        }
         curr = NULL;
     }
     else
