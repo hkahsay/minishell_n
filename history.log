@@ -1,1017 +1,1682 @@
-echo hello
-export
-unset TERM
-exit
-unset _
-env
-unset P9K_SSH
-env
-unset LESS
-env
-unset SECURITYSESSIONID
-env
-exit
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-uns hgdl
-unset SECURITYSESSIONID
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-export
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-env
-exit
-unset _
-env
-unset void    remove_from_list(t_envnode *mini_env, char *key)
-{
-    t_envnode   *curr;
-    t_envnode   *temp;
-    int     len;
 
-    curr = mini_env;
-    len = ft_strlen((key) + 1);
-    if (delete_first_node(&mini_env, curr, key))
-        return;
-    // printf("curr->content%s\n", curr->key);
-    while (curr && ft_strncmp(curr->key, key, len + 1))
-    {
-        temp = curr;
-        curr = curr->next;
-        printf("4\n");
-    }
-    if(!ft_strncmp(curr->key, key, len + 1))
-    {
-        temp->next = curr->next;
-        free (curr->key);
-        free (curr->value);
-        curr->key = NULL;
-        curr->value = NULL;
-        free (curr);
-        curr = NULL;
-    }
-    else
-        return;
-}
-
-int delete_first_node(t_envnode **head, t_envnode *curr, char *key)
-{
-    if (head == NULL)
-    {
-        printf("env is empty. Cannot remove node.\n");
-        return(0);
-    }
-    if (ft_strcmp(curr->key, key) == 0)
-    {
-        printf("are we here\n");
-        curr = *head;
-        (*head) = (*head)->next;
-        printf("curr->next->key------ %s\n", curr->next->key);
-        printf("head------ %s\n", (*head)->key);
-
-        // free(curr->key);
-        // free(curr->value);
-        // free(curr);
-        // printf("3\n");
-        return
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-env
-unset _
-env
+hkg 
+jgir |klhg
+jky jkl |jmy
+hell f | hfge
+hgjkru |ofdp
+echo hello | grep -e
+hello
+helo world
+helo | hbre
+helo | hbre
+hello world
+hello world | 2023
+hello world
+helo wpr| hedf
+hello world 2023
+helo wordl djef
+hekdfj ehkdt iorfn
+hfreut hgiuov fugkjf
+hell
+heljki
+brv
+vrwvr
+vwrbw
+averr
+averae
+aeace
+car
+verr
+vvww
+./minishell
+avop
+avvvr
+vaervr
+vav
+cwe
+cqw
+ceqc
+kdw[d
+dweod
+wek[
+dwed[pq
+dwoe
+dke[dk
+apna
+veveqr
+hreqche heqocrh hoehc
+"eofoef eqoihf ehqiofh"
+"efufe "beri" dhweof"
+bciwcb
+weiochw
+cnein
+cnepnc
+cepoc
+cenwpc
+make fclean
+nirehre
+wrog;wi hrgioe
+oihoicw
+hewc8e chew9cp cewuicgwpe
+"nwoe" hewph "cweiu | hcw -l | > oufile
+jowj cnwoec "nwnwo
+    choweqche
+   <
+   <
+   <
+   <
+     |
+    |
+    |
+vbv
+iuuc iuXG XUIWHX | JWOI XHOH _ncwo -dwj
+bshbx     swiqus <bsdb nbxiw>nxs    || cwe09u cw<<xowenx POKI>>woe . iod > xiuwbx    oiqwh <  idoqw
+bshbx     swiqus <bsdb nbxiw>nxs    || cwe09u cw<xowenx POKI>>woe . iod  xiuwbx    oiqwh <  idoqw
+   xwo  <  
+ncwec < coewcoiwe
+>
+>
+dnowebc cwoence cwoince      iej dkeow     j
+cbieubc cibciu pqowi2 3o 
+   djio hsqiw    p12oi <
+nowe wiedioeh 3je2 e2o3j
+wce
+     wex    sqiw
+   <h
+    <
+>>
+|
+|
+||
+<
+<<
+   |
+||
+<
+>
+   wneic ihdxiow 9999 <
+    <
+wuehcew hioqhxwe    0squ 09qwd9sq
+ebuwhxw hi | doweiud du | d2938yd1 | du29
+cbwue hwe8hc98w hcwuehed9 hce
+  <
+<
+cbweu pweid0w    dwue9d udweo   djwo
+hdowi gsywq     hdio  hdqi | edh2o << eu320 hoii2 
+>
+>>
+gwi ppowupq jpw | d ho23 > << >> dy293 > odweh.x
+    >
+  >   >   > >
+>>
+<<
+>>
+>>>>>
+     ieurfgie  gy3fg4u hduweiyfiew |||  jdi<< < >> jjj     
+>
+<
+<<
+<
+<<
+uicwh  iowhoqw uwq||iudiw   t< hudqiw
+>
+>>
+>
+>
+>>
+>
+>
+>
+>
+>
+>>
+>
+|
+||
+>
+>>
+||
+|
+<
+<<
+iuwehfiuwy <    diu3g32q
+< fuihpwdpi    fi34urh 
+<<
+<< <
+< >
+< <
+< <
+< <
+< <
+< <
+< <
+< <
+> >
+< <
+< < 
+< <
+< <
+< <
+< <
+<<  hwkdge
+< < <
+<
+>
+<<
+>>
+|
+||
+<
+>
+|
+< <
+< a
+asd
+dcv
+bwiue
+hello hermon
+  \"  nc \"jkn\"nkjb
+hel "xz"
+hel "zx"
+   "bla"  m
+  \"  nc \"jkn\"nkjb
+   he "he" m
+hel "bu" n
+hel "bu" m
+   "cou"  bla
+   "ci"  co
+  "cou" ma
+   "cou" ma
+  "cou" bla
+   "cou" bla
+  "cou" bla
+   "cou" bla
+   "cou" bla
+   "cou" bla
+  "cou"  bla
+  "cou"  bla
+  "cou"  bla "  kli"
+  "hr"  bh
+  "ch"  mk
+ch "mn"
+"cg nn
+cg "hj"
+cg "  hj"  "ij"
+cg "  hj"  "ij" "bbbb  "
+ch "huw" xhw "hxw"
+ch "huw" xhw "hxw" "   ty"
+xwh xwo "uew" djei 
+xwhu oxw "hde" xheiw
+dc oe qwep "dhwue"
+xb pqxoi xqpo xq "hxwe" xhi
+gxw "uwe" xhwei 230s jie
+xbw "wheu" h2ei 0s9 "xbwj"
+ius2w "hwqu" jiwx bh "weu" 
+"  wuw" swhi
+"  jew" "dk"
+"  jwehd" je
+"cwei" "deuw" xnwe "hd"
+"cou"  bn 
+"cou" hi
+"cou"  "be"  "ki"
+    "no" "  yes"
+"cou" "be" "  ho"
+"cou" "ho' "  le"
+'cou" "bla" "  mu"
+"cou" "bla" "  no"
+"cu" "be" "  no"
+"cu" "  co"
+"cu" "  co"
+"cu"  "  co"
+"cu"  "  co"
+ "cu"  "  co"
+"cu" " co"
+"cu" " co"
+"cu" " co"
+"co" " cu"
+"cu" " co"
+"cu" " co"
+"co" " cu"
+"co" " cu"
+"co" " cu"
+"co" " cu"
+"co" "  cu"  "bo"
+"ba  " "bo"
+  "  nc "kj"shw"
+"co " "cu"
+echo "     ble"
+echo "   bla"
+echo "hhi  "
+echo "bla"
+echo "bla"
+echo "bla" "blu" "mai"
+"echo" "bla" "blu" "mai"
+echo "bla"
+echo "bla"
+echo "bla"
+echo "bla" "no"
+echo "bla"
+echo "bla" "no"
+echo bla no
+echo $HOME "bla" |
+echo "bash"
+echo "bash" "bu"
+   echo   "bash"
+echo "bu"
+echo "bi" bi
+echo "bla"
+echo coucou "bla"
+echo "bla"
+echo
+echo bla
+echo "bla"
+"echo"
+echo    "bla"
+echo "bla"
+   echo "bla"
+echo bla
+echo "bla"
+echo bla
+echo "bla"
+echo "bla"
+"bla"
+la la
+"la" "la"
+ma ma
+ma ma
+la la
+"ca" ba
+"ca" "ba"
+"ca" "bla"
+"ca"    "bla"
+  "ca"    "bla"
+"ba" "no"
+ba va
+"ba" va
+ca va
+ca va
+ca va
+ba "bu"
+ca va
+cfd vbf
+"ca" "va"
+"ca" "va"
+"ca" "va"
+ca va
+"ca" "va"
+ca va
+"ca" "va"
+echo "ca" "va"
+ca va
+"ca" "va"
+ca va
+"ca" "va"
+ca va
+ca va
+ca va
+ca va
+ca va
+ca va
+bu do
+cav va
+ec ch
+|<<
+cv
+|
+>
+|
+bcwjvew
+fjehr
+ifhr
+iwfjqe
+bcsh
+vuyfo
+ukfuly
+oi3h4 3j4i <<
+ns jdwio 
+|
+>
+<<
+|
+|
+>>
+|
+>>
+|
+|
+|
+>
+>>
+>>
+<<
+>>>
+>
+>>
+>|
+|
+|  >
+|   >
+|   >
+|  >
+|  >
+|  >
+|  <  >
+>> |
+>> > <<<
+>>>
+<<<
+<< <
+<<<
+>>>
+> >
+<<
+| <
+<<
+| >
+>>
+>>
+>>
+>>
+   |  >>>
+>>>
+>>>
+> bh
+>>>
+bceh cej
+cb cshd
+b iu giu
+bc cs
+bdwk jw
+vuu yuyo
+ckkwe hcduiw
+vg bh
+ni fr
+bhj lk
+bjcsd bcds
+bc ecw
+< bh
+>> < | bn
+<< vg > hj | ji
+cd cd
+vg>d
+vb>j
+vg vb
+vg sd
+bh sd
+nb xs
+nj sd
+bn kl
+bh ds
+<< <<
+< <
+>> <
+>>>
+bh bh
+>>
+>
+>>
+<<
+vg
+bh sd
+>> nj
+bh >> lk
+bh bh
+kl nm
+lk ds
+bh ds
+>>
+hj ds
+bh ds
+lk re
+kl sd
+lk re
+nk ds
+lk fd
+gd sd
+lk fd
+jk ds
+>> <
+kw dwe
+kl df
+>> bn
+vb er
+lk fd
+lk fd
+lk fd
+kj ds
+bh cd
+bh cd
+nj fd
+lk fd
+mkl ds
+kj ds
+>> hu
+<<
+<< >>
+> << |
+>>>
+>>>
+>>>
+>> >
+>> test
+echo "$HOME"
+echo "$HOME">>test.txt
+echo "$HOME">>test.txt|cat|ls
+echo "bnm" | dek2 jl << dje
+nbcwie "buiu" dew | << nwe >dwhi gdwy <
+nbcwie "buiu" dew |<<nwe >dwhi gdwy <
+nbcwie "buiu" dew |<<nwe >"dwhi gdwy" <
+nbcwie "buiu" 'dew |'<<nwe >"dwhi gdwy" <
+vg <
+vg >> | nj ds
+>
+hjgds" fg" ' |
+bh bh
+vg "bb"
+vg skj dwoiud "hfie"
+> eor
+ || c == '"'~
+>>>>>
+>>>
+>> >
+bk ji
+bh bh
+cfgj hjuk; gi
+bh nj
+<< <
+<< <
+<< <
+<< <
+<< <
+<< <
+vwgh <<
+<<<
+<< < << >
+<<<
+<< << >
+<<<
+vcsg bxa <<<
+VVV| cs "bqw"   >> <<<<<
+dfhj "fhdjers>> < >
+cd
+"cd"
+"cd" cd
+" cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+cd
+cd kl
+cd m
+beh wuei dwiu
+cd vjf swe
+sx iwue c woirh dow
+<<
+<< <
+<<>
+hrb jwid <<nce
+cbiw lki | csnd<<|njwe >dnwj <
+bchd hsid
+ne >> |vf cws
+"cd"
+"cd" "fg"
+"cd "
+"cd    mk"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+'cd'
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+cds "bg" nm
+"cd" mn
+"cd" vc
+"cd"
+"cd"
+"cd"
+"cd"
+'cd'
+"cd"
+'cd'
+"cd"
+'cd'
+"cd"
+'cd'
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"c
+"cd"
+"cd"
+'cd'
+"cd" 'vf' cvb
+"cd"b
+hegf "fgdjg"  |kg <>
+hegf "fgdjg"  |kg <>
+hegf "fgdjg"  |kg <>
+hegf "fgdjg"  |kg <>
+"cd"c
+hegf "fgdjg"  |kg <>
+"  bh  "
+"cd
+"cd
+"cd" vfd
+"cd" 'vbkkvb njwe' |
+"cd'fd'wed"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd"
+"cd
+"cd" "vf"
+"cwbie nicwe"
+"cwi" 'vuweyuy hjg'
+"cwi" 'vuweyuy hjg
+"cgds "bwey"
+Avg"fdg"
+"vdk"gf
+"nsu sn"sceo'vd'
+"cgds "bwey"
+"juk 'hhj' jk"
+"cd"
+"cd"
+'cd'
+"cd'fd'er"
+"cd'gf'y"
+"cd"
+'cd'
+"c'd't"
+her "kfs>dht'jf'gkf" |
+her "kfs>dht'jf'gkf" | 'djey<<dwi.txtr 
+her "kfs>dht'jf'gkf" | 'djey<<dwi.txtr' 'uwey"$de"hdwqu'
+her "kfs>dht'jf'gkf" | 'djey<<dwi.txtr 'uwey"$de"hdwqu'
+her "kfs>dht'jf'gkf" | 'djey<<dwi.txtr 'uwey"$de"hdwqu'
+her "kfs>dht'jf'gkf" | 'djey<<dwi.txtr 'uwey"$de"hdwqu'
+her "kfs>dht'jf'gkf" | 'djey<<dwi.txtr 'uwey"$de"hdwqu'
+nbcwie "buiu" dew | << nwe >dwhi gdwy <
+eo capo xap 
+echo "$HOME"
+echo
+echo tr
+echo
+echo
+echo
+echo echo
+echo
+echo
+echo
+echo
+echo to work
+echo >> to
+>>input
+echo haha
+echo
+echo >> gh
+echo >> gh
+echo
+echo hello who
+echo
+hello
+echo
+echo
+echo
+echo
+echo word
+echo word hello
+echo word hello
+echo word hello ff
+<<dv
+>>bwei <wef
+>>csc
+>> dsa
 exit
-unset _
-env
-env
-unset USER
-env
-unset LANG
-env
+clear
+/bin/clear
 exit
-unset _
+>> dsa
+>> dsa
+>> dsa dsa
+>> dsa dsa
+>> dsa dsa
+>>
+>>
+>>
+>> dsa
+>> dsa
+>> dsa
+>> f3li
+>>gwejrf
+<<
+vghg "dje" 'ge' |
+< << > >> "bh" 'bj'
+< << > >> "bh" 'bj'
+< << > >> "bh" 'bj'
+< << > >> "bh" 'bj'
+cv dj
+>>gyweu
+>>gyweu | erhioe dfg
+>>gyweu | erhioe dfg
+ds cs
+cer wef we  fwde
+cer wd3 dwp >>dhwe
+cer wd3 dwp >>dhwe d23 23
+cer wd3 dwp >>dhwe d23 23
+csd sdc sc
+sc c cwe
+cd vf ss
+cd fd gf
+cd vf <dwe
+cds vf
+csd ver < cs
+cd gf >fdr
+cd gf
+cd gf < csd vdfsd
+cd gff
+cs ad gef <cd
+cds dcs >vd cd
+cd gf sd
+cd gf <sd
+dc f gnb
+cd
+cd |
+cd |
+cd |
+cd |
+cd |
+|
+cd
+cd
+cd cd
+cd |
+cd < xas
+cd cd
+cd fg
+cd "fd"
+cd fj
+cd fg
+cd fg
+cd fg
+cd df
+cd fg
+cd gh
+cd fg
+cd sd
+cd fg
+cd fg
+cd fg ;hn qwd 
+cd i 'cs'
+csd ver a[s | dwe
+cd fg
+cd fg | sd
+cd fg
+cd df
+sd fg
+cd fg
+cd fg | sd
+cd sd
+xf re | SD
+SD DF
+cv gb | sd fg
+cd fgd | d sdv | ad rg
+cd "df"
+cd fg
+cd 'gf'
+'cd'
+cd gr se
+cd gb sd | fwe gre
+'cd'
+'cd'
+'cd'
+cd 'hfg'
+cd 'bcds"$dgfh"bh'
+cd
+cd jk
+cdgh cd | ef
+'cd'
+'cdsdy $hsd xsk'
+cd ../
+'cd'
+'cer $Home'
+cd fg | dbsj fer
+fe | FEWJ | DWEU | E
+cd jk
+cd"sd"fg'sd'
+cd"sd"fg'sd
+c dfg
+cd 'gf'
+wef weo d
+cd cd
+cd 'c'
+cd 'c   hj'
+cd '$HOME'
+"cd"
+"cd"
+"cd"
+"cd  gdf"
+"cd  $gdf"
+"cd $df"
+"$cd"
+"$"
+"cd$"
+"cd"
+"$"
+"$"
+"ddde$"
+"ds$ds"
+"$sd"
+"$"
+"sdf$"
+"sdf $"
+"$"
+"dsc$"
+"dsc$dsc"
+"cd$"
+cd fg
+cd"sd"
+cd fg
+cd fg
+cd fg
+cd fg
+cd fg
+cd fg
+cd fg
+cd fg
+c dfg
+cd fg
+cd fd
+cd fg
+cd fg hj
+$HOME
+$HOME
+cd$HOME
+$HOME
+&HOME
+$HOME
+$HOME$HOME
+$HOME
+$HOME
+$HOME
+cd fg
+cd fg
+cd$HOME
+cd$HOME
+cd$HOME
+cd$HOME
+cd$HOME
+cd$HOME
+cd$HOME
+cd$HOME
+cd$HOME
+cd$HOME
+cd$HOME
+cd$HOME
+cd$HOME
+cd$HOME
+cd$HOME
+cd$HOME
+cd$HOME
+cd$HOME
+cd$HOME$PAGER
+cd$HOME
+cd$HOME$USER
+cd$HOME$PAGER&USER
+cd$HOME$PAGER &USER
+cd $HOME
+sd fg 
+cd fg
+cd fg "gtrk"
+cd fg 'gtrk'
+cd fg $HOME
+cd fg $HOME$PAGER
+cd fg cd$HOME$PAGER
+'cd'
+'cd'
+cd fg
+sd 'cd'
+cd df
+$HOME
+$HOME
+$HOME
+$HOME
+echo $HOME
+echo cd$HOME$PAGER
+cd df
+$HOME
+$HOME
+$USER
+$USER$HOME
+cd$HOME
+'cd'
+'sdf csd'
+cd fg
+cd$HOME
+cd fg hg
+$HOME
+cd&HOME
+cd$HOME
+cd$HOME$PAGER
+cd fg
+$HOME
+$HOME
+cd$HOME
+$PAGER
+$GI
+$H
+export var=wedcw
+export var=wfw
+export VAR=ghjsd
 env
-unset vio
+echo sdf
+echo sdkjfhsd
+cw qdw
+echo sdfwec
+export BWE=cwew
+cd sdc
+cd fg
+cd df
+cd|sd
+cd df
+csd sdf wef
+"$HOME" sd ew
+&HOME
+$HOME
+&HOME
+$HOME
+$HOME
+$HOME
+$HOME$PAGER
+$HOME $PAGER
+$HOME
+$HOME
+"cd"
+export csd=ferf
+$HOME
+"bervieb"
+"$HOME"
+>cnsd
+>xwx xwe
+csd |xbqw
+$HOME
+cds erf f34
+cd"rg"
+cf dfg
+cf hui bui
+cf oiu gz
+$HOME
+$HOME
+$HOME
+$HOME
+vg ct
+"fuf6" hh"fz"
+$HOME
+"$HOME"
+>budw wzu
+cd fd
+$HOME
+xas wxe
+"secw"
+"cecv$HOME"
+xas mkl
+"csad"
+cds sd
+"$HOME"
+cd df
+"sd" cd 'sd'
+$HOME
+cdf$HOME
+cdf$HOME$HOME
+cd f
+cd df
+"cd"
+cd df
+cd "cdsdf"
+"cd"
+cd "df"
+"df"
+cd df
+"dc" d
+"dc" d $HOME
+cd df
+cd df $HOME
+cd df $HOME "$HOME"
+cd df $HOME "$HOME$HOME"
+cd df $HOME "$HOME $HOME"
+cd df $HOME "$HOME $HOME" '$HOME'
+cd df
+$
+$$
+$
+$$
+$?
+cd df
+$
+$
+$$
+$USER
+$$USER
+$
+cd df
+$HOME
+$
+$$
+cdsc$
+$
+cd
+$
+cecde $
+cd df
+$HOME
+$HOME
+$HOME
+$HOME
+cd df
+$HOME
+$HOME
+$HOME
+$HOME
+cd$HOME
+$HOME
+$$
+$?
+$HOME
+$HO
+$HOME
+cd
+cd sd
+cd "ds"
+cd "ds" $HOME
+'cds'
+$HOME
+cd$HOME
+cd$HOMEds
+cd$HOME$HOME
+cd$HOMEbla
+cd$HOMEas
+cd$HOMEsd
+cd$HOMEsd
+cd$
+cd$
+$
+$$
+$
+$$
+$
+$$
+$
+cd$
+$csdcs
+ds
+fd fd
+fd "fd"
+fd "fd" $HOME
+fd "fd" cds$HOME
+fd "fd" cds$HOMEscd
+cd$hddd
+cd$sd
+cd$sd
+$
+$HOME
+cd$ds
+$HOME
+$HOME
+$HOME
+$bla
+cds
+"HOME"
+"$HOME"
+"$HOME$HOME"
+"$HOME$HO"
+$HOME$HO
+$
+$$
+$?
+$$
+$?
+$HONE
+$HOME
+cd$HOME
+$BAD
+$HOME$BAD
+$
+$$
+$$$$$
+$HOME
+echo $HOME
+echo $HOME"$HOME"
+ech"o"
+cd df
+cd $HOME
+cd$HOME
+cd"$HOME"
+<cdsc
+< ds
+cd df
+cd"fd"
+cd df
+cd df
+cd"df"
+cd"de"
+cd"fd"
+cd"fd"
+cd"$HOME"
+cd"$HOME"fd
+cd"$HOME""fd"
+cd"$HOME"'fd'
+cd"$HOME  fdh"'fd'
+echo cd"$HOME  fdh"'fd'
+$"HOME"
+$"HOME"
+cd sd
+cd sd"$HOME"
+cd sd"$HOME"khs '$HOME" $BHF
+cd sd"$HOME"khs '$HOME' $BHF
+cd sd fg
+cd sds
+csd wefw wef
+cd sd fw"weo""$HOME"
+cd sd fw"weo"'$HOME'
+cd sd fw"weo $HOME"'$HOME'
+cd sd fw"weo $HOME"'$HOME' $VA
+cd sd fw"weo $HOME"'$HOME' $VA <qhudihw
+cd sd fw"weo $HOME"'$HOME' $VA <  qhudihw
+cd sd fw"weo $HOME"'$HOME' $VA <  qhudihw | efwo
+cd sd fw"weo $HOME"'$HOME' $VA <  qhudihw"|efwo"
+cd sd fw"weo $HOME"'$HOME' $VA <  qhudihw"|"efwo"
+cd sd fw"weo $HOME"'$HOME' $VA <  qhudihw"|"efwo
+cd sd fw"weo $HOME"'$HOME' $VA <  qhudihw "|" efwo
+$
+$$$
+$?
+cdsf jsd "cnoe"$HOME
+<outfile
+<outfile erceq
+<outfile erceq | eio3 <infile
+<outfile erceq | eio3 <infile >wieu $HOME$HO
+cd df as
+$HOME
+$HOME"$ve"
+$HOME"$ve""$PAGER"
+"$ve"
+vd"wnfe"
+$HOME
+$HOMEcd "sdfjw"
+vefver echo $VSAR
+cd sfg sg
+cd sfg"sg"
+cd sfg"sg" $HOME$PAGER
+cd sfg"sg" $HOME$PAGER <"HWDE"
+cd gfa q3
+cd gfa q3|wefw f43 cosd "nwe"
+cd"$HOME" gfa q3|wefw f43  | cosd "bcwe""nwe"
+cnoei | weifj | 9e40u930| f9430uf|wjf4
+cd sdf
+cd sdf|sve |fwefgew owefn| fwe wff|fmwe
+|f2iepf2 weho|wejo
+cdc||f2iepf2 weho|wejo
+cdc| |f2iepf2 weho|wejo
+cdc| |||f2iepf2 weho|wejo
+cd df
+vh |v | yug
+cd df|sdc
+dvcad |iri |<howefh|fwhoe
+"$HONE"\iux|iuwzg
+"$HOME"\iux|iuwzg
+ew wefr
+wce|wfwe|3f2|fdw|wed
+cd df
+cd df
+cd df
+cd df
+cd "df$HOME"
+cd "df$HOME"cd
+cd "df$HOME"cd | weido   | < qewoi
+cd df
+cd df|sef|c
+cd df
+cd df
+cd sdf
+ewu qdwoud "aciud"
+ewu qdwoud "aciud"|sd
+ewu qdwoud "aciud"|sd|sfd|oudf23 d3|>wieu
+cd df
+cs efdw
+cs efdw| sf
+cd sd|sdcf
+cs|cew
+c d|ada
+cd sd
+cd|ewdw|we
+cew|efq|>cwewecew cew we|we
+cd sd
+cd sd|sd|sf\cmspe "nwfe"|cwneo
+"$HOME"
+cds sd
+ve d |wefnow|fwoe
+ve d |wefnow|fwoe|<cweeuwo we
+cd sdf
+cd sdf|wefw|>wewc
+cd sdf|wefw|>wewc cwec
+cd sdf|wefw|>wewc cwec cew>wecwec
+cd sdf
+|
+||
+|
+||
+cbweuw|
+cd|aca|"wieug"|"$HOME"
+cd|aca|"wieug"|"$HOME" uwhoe|>euwc>dowiqhdi<howiq<weio
+cd|aca|"wieug"|"$HOME" uwhoe|>euwc>dowiqhdi<howiq<weio dqQ >XBQUIWW
+cds
+cdw wpo|wec
+cs|ewfcw|cwece|>cweic|c
+ xc sd
+echo dsssas
+csd dcsw
+echo asc
+echo $HOME
+ech"o" $HOME
+export
 env
-unset P9K_SSH
-unset P9K_SSH
+echo
+echo decqwe
+unset
 env
-unset XPC_SERVICE_NAME
+echo hisduh
+echo hisduh >wey
+echo hisduh >wey weihc >cowhie>iweh>iewh
+echo hisduh >wey weihc >cowhie>iweh>iewh | deu
 env
-unset XPC_SERVICE_NAME
-unset hello
-unset hello
 env
-unset P9K_SSH
 env
-unset LESS
 env
-unset USER
 env
-unset P9K_SSH
 env
-unset vio
-unset vio
-unset vio
-unset vio
-unset vio
-unset vio
-unset vio
-unset vio
-unset vio
-unset vio
-unset vio
 env
-unset P9K_SSH
 env
-unset _
 env
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
 env
 export hello
-export
 env
-export hgf
-export
 env
-exit
-export hello
 env
-./minishell 
-export nikki
-export nikki=vio
 env
-export hello
-export
 env
-export hello
+export var=ger
+env
+export bla
 export
 env
 env
-export hello
+export var=gh
 env
-exit
-export
-export hello
-env
-export hello
-env
-export hello
-env
-export hello
-env
+export var1
 export
 env
-exit
 env
-unset TERM_PROGRAM
+export var=hdew
 env
-unset TERM
-unset TERM
-unset TERM
-unset TERM
-eixt
-exit
-unset TERM
-exit
-unset TERM
-exit
-unset TERM
-exit
-unset TERM
-env
-exit
-unset TERM
-exit
-unset TERM
-exit
-unset TERM
-exit
-unset TERM
-exit
-unset TERM
-env
-exit
-unset TERM
-exit
-unset TERM
-exit
-unset TERM
-env
-exit
-unset TERM_PROGRAM
-exit
-unset TERM_PROGRAM
-unset TERM_PROGRAM
-env
-unset TERM_PROGRAM
-env
-env
-export
-export hello
-env
-exit
-env
-make
-cd ..
-export hello
-export
-env
-unset SECURITYSESSIONID
-env
-env
-unset SECURITYSESSIONID
-export
-unset SECURITYSESSIONID
-env
-export
-export hello
-export
-env
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-env
-env
-exit
-unset SHLVL
-env
-unset SECURITYSESSIONID
-env
-env
-unset SECURITYSESSIONID
-env
-unset TERM_PROGRAM_VERSION
-env
-unset SECURITYSESSIONID
-exit
-unset SECURITYSESSIONID
-unset LESS
-unset LESS
-env
-unset SECURITYSESSIONID
-env
-unset LESS
-env
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-exi
-exit
-unset SECURITYSESSIONID
-exit
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-exit
-unset SECURITYSEESIONID
-unset hjhj
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-EXIT
-exit
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-env
-env
-unset SECURITYSESSIONID
-exit
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-exit
-unset SECURTIYSESSIONID
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-env
-exit
-unset SECURITYSESSIONID
-ENV
-env
-exit
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-env
-unset SECURITYSESSIONID
-env
-unset PWD
-exit
-unset LESS
-export hello
-env
-export hello
-export
-env
-export HOMEBREW_CACHE
-export
-export HOME=hermon
-export
-export HOME=hermon
-export
-export
 export var
 export
-export HOME
+export var=ide
 export
-export HOME=
+export ksjdh
 export
-export
-make
-export
-export hello
-export
-export hello
-export
-export hello=
-export
-export hello=
-export
-export hello
-export
-export hemon
-export
-make
-./minishell 
-export hello=
-export
-env
-env
-./minishell 
-env
-env
-export hello
-export
-export hello
-export
-export hello
-export
-export hello
-export
-export hels=
-export
-export held=
-export hedl=
-export
-export hedl=
-export
-export hed=
-env
-export
-export hds=
-export
-export hsf=
-export
-export hdf=
-export
-export hfd=
-export
-export hfg=
-export
-export hfg=
-export
-export gdd=
-export
-export ffg=
-export
-export hhdsd
-export gfs=
-export
-export hgh=
-export
-export hfg=
-export
-export fd=
-export
-export hdg=
-export
-export dg=
-export
-export hg=
-export
-export hfd=
-export
-export hfd=
-export
-export hf=
-export
-export gfh=
-export
-export hfd=
-export
-export hello=
-export
-export hgf=
-export
-export hfd=
-export gfh=
-export hgfl=
-export
-export hgd=
-export
-export fd=
-export
-export fdg=
-export
-export fdf=
-export
-export fdg=
-export
-export aa=
-export
-export hesl
-export
-export gsf
-export gsf=
-export hfd=
-export gff
-export
-export gfffs=
-export
-export hfhh=
-export
-export fh=
-export
-export fdg=
-export
-./minishell 
-export gfh=
-export
-export gfh=
-export
-export hfh=
-export
-export hgf
-env
-export hfgg
-env
-export hg
-env
-export hfgg
-env
-export hfdg
-env
-export ggh
-env
-export fds
-env
-export hfg
-env
-exit
-export hello=
-env
-export hellof=
-env
-export hfffhh=
-env
-export hfh=
-env
-export hfhf
-env
-export hff
-env
-export hfg
-env
-export hfg
-env
-export hgf
-env
-export hgd
-export hfd
-export hfg
-export hed
-export hdg
-env
-export hfh
-env
-export endf
-env
-export hfhf
-env
-export hdfg
-env
-export hdg
-env
-export hfsf
-env
-export hfh
-env
-export fdg
-env
-export hdfs
-env
-export helo
-env
-export hgdl
-env
-export hello
-env
-export helo
-env
-export hfdg
-env
-export hel
-env
-export hedl
-env
-export hello
-env
-export hleo
-env
-export
-export hello=hello
-env
-export something
-env
-export something
-env
-export something=salut
-export
-env
-env
-export something
-env
-env
-export something
-env
-env
-export something
-env
-export
-env
-export hello
-export
-export hello
-export
-export something
-export
-export helo=kfg
-export
-export hello
-export
-export hello
-env
-export hello
-env
-export hello
-env
-export hello
-env
-export hello
-env
-export hello
-env
-export hello
-export
-env
-export hello
-env
-export hello
-env
-export hello
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
 env
-rnv
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-env
-make
-env
-env
-env
-export hello
-env
-export hell
-env
-export hello
-env
-export hello=
-env
-export hell
-env
-export hell
-env
-export hel
-env
-export hell
-env
-env
-env
-env
-env
-env
-export hell
-env
-export hell=
-env
-export
-export
-export
+export var =ide
 export
+export var=ide
+export var1 =ide
 export
 env
-export
-export
-export
-env
-export
-export
-export
-export
-env
-export
-export
-export
-export
-export
-export
-export
-export
-env
-export
-env
-export
-export
-env
-export
-export
-env
-export
-export test=hello
-export test=hello
-export test=hello
-export
-export test=hello
-export
-env
-export FUCK=SHIT
-export
-export F=POU
-env
-env
-export R=dwe
-export Fuck=bla
-export
-env
-export
-env
-export FUCK
-export fuck=
-export
-env
-export fuuck
-export fuck=shit
-exprot
-export
-env
-export LESS=shit
-export
-export
-export LESS=
-export
-env
-export LESS
-export
-export PAGER
-export
-export
-export
-export
-export
-export
-export
-export
-export test=hello
-export
-env
-export test=
-export haaalooo=
-export
-env
-export tester
-export LESS=Vio
-export
-env
-export
-env
-export PAGER=
-export
-env
-export LANG
-env
-export
-export PAGER=hello
-export
-export Vio
-export new
-export Vio
-export Vio
-export Vio
-export Vio
-export
-env
-export
-export Vio
+pwd
+cd..
+cd..
+cd..
+cd sd
 cd ..
-export LESS=Vio
+wec3ec
+cwecrce
+f34f3
+echo dscwe
+cd s fse
+cd s fse| <<hwoei
+c ew
+$HOME
+ecjl
+$HOME
+$HOME$HOME
+$HOME
+$HOME$PAGER
+x cewc
+x cewc|wheof|<cbweiu
+echo dfcas
+echo dfcas | cwec
+cs cspdo
+cs cspdo|sncw|<cwoiech
+cs cspdo|sncw|<cwoiech|>>
+cs cspdo|sncw|<cwoiech|>>
+cs cspdo|sncw|<cwoiech|>>"bwecbw"
+cds lef
+cds lef|>>
+cds lef|>>nveor
+cds lef|>>"nveor"
+env
 export
+env
+env
+env
+env
+export VAR=bla
+export VAr=dwe
+env
 export
+export VAB
 export
+export BLA1=something
 export
-export test+alkad=de2gd
+env
+export BLA2=
+export
+env
+export BLA3
+export
+env
+env
+export
+export VAR
+export
+export VAR1=
+export
+env
+export VAR
+export
+export ZAZ
+export
+export ZOZ=
+export
 export
 env
 export
-export LESS=bla
-export
-env
-export FUCK=wle
-export
-env
-export FUCKed=
-export
-env
-export LESS
-export
-env
-export HOMEBREW=cbiw
-export
-env
-export OLDPWD
-export
-env
-export NLA
-export
-enc
 env
 export
-export SHIT
-export
-export SHIT
-export SHIT
-export SHIT
-export SHIT
-export
-export SHIT
-export
-export SHIt
-export
-export cnwldc
-export
-export
-export
+export ZAZ=
 export
 env
 export
-export VAR=cbiwue
+export ZUZ=ncuec
+export
+env
+export
+ZUZ="cer"
+export ZUZ="cer"
+export
+env
+export ZM
+export
+env
+env
+export
+export VAR1=nceor
+env
+export
+export VAR2=
+export
+env
+export VAR3
+env
+export
+export VAR1=cbwiu
+env
+export
+export VAR2=
+export
+env
+export VAR3
+export
+export VAR
+export
+export AAA
+export
+export VAR
+export
+expoert VAR
+export VAR
 export
 env
 export VAR1=
 export
 env
-export FUCK
-export LESS=cwoeih
+export VAR2=oievhroi
 export
 env
-export PAGER=
+export LESS=blue
 export
 env
+export LESS=
+export
 export TERM
 export
 env
-export VIO
-export VAR=cwew
+export BLA
+env
+export
+export PAGER=
+export BLA
 export
 env
-export KL=
+export LESS=bcwjbciw
 export
 env
-export ZX
-export HOME=oewih
+export LESS=
+export
+export LESS
+export
+export LOGNAME=
+export LANG=cbiw
 export
 env
-export ZSH=
+export LANG=
 export
 env
 export LANG
 export
 env
-export ZXUG
-export VIO
-export VIO
-export VIO
-export BH
-export BHJFJ
-export
-export VIO=welihw
-export
-env
-export ZX=
-export
-env
-export LESS=cwuigc
-export
-env
-export NIKKI=
-export
-export HER
-export
 export LESS
+EXPORT
 export
+export LESS=
+export
+export HOME
+export HOME
+export HOME
+export HOME
 env
-export HERS
+export HOME
 export
-export VAR
+export SSH
 export
-export VAR
+export SHELL
 export
-export VIO
+export SHELL=
+export HOME
 export
-export VAR
+export HOME
+export HOME
+export HOME
+export HOME
+export HOME
 export
-export
-export VIO
-export
-export
-export VAR
-export
-export HERS
-export
-export VAR
-export
-export ZXX
-export XXX
-export
-export XCX
-export
-export VAR=cgi3ge
-export
-export LESS=cjwep
-export
-export
-export VAR=cei
-export
-export XX=
-export
-env
-export LESS=chwoeihe
-export
-env
-export PAGER
+export RAR
 export
 env
 export VAR
 export
-export XCX
-export XXX
-export ZZZ
-export
-export XXX
-export
+env
 export VAR
 export
-export XXX
+env
+export RAR
 export
-export XXX
+env
 export
-export XXX
-export XXX
+export RU=
+env
+export RAR
 export
-export ZZZ=ewiugf
+env
+export ZAZ=
+export
+export HOME
+export
+env
+export VAR=bciwueb
+export
+env
+export YUB=
+export
+env
+export ZCZ
+export
+env
+export
+export VAR=cbwei
+env
+export VAR=
+export ZZ=
+env
+export
+export
+env
+export ZZ=nroiw
+export
+env
+export XXXXX=
+export
+env
+export YYY
+export
+env
+export
+env
+export ZXSD=
+export
+env
+export VAR=
+export
+env
+export VAR
+export
+export ZZ=
+export
+env
+export VAR=
+export
+export ZZ=
+export
+env
+export VAR=cnorufh
+export
+env
+export ZIQHWDIW
+export
+env
+export HOME=cuwr
+export
+env
+export LANG=
+export
+export VAR=fbroff
 export
 env
 env
+export VAR=cbwiue
 export
 env
-env
-export
-export XXX=cnore
+export ZZ=
 export
 env
-export ZZZ=
+export XX
 export
+env
+export ZZ=fno3
+export
+env
+export XXXXX=
+export
+env
+export VVVVV
+export
+env
+export LESS=cwoure
+export
+env
+export VAR=bfr3e
+export
+env
+export ZZ=
+export
+env
+export XXXXXX
+export
+env
+export XXXX
 export
 env
 export ZZ
 export
 env
-export TERM
+export ZZZ
 export
 env
-export SS=
-export
-env
-export XZ
+export ZZZZ
 export
 env
 export ZZZ
 export
 env
+export VVV
+export
+env
+export XXX
+export
+env
+export VAS=ir3ufgw
+export
+env
+export XXX=
+export
+export WEWTQFEQO=
+export
+env
+export AAAAAA
+export
+env
+export PWD=vbiepqqw
+export
+env
+export ZSH=
+export
+env
+export TERM
+export
+env
+export LESS
+export
+env
+export LESS
+export
+export LESS=
+export
+env
+export ZZZ=dfi4fg1[3
+export
+env
+export WWWW=
+export
+env
+export XCVBXNX
+export
+env
+env
+export
+export PAGER=ciu3gcpiqg
+export
+env
+export LANG=
+export
+env
+env
+export PWD
+export
+env
+./minishell
+env
+export hell
+export
+export hellh=
+export
+export hellh=hjh
+export
+env
+export
+export hel=dgf
+export
+env
+export HOME=hermon
+export
+env
+export HOME=
+env
+export
+export HOME
+export
+env
+unset LANG
+export
+env
+unset hel
+export
+unset hel
+export
+unset hel
+export
 export hello
 export
-export hello=
+unset hello
 export
-export hellogf=
+export hgd=
 export
-export VAR
-export
-export VAR=
-export
-export ZZ=
-export
-export VAR
+unset hgd
 export
 env
-export VAR
-export
-env
-export VAR
-export
-export VAR
-export
-export
-export VAR
-export
-env
-export
+exit
+pwd
+cd
+cd 42
+cd 42cursus

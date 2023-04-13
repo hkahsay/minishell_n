@@ -1,31 +1,6 @@
 
 #include "../../headers/minishell.h"
 
-void print_token(t_token *temp)
-{
-	int i = 0;
-
-	printf("i: %d\n", i);
-	while (temp)
-	{
-		printf("TOKEN: %s=%d\n", temp->content, temp->id);
-		temp = temp->next;
-		i++;
-	}
-	printf("%d\n", i);
-}
-
-t_token *last_token(t_token *token_list)
-{
-	t_token	*curr;
-
-	if (token_list == NULL)
-		return (NULL);
-	curr = token_list;
-	while (curr->next != NULL)
-		curr = curr->next;
-	return (curr);	
-}
 void add_token(t_token **head, char *content, t_toktype type)
 {
     t_token *token = new_token(content, type);
@@ -45,6 +20,18 @@ void add_token(t_token **head, char *content, t_toktype type)
         }
         current->next = token;
     }
+}
+
+t_token *last_token(t_token *token_list)
+{
+	t_token	*curr;
+
+	if (token_list == NULL)
+		return (NULL);
+	curr = token_list;
+	while (curr->next != NULL)
+		curr = curr->next;
+	return (curr);	
 }
 
 t_token *new_token(char *content, t_toktype type)

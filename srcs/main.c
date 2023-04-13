@@ -1,16 +1,17 @@
 #include "../headers/minishell.h"
 
-void	prompt(char	*line, t_envnode *mini_env) //t_envnode *mini_env, 
+void	prompt(char	*line, t_envnode *mini_env) //t_envnode *my_envp,
 {
 	int		fd;
 	// t_token *token_head;
-	// t_cmd	*cmd = NULL;
-	// char	**arg_cmds;
+	// t_cmd	*cmd;
+	// t_pipeline *pipeline;
 
-	// head = NULL;
+
+	// token_head = NULL;
 	// cmd = NULL;
-	//       0123
-	line = readline ("minishell_VH>> 😜 ");
+	// pipeline = NULL;
+	line = readline (GREEN "minishell_VH>> " RS);
 	// index = getpid();
 	if (!line)
 	{
@@ -27,8 +28,8 @@ void	prompt(char	*line, t_envnode *mini_env) //t_envnode *mini_env,
 		close(fd);
 		interp(line, mini_env);
 		printf("OK head is back\n");
-		// ft_cd(built, mini_env);
 		// cmd = parse(line, cmd);
+
 	}
 	else
 		free(line);
@@ -38,9 +39,9 @@ int main(int argc, char **argv, char **envp)
 {
 	(void)argv;
 	char	*line;
-	t_envnode *mini_env;
+	t_envnode *mini_envp;
 	line = NULL;
-	mini_env = NULL;
+	mini_envp = NULL;
 	t_envnode *temp = NULL;
 
 	if (argc != 1 || !argv || !envp)
@@ -48,23 +49,31 @@ int main(int argc, char **argv, char **envp)
 		printf("Error arguments\n");
 		return (-1);
 	}
-	mini_env = duplicate_env(envp);
-	if (!mini_env)
+	mini_envp = duplicate_env(envp);
+	if (!mini_envp)
 	{
 		printf("Failed to create my_environment list\n");
 		return (1);
 	}
-	temp = mini_env;
+	temp = mini_envp;
 	print_mini_envp(temp);
 	while (1)
-	{
-		prompt(line, mini_env); //mini_env, 
-		// Call cd function
-    	// echo(line, mini_env);
-		// cd(mini_env);
-
-
-	}
-	free_mini_envp(mini_env);	
+		prompt(line, mini_envp); //my_envp,
+	free_mini_envp(mini_envp);
 	return (0);
 }
+
+		// ft_cd(built, my_envp);
+		// mini_pwd2(my_envp);
+		// ft_echo(cmd);
+		// token_head = interp(line);
+		// args = eval_token(head);
+		// while (head)
+		// {
+		// 	printf("Head content main: %s\n", head->content);
+		// 	head = head->next;
+		// }
+		// head = head->next;
+		// cmd = parse(token_head);
+		// pipeline = split_cmds_into_pipeline(cmd);
+		// execute_pipeline(pipeline);

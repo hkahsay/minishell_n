@@ -77,19 +77,12 @@ static int fuck_export(t_envnode **mini_env, char **cmd_args)
 {
 		char	*new_key;
 		char	*new_value;
-		// char	*new_content;
+		char	*new_content;
 		int		i;
 		int j;
-		// int k = 0;
-		// t_envnode *new_env_var = NULL;
 		i = 0;
-		char	*new_content = cmd_args[1];
-		printf("new_content %s\n", new_content);
-		// while (cmd_args[1][k])
-		// {
-		// 	k++;
-		// }
-		// new_content = ft_substr((char *)cmd_args[1], 0, k);
+		new_content = cmd_args[1];
+		printf(R "new_content %s\n" RS, new_content);
 		while (cmd_args[1][i] != '=')
 		{
 			printf(BLUE "*cmd_args[1] %c\n"RS, cmd_args[1][i]);
