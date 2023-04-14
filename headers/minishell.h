@@ -5,6 +5,9 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <signal.h>
+#include <termios.h>
+#include <dirent.h>
 # include <fcntl.h>
 # include <readline/readline.h>
 # include <readline/history.h>
@@ -91,7 +94,7 @@ t_pmd		*create_array(t_cmd **cmd_head, int cmd_n);
 int			ft_list_size(t_cmd *node);
 void		ft_token_list_addback(t_token **head, t_token *new);
 
-//-----------built_in-----------------
+/*-----------built_in-----------------*/
 int			is_builtin(char **cmd, t_envnode *env_var);
 int			ft_pwd(char **args, t_envnode **env_var);
 int			ft_cd(char **args, t_envnode **env_var);
@@ -107,6 +110,14 @@ void		remove_from_list(t_envnode *mini_env, char *key);
 int			delete_first_node(t_envnode **head, t_envnode *curr, char *key);
 int			ft_strncmp2(char *s1, char *s2, int n);
 char		*check_if_in_env(t_envnode *mini_env, char *arg);
+
+/*----------------------signals-----------------*/
+void 	sig_handlers(void);
+void	sigint_handler(int	sig_num);
+void	sig_quit_handler(int sig_num);
+void	sig_do_nothing(int sig_num);
+extern void	rl_replace_line(const char *text, int clear_undo);
+
 
 /*PRINT*/
 void		print_mini_envp(t_envnode *temp);

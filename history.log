@@ -1680,3 +1680,10 @@ pwd
 cd
 cd 42
 cd 42cursus
+exit
+echo hello
+exit
+exit
+make
+make
+exit

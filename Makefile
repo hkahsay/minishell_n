@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vgejno <vgejno@student.42.fr>              +#+  +:+       +#+         #
+#    By: hkahsay <hkahsay@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/23 11:19:05 by vgejno            #+#    #+#              #
-#    Updated: 2023/04/13 19:37:39 by vgejno           ###   ########.fr        #
+#    Updated: 2023/04/14 11:56:24 by hkahsay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ DIR_SRCS += ./srcs/lexer
 DIR_SRCS += ./srcs/token
 DIR_SRCS += ./srcs/parser
 DIR_SRCS += ./srcs/built_in
+DIR_SRCS += ./srcs/sig_handler
 DIR_SRCS += ./srcs/execute
 DIR_SRCS += ./srcs/print
 DIR_SRCS += ./srcs/error
@@ -83,6 +84,7 @@ SRCS =	srcs/main.c \
 		srcs/built_in/export.c \
 		srcs/built_in/pwd.c \
 		srcs/built_in/unset.c \
+		srcs/sig_handler/signal_handler.c \
 		srcs/print/print.c \
 		srcs/print/print_env.c \
 		srcs/error/input_error.c \

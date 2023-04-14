@@ -1,16 +1,16 @@
 #include "../headers/minishell.h"
 
+// t_token *token_head;
+// t_cmd	*cmd;
+// t_pipeline *pipeline;
+
+
+// token_head = NULL;
+// cmd = NULL;
+// pipeline = NULL;
 void	prompt(char	*line, t_envnode *mini_env) //t_envnode *my_envp,
 {
 	int		fd;
-	// t_token *token_head;
-	// t_cmd	*cmd;
-	// t_pipeline *pipeline;
-
-
-	// token_head = NULL;
-	// cmd = NULL;
-	// pipeline = NULL;
 	line = readline (GREEN "minishell_VH>> " RS);
 	// index = getpid();
 	if (!line)
@@ -28,7 +28,6 @@ void	prompt(char	*line, t_envnode *mini_env) //t_envnode *my_envp,
 		close(fd);
 		interp(line, mini_env);
 		printf("OK head is back\n");
-		// cmd = parse(line, cmd);
 
 	}
 	else
@@ -43,6 +42,9 @@ int main(int argc, char **argv, char **envp)
 	line = NULL;
 	mini_envp = NULL;
 	t_envnode *temp = NULL;
+	struct termios	saved;
+	// struct termios	attr;
+
 
 	if (argc != 1 || !argv || !envp)
 	{
@@ -58,7 +60,10 @@ int main(int argc, char **argv, char **envp)
 	temp = mini_envp;
 	print_mini_envp(temp);
 	while (1)
+	{
+		sig_handlers();
 		prompt(line, mini_envp); //my_envp,
+	}
 	free_mini_envp(mini_envp);
 	return (0);
 }
