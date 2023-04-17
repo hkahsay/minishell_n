@@ -19,7 +19,7 @@
 # include "colors.h"
 
 /*PROMPT*/
-void		prompt(char	*line, t_envnode *mini_env);
+void		prompt(char	*line, t_envnode *mini_env);//, struct termios save
 
 /*MINI_ENV*/
 t_envnode	*duplicate_env(char **envp);
@@ -116,7 +116,9 @@ void 	sig_handlers(void);
 void	sigint_handler(int	sig_num);
 void	sig_quit_handler(int sig_num);
 void	sig_do_nothing(int sig_num);
-extern void	rl_replace_line(const char *text, int clear_undo);
+void	rl_replace_line(const char *text, int clear_undo);
+void	ter_attr_handler(struct termios save);
+
 
 
 /*PRINT*/
@@ -132,8 +134,6 @@ void		print_pmd_list(t_pmd *pmd_list);
 ////----print_env_dif_level-----------
 void 		print_mini_envp(t_envnode *temp);
 void 		print_ex_envp(t_envnode *temp); //, char **cmd_arg
-// void 		print_envp_nvalue(t_envnode *mini_env);
-// void 		print_ex_no_value(t_envnode *mini_env);
 void		print_ex_sorted_envp(t_envnode *mini_env, char **cmd_arg);
 
 

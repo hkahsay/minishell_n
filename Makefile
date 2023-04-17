@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hkahsay <hkahsay@student.42.fr>            +#+  +:+       +#+         #
+#    By: mac <mac@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/23 11:19:05 by vgejno            #+#    #+#              #
-#    Updated: 2023/04/14 11:56:24 by hkahsay          ###   ########.fr        #
+#    Updated: 2023/04/15 08:03:34 by mac              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,16 @@ FLAGS = -Wall -Werror -Wextra
 FLAGS += -g
 FLAGS += ${SANITIZE}
 
-RLIB = -L/Users/$(USER)/.brew/Cellar/readline/8.2.1/lib -lreadline
-RINC = -I.brew/Cellar/readline/8.2.1/include/readline
+# RLIB = -L/Users/$(USER)/.brew/Cellar/readline/8.2.1/lib -lreadline
+# RINC = -I.brew/Cellar/readline/8.2.1/include/readline
+RLIB = -L$(HOME)/.brew/opt/readline/lib -lreadline
+RINC = -I$(HOME)/.brew/opt/readline/include
 LIBFT = libft/libft.a
 #RLIB = -L/opt/homebrew/Cellar/readline/8.2.1/lib -lreadline
-
+ifeq ($(shell echo $(USER)), mac)
+	RLIB = -L/usr/local/Cellar/readline/8.2.1/lib -lreadline
+	RINC = -I/usr/local/Cellar/readline/8.2.1/include
+endif
 # << HEADERS >> #
 #DIR_SRCS = ./srsc
 #DIR_OBJS = ./objs

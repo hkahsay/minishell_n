@@ -8,16 +8,6 @@ if clear_undo is zero (e.g., 0), the undo history will be preserved.
 void rl_on_new_line(void) indicate the cursor has moved on a new line
 void rl_redisplay(void)used to redisplay the current contents of input buffer after making changes
 */
-void	ter_attr_handler(struct termios save)
-{
-	struct termios attr;
-	tcgetattr(STDIN_FILENO, &save);
-	tcgetattr(STDIN_FILENO, &attr);
-	attr.c_lflag &= ~ECHOCTL;
-	tcsetattr(STDIN_FILENO, TCSAFLUSH, &attr);
-	// tcsetattr(STDIN_FILENO, TCSAFLUSH, &save);
-}
-
 void sig_handlers(void)
 {
 	// int	pid;
@@ -34,6 +24,7 @@ void sig_handlers(void)
 
 void	sigint_handler(int	sig_num)
 {
+	// printf("ctr.c is pressed its reopen prompt\n");
 	if(sig_num == SIGINT)
 	{
 		write(1, "\n", 1);
@@ -45,7 +36,8 @@ void	sigint_handler(int	sig_num)
 
 void	sig_quit_handler(int sig_num)
 {
-	// (void)sig_num;
+	(void)sig_num;
+	// printf("ctr.d is pressed its exiting the prompt and print exit\n");
 	sigint_handler(sig_num);
 	write(1, "exit", 4);
 }

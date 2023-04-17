@@ -8,15 +8,33 @@
 // token_head = NULL;
 // cmd = NULL;
 // pipeline = NULL;
+// static void	call_prompt(char *line, t_envnode *mini_env)
+// {
+// 	// int		fd;
+// 	(void)mini_env;
+
+// 	struct termios saved;
+// 	if (tcgetattr(STDIN_FILENO, &saved) == -1) 
+//     	perror("tcgetattr"); // handle error and return or exit as appropriate
+// 	ter_attr_handler(saved);
+// 	line = readline (GREEN "minishell_VH>> " RS);
+// 	tcsetattr(STDIN_FILENO, TCSAFLUSH, &saved);
+// }
 void	prompt(char	*line, t_envnode *mini_env) //t_envnode *my_envp,
 {
 	int		fd;
+	struct termios saved;
+	if (tcgetattr(STDIN_FILENO, &saved) == -1) 
+    	perror("tcgetattr"); // handle error and return or exit as appropriate
+	ter_attr_handler(saved);
 	line = readline (GREEN "minishell_VH>> " RS);
-	// index = getpid();
+	tcsetattr(STDIN_FILENO, TCSAFLUSH, &saved);
+	// call_prompt(line, mini_env);
 	if (!line)
 	{
 		printf("exit\n");
 		free(line);
+		return;
 	}
 	if (ft_strlen(line) > 0)
 	{
@@ -31,7 +49,10 @@ void	prompt(char	*line, t_envnode *mini_env) //t_envnode *my_envp,
 
 	}
 	else
+	{
 		free(line);
+		return;
+	}
 }
 
 int main(int argc, char **argv, char **envp)
@@ -43,9 +64,8 @@ int main(int argc, char **argv, char **envp)
 	mini_envp = NULL;
 	t_envnode *temp = NULL;
 	struct termios	saved;
-	// struct termios	attr;
-
-
+	if (tcgetattr(STDIN_FILENO, &saved) == -1) 
+    	perror("tcgetattr"); // handle error and return or exit as appropriate
 	if (argc != 1 || !argv || !envp)
 	{
 		printf("Error arguments\n");
@@ -62,7 +82,9 @@ int main(int argc, char **argv, char **envp)
 	while (1)
 	{
 		sig_handlers();
+		// ter_attr_handler(saved);
 		prompt(line, mini_envp); //my_envp,
+		tcsetattr(STDIN_FILENO, TCSANOW, &saved);
 	}
 	free_mini_envp(mini_envp);
 	return (0);
