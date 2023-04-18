@@ -42,8 +42,6 @@ void	remove_from_list(t_envnode *mini_env, char *key)
 	{
 		temp = curr;
 		curr = curr->next;
-		// printf("temp%s\n", temp->key);
-		printf("4\n");
 	}
 	// if((curr->key = NULL))
 	//     return ;
@@ -79,7 +77,6 @@ int	delete_first_node(t_envnode **head, t_envnode *curr, char *key)
 		// free(curr->key);
 		// free(curr->value);
 		// free(curr);
-		// printf("3\n");
 		return(1);
 	}
 	return(0);
@@ -103,4 +100,28 @@ char	*check_if_in_env(t_envnode *mini_env, char *arg)
 	return (NULL);
 }
 
+// int ft_unset(char **args, t_envnode **env_var)
+// {
+//     (void)args;
+//     (void)env_var;
+//     printf("ft_unset\n");
+//     return 0;
+// }
 
+// int	ft_unset(t_cmd *cmd, t_envnode *env_var)
+// {
+// 	char	*var_name;
+// 	t_envnode	*env_list;
+// 	int	len;
+// 	int	i;
+
+// 	var_name = cmd->cmd_args->args;
+// 	env_list->key = find_env_key(env_var, var_name);
+// 	i = 0;
+// 	len = ft_strlen(var_name);
+// 	while (i < len && env_list == var_name)
+// 	{
+// 		/* code */
+// 	}
+
+// }

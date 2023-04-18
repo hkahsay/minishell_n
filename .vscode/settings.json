@@ -24,6 +24,8 @@
 		"system_error": "c",
 		"vector": "c",
 		"atomic": "c",
-		"locale": "c"
+		"locale": "c",
+		"typeinfo": "c",
+		"history.h": "c"
 	}
 }
