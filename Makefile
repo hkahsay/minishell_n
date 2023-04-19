@@ -6,7 +6,7 @@
 #    By: hkahsay <hkahsay@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/23 11:19:05 by vgejno            #+#    #+#              #
-#    Updated: 2023/04/18 19:21:50 by hkahsay          ###   ########.fr        #
+#    Updated: 2023/04/19 16:17:14 by hkahsay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,7 +97,7 @@ SRCS =	srcs/main.c \
 		srcs/error/error_exit.c \
 		srcs/error/error_input.c \
 		srcs/free/free_token.c \
-		srcs/free/my_malloc.c \
+		# srcs/free/my_my_malloc.c \
 
 DFILES = srcs/${addprefix ${DIR_OBJS}/, ${notdir ${SRCS:.c=.d}}}
 

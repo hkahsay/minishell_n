@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkahsay <hkahsay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/14 15:59:50 by vgejno            #+#    #+#             */
+/*   Created: 2021/12/07 13:22:44 by hkahsay           #+#    #+#             */
 /*   Updated: 2023/04/19 16:17:14 by hkahsay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(const char *s, const char *set)
+t_list	*ft_lstnew(void *content)
 {
-	char	*ptr;
-	size_t	i;
-	size_t	j;
-	size_t	n;
+	t_list	*new_elemt;
 
-	if (!s || !set)
+	new_elemt = my_malloc(sizeof(t_list));
+	if (!new_elemt)
 		return (0);
-	i = 0;
-	while (s[i] && ft_strchr(set, s[i]))
-		i++;
-	j = ft_strlen(s);
-	while (j > i && ft_strchr(set, s[j - 1]))
-		j--;
-	ptr = (char *)my_malloc(j - i + 1);
-	if (!ptr)
-		return (0);
-	n = 0;
-	while (i < j)
-		ptr[n++] = s[i++];
-	ptr[n] = 0;
-	return (ptr);
+	(*new_elemt).content = content;
+	(*new_elemt).next = NULL;
+	return (new_elemt);
 }

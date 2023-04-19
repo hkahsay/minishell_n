@@ -162,8 +162,6 @@ void		msg_error(char *error, int errnum);
 /*FREE*/
 void		free_mini_envp(t_envnode *head);
 void		free_token_list(t_token *tokens);
-void*		my_malloc(size_t size);
-void		my_free_all(t_malloc **head);
-t_ppline *get_ppline(t_ppline *ppline);
+// void*		my_my_malloc(t_ppline *ppline, size_t size);
 
 #endif

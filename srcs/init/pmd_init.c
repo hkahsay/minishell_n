@@ -4,7 +4,7 @@
 // {
 // 	t_pmd *pmd;
 
-// 	pmd = malloc(sizeof(t_pmd));
+// 	pmd = my_malloc(sizeof(t_pmd));
 // 	if (pmd != NULL)
 // 		ft_memset(pmd, 0, sizeof(t_pmd));
 // 	return (pmd);

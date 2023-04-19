@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgejno <vgejno@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hkahsay <hkahsay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 20:34:32 by vgejno            #+#    #+#             */
-/*   Updated: 2023/04/17 20:47:49 by vgejno           ###   ########.fr       */
+/*   Updated: 2023/04/19 16:17:14 by hkahsay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char	*ft_writewords(const char *s, char c)
 		s++;
 	while (s[i] && s[i] != c)
 		i++;
-	word = malloc(sizeof(char) * (i + 1));
+	word = my_malloc(sizeof(char) * (i + 1));
 	if (!word)
 		return (NULL);
 	i = 0;
@@ -75,7 +75,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	words = ft_nbrwords(s, c);
-	ptr_words = malloc (sizeof(char *) * (words + 1));
+	ptr_words = my_malloc (sizeof(char *) * (words + 1));
 	if (!ptr_words)
 		return (NULL);
 	i = 0;

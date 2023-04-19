@@ -21,23 +21,23 @@
 	return 0;
 	}
 
-	void ft_putchar(char c)
-	{
-	write(1, &c, 1);
-	}
+	// void ft_putchar(char c)
+	// {
+	// write(1, &c, 1);
+	// }
 
-	int    ft_putstr(char *str)
-	{
-	int i;
+	// int    ft_putstr(char *str)
+	// {
+	// int i;
 
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	return(i);
-	}
+	// i = 0;
+	// while (str[i])
+	// {
+	// 	ft_putchar(str[i]);
+	// 	i++;
+	// }
+	// return(i);
+	// }
 
 // int ft_echo(char **args, t_envnode **env_var)
 // {

@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkahsay <hkahsay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/14 15:59:50 by vgejno            #+#    #+#             */
-/*   Updated: 2023/04/19 16:17:14 by hkahsay          ###   ########.fr       */
+/*   Created: 2021/12/09 15:49:29 by hkahsay           #+#    #+#             */
+/*   Updated: 2021/12/09 15:50:56 by hkahsay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(const char *s, const char *set)
+void	ft_lstclear(t_list **lst, void (*del) (void *))
 {
-	char	*ptr;
-	size_t	i;
-	size_t	j;
-	size_t	n;
+	t_list	*tmp;
 
-	if (!s || !set)
-		return (0);
-	i = 0;
-	while (s[i] && ft_strchr(set, s[i]))
-		i++;
-	j = ft_strlen(s);
-	while (j > i && ft_strchr(set, s[j - 1]))
-		j--;
-	ptr = (char *)my_malloc(j - i + 1);
-	if (!ptr)
-		return (0);
-	n = 0;
-	while (i < j)
-		ptr[n++] = s[i++];
-	ptr[n] = 0;
-	return (ptr);
+	if (!del || !lst || !*lst)
+		return ;
+	while (lst && *lst)
+	{
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
+	}
 }

@@ -3,7 +3,7 @@
 t_ppline	*ft_new_ppline(void) //t_cmd **cmd_ptr, 
 {
 	t_ppline	*new_ppline = NULL;
-	new_ppline = (t_ppline *)malloc(sizeof(t_ppline));
+	new_ppline = (t_ppline *)my_malloc(sizeof(t_ppline));
 	if (new_ppline == NULL)
 		return NULL;
 	new_ppline->pp_first_cmd = NULL;
@@ -135,7 +135,7 @@ static void	*ft_handle_word(t_ppline **new_ppline, t_token *cmd_word)
 	i = 0;
 	word_ptr = cmd_word;
 
-	(*new_ppline)->ppline_cmd = (char **)malloc(sizeof(char *) * (ft_count_args_cmd_word(cmd_word) + 1));
+	(*new_ppline)->ppline_cmd = (char **)my_malloc(sizeof(char *) * (ft_count_args_cmd_word(cmd_word) + 1));
 	if ((*new_ppline)->ppline_cmd == NULL)
 	{
 		free(new_ppline);
@@ -252,7 +252,7 @@ t_ppline	*create_ppline_array(t_cmd **cmd_head, int cmd_n, char	**mini_env_arr)
 // 	size = ft_list_size(cmd_temp);
 // 	printf(OR "size %d\n" RS, size);
 
-// 	array_cmd = malloc(sizeof(char *) * (size + 1));
+// 	array_cmd = my_malloc(sizeof(char *) * (size + 1));
 // 	printf(OR "&array_cmd %p\n" RS, array_cmd);
 // 	if (!array_cmd)
 // 		return (0);

@@ -6,7 +6,7 @@ int	ft_unset(char **args, t_envnode **mini_env)
 	char    *res;
 
 	i = 1;
-	// (*mini_env)->content = malloc(sizeof(t_envnode) + 1);
+	// (*mini_env)->content = my_malloc(sizeof(t_envnode) + 1);
 	// (*mini_env)->content = ft_strjoin((*mini_env)->key, (*mini_env)->value);
 	// printf("my content: %s\n", (*mini_env)->content);
 	if (args[i] == NULL)
@@ -42,6 +42,8 @@ void	remove_from_list(t_envnode *mini_env, char *key)
 	{
 		temp = curr;
 		curr = curr->next;
+		// printf("temp%s\n", temp->key);
+		printf("4\n");
 	}
 	// if((curr->key = NULL))
 	//     return ;
@@ -77,6 +79,7 @@ int	delete_first_node(t_envnode **head, t_envnode *curr, char *key)
 		// free(curr->key);
 		// free(curr->value);
 		// free(curr);
+		// printf("3\n");
 		return(1);
 	}
 	return(0);

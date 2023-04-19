@@ -83,7 +83,6 @@ static int	search_path(t_ppline *ppline, char **mini_env_array, char **cmd_path)
 int execute(t_cmd *cmd, int cmd_num, t_envnode *mini_env)
 {
 	t_ppline	*ppline;
-
 	char		*cmd_path;
 	char		**mini_env_arr;
 	cmd_path = NULL;
@@ -115,8 +114,6 @@ int execute(t_cmd *cmd, int cmd_num, t_envnode *mini_env)
 		printf(PURPLE "cmd_path: %s\n" RS, cmd_path);
 		execute_cmd(ppline, mini_env_arr, &cmd_path);
 	}
-	get_ppline(ppline);
-	printf("PPLINE EXECUTE: %p\n", ppline);
 	return (0); //execute_cmd(mini, &cmd, mini_env)
 }
 

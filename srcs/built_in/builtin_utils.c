@@ -3,6 +3,7 @@
 int ft_strcmp(const char *s1, const char *s2)
 {
 	int i = 0;
+	printf("s1, s2 %s, %s\n", s1, s2);
 	while (s1[i] == s2[i]) {
 		if (s1[i] == '\0') {
 			return 0;

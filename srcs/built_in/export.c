@@ -16,9 +16,9 @@ t_envnode	*envdup(t_envnode *prev, t_envnode **mini_env)
 		// printf(BLUE"3\n"RS);
 		return (NULL);
 	}
-	// printf(BLUE"4\n"RS);
+	printf(BLUE"4\n"RS);
 	node->prev = prev;
-	// printf(BLUE"5\n"RS);
+	printf(BLUE"5\n"RS);
 	if ((*mini_env)->next)
 	{
 		// printf(BLUE"6\n"RS);
@@ -26,20 +26,20 @@ t_envnode	*envdup(t_envnode *prev, t_envnode **mini_env)
 		// printf(BLUE"7\n"RS);
 		if (!node->next)
 		{
-			// printf(BLUE"8\n"RS);
+			printf(BLUE"8\n"RS);
 			// printf(OR"OK\n"RS);
 			while (node->prev)
 			{
 				// printf(BLUE"9\n"RS);
 				node = node->prev;
 			}
-			// printf(BLUE"10\n"RS);
+			printf(BLUE"10\n"RS);
 			// free_mini_envp(node);
 			return (NULL);
 		}
 		// printf(BLUE"11\n"RS);
 	}
-	// printf(BLUE"12\n"RS);
+	printf(BLUE"12\n"RS);
 	return (node);
 }
 
@@ -58,18 +58,18 @@ t_envnode	*export_no_cmd(t_envnode **mini_env)
 
 static int	ft_export_noargs(t_envnode **mini_env, char **cmd_args, t_envnode *new_env)
 {
-		printf(YELLOW"only expo\n"RS);
+		// printf(YELLOW"only expo\n"RS);
 		new_env = export_no_cmd(mini_env);
 		if (!new_env)
 		{
 			printf(YELLOW"new_env\n"RS);
 			return (-1);
 		}
-		// printf("content beginning: %s\n", (new_env)->content);
+		printf("content beginning: %s\n", (new_env)->content);
 		ft_envnode_sort(&new_env);
+		printf(YELLOW"only expo\n"RS);
 		print_ex_sorted_envp(new_env, cmd_args);
 		// print_mini_envp(new_env);
-		printf(YELLOW"only expo\n"RS);
 		return (0);
 }
 
@@ -108,6 +108,11 @@ static int fuck_export(t_envnode **mini_env, char **cmd_args)
 		new_value = ft_substr((char *)cmd_args[1], i, j);
 		if (!ft_setenv(new_key, new_value, new_content, mini_env))
 			return (-1);
+		free(new_key);
+		free(new_content);
+		free(new_value);
+
+
 		return (0);
 }
 

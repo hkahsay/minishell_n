@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vgejno <vgejno@student.42.fr>              +#+  +:+       +#+         #
+#    By: hkahsay <hkahsay@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/09 16:28:58 by vgejno            #+#    #+#              #
-#    Updated: 2023/03/20 18:45:26 by vgejno           ###   ########.fr        #
+#    Updated: 2023/04/19 17:15:04 by hkahsay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,9 +47,26 @@ SRCS = ft_putchar_fd.c \
  		ft_toupper.c \
  		ft_strchr.c \
  		ft_strtrim.c \
- 		
+		ft_malloc.c \
+		ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
 
+# SRCS_BONUS = 																					\
+# 						ft_lstnew.c		ft_lstadd_front.c	ft_lstsize.c	\
+# 				ft_lstlast.c	ft_lstadd_back.c	ft_lstdelone.c		\
+# 				ft_lstclear.c	ft_lstiter.c		
 OBJS = ${SRCS:.c=.o}
+#********bonus paths******
+# OBJS_BONUS = ${SRCS_BONUS:.c=.o}
+
+
+
 
 CC = gcc
 RM = RM -f
@@ -61,9 +78,11 @@ all: $(NAME)
 $(NAME): ${OBJS}
 	ar rcs $@ $^
 
+bonus: ${OBJS_BONUS}
+	ar rcs ${NAME} $^
+
 %.o : %.c
 	${CC} ${CFLAGS} -o $@ -c $<
-
 clean:
 	${RM} ${OBJS}
 

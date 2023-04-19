@@ -70,6 +70,7 @@ void ft_envnode_sort(t_envnode **mini_env)
 		{
 			if (ft_strcmp(current->content, current->next->content) > 0) //current->key, current->next->key
 			{
+				printf(R"sorteddd \n" RS);
 				temp.key = ft_strdup(current->key);
 				temp.value = ft_strdup(current->value);
 				temp.content = ft_strdup(current->content);
@@ -89,6 +90,7 @@ void ft_envnode_sort(t_envnode **mini_env)
 				sorted = 0; // the list is not sorted yet
 
 			}
+
 			current = current->next;
 		}
 	}

@@ -74,11 +74,11 @@ typedef struct s_cmd
 	struct s_cmd	*next; // pointer to the next command in a pipeline
 } t_cmd;
 
-typedef struct s_malloc
-{
-	void*	addr;
-	struct	s_malloc* next;
-} t_malloc;
+// typedef struct s_malloc
+// {
+// 	void*	addr;
+// 	struct	s_malloc* next;
+// } t_malloc;
 
 //-------------------EXECUTER------------------------------
 
@@ -93,7 +93,7 @@ typedef struct s_builtin
 // typedef struct	s_base
 // {
 // 	t_envnode		*mini_env;
-// 	t_malloc		*malloc_head;
+// 	t_my_malloc		*my_malloc_head;
 
 // }	t_base;
 
@@ -110,7 +110,7 @@ typedef struct	s_ppline
 	int				heredoc;
 	int				hdoc_fd[2];
 	int				exit_status;
-	t_malloc		*malloc_head;
+	// t_my_malloc		*my_malloc_head;
 	struct s_ppline	*next;
 } t_ppline;
 
