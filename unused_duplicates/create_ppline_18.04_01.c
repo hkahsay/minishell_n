@@ -70,9 +70,9 @@ static void	*ft_handle_word(t_ppline **new_ppline, t_token *cmd_word)
 		{
 			// handle memory allocation error
 			for (int j = 0; j < i; j++)
-				free((*new_ppline)->ppline_cmd[j]);
-			free((*new_ppline)->ppline_cmd);
-			free((*new_ppline));
+				my_free((*new_ppline)->ppline_cmd[j]);
+			my_free((*new_ppline)->ppline_cmd);
+			my_free((*new_ppline));
 			return NULL;
 		}
 		i++;
@@ -121,7 +121,7 @@ t_ppline	*create_ppline_array(t_cmd **cmd_head, int cmd_n, char	**mini_env_arr)
 			// new_ppline->ppline_cmd = (char **)my_malloc(sizeof(char *) * (ft_count_args_cmd_word(cmd_ptr->cmd_word) + 1));
 			// if (new_ppline->ppline_cmd == NULL)
 			// {
-			// 	free(new_ppline);
+			// 	my_free(new_ppline);
 			// 	return NULL;
 			// }
 			// t_token *word_ptr = cmd_ptr->cmd_word;
@@ -135,9 +135,9 @@ t_ppline	*create_ppline_array(t_cmd **cmd_head, int cmd_n, char	**mini_env_arr)
 			// 	{
 			// 		// handle memory allocation error
 			// 		for (int j = 0; j < i; j++)
-			// 			free(new_ppline->ppline_cmd[j]);
-			// 		free(new_ppline->ppline_cmd);
-			// 		free(new_ppline);
+			// 			my_free(new_ppline->ppline_cmd[j]);
+			// 		my_free(new_ppline->ppline_cmd);
+			// 		my_free(new_ppline);
 			// 		return NULL;
 			// 	}
 			// 	i++;
@@ -192,9 +192,9 @@ t_ppline	*create_ppline_array(t_cmd **cmd_head, int cmd_n, char	**mini_env_arr)
 	// 	{
 	// 		// handle memory allocation error
 	// 		for (int j = 0; j < i; j++)
-	// 			free(new_ppline->ppline_cmd[j]);
-	// 		free(new_ppline->ppline_cmd);
-	// 		free(new_ppline);
+	// 			my_free(new_ppline->ppline_cmd[j]);
+	// 		my_free(new_ppline->ppline_cmd);
+	// 		my_free(new_ppline);
 	// 		return NULL;
 	// 	}
 	// 	i++;
@@ -230,7 +230,7 @@ t_ppline	*create_ppline_array(t_cmd **cmd_head, int cmd_n, char	**mini_env_arr)
 // 		if (cmd_temp->cmd_wnode->type == TOK_D_QUOTE)
 // 		{
 // 			trimmed = ft_strtrim(cmd_temp->cmd_wnode->file, "\"");
-// 			free(cmd_temp->cmd_wnode->file);
+// 			my_free(cmd_temp->cmd_wnode->file);
 // 			cmd_temp->cmd_wnode->file = ft_strdup(trimmed);
 // 			printf(YELLOW "cmd_temp->cmd_wnode->file %s\n" RS, cmd_temp->cmd_wnode->file);
 // 		}
@@ -267,21 +267,21 @@ t_ppline	*create_ppline_array(t_cmd **cmd_head, int cmd_n, char	**mini_env_arr)
 //             {
 //                 // swap the key of the current and next nodes
 //                 // temp = ft_strdup(current->key);
-//                 // free(current->key);
+//                 // my_free(current->key);
 //                 // current->key = ft_strdup(current->next->key);
-//                 // free(current->next->key);
+//                 // my_free(current->next->key);
 //                 // current->next->key = ft_strdup(temp);
-//                 // free(temp);
+//                 // my_free(temp);
 //                 // printf("key: %s\n", current->key);
 //                 // printf("value: %s\n", current->value);
 //                 temp.key = ft_strdup(current->key);
 //                 temp.value = ft_strdup(current->value);
-//                 free(current->key);
-//                 free(current->value);
+//                 my_free(current->key);
+//                 my_free(current->value);
 //                 current->key = ft_strdup(current->next->key);
 //                 current->value = ft_strdup(current->next->value);
-//                 free(current->next->key);
-//                 free(current->next->value);
+//                 my_free(current->next->key);
+//                 my_free(current->next->value);
 //                 current->next->key = ft_strdup(temp.key);
 //                 current->next->value = ft_strdup(temp.value);
 

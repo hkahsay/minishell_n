@@ -26,7 +26,7 @@ void update_env_var(char* key, char* value)
 	var = find_env_var(key, &var);
 	if (var != NULL)
 	{
-		free(var->value);
+		my_free(var->value);
 		var->value = strdup(value);
 	}
 }
@@ -74,15 +74,15 @@ void ft_envnode_sort(t_envnode **mini_env)
 				temp.key = ft_strdup(current->key);
 				temp.value = ft_strdup(current->value);
 				temp.content = ft_strdup(current->content);
-				free(current->content);
-				free(current->key);
-				free(current->value);
+				my_free(current->content);
+				my_free(current->key);
+				my_free(current->value);
 				current->key = ft_strdup(current->next->key);
 				current->value = ft_strdup(current->next->value);
 				current->content = ft_strdup(current->next->content);
-				free(current->next->content);
-				free(current->next->key);
-				free(current->next->value);
+				my_free(current->next->content);
+				my_free(current->next->key);
+				my_free(current->next->value);
 				current->next->key = ft_strdup(temp.key);
 				current->next->value = ft_strdup(temp.value);
 				current->next->content = ft_strdup(temp.content);

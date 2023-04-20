@@ -48,14 +48,6 @@ t_envnode	*export_no_cmd(t_envnode **mini_env)
 	return (envdup(NULL, mini_env));
 }
 
-// t_envnode *init_content(char *content)
-// {
-// 	t_envnode **mini_env = NULL;
-// 	content = ft_strjoin((*mini_env)->key, (*mini_env)->value);
-// 	printf("*mini_env)->content %s\n", (*mini_env)->content);
-// 	return (*mini_env);
-// }
-
 static int	ft_export_noargs(t_envnode **mini_env, char **cmd_args, t_envnode *new_env)
 {
 		// printf(YELLOW"only expo\n"RS);
@@ -73,50 +65,54 @@ static int	ft_export_noargs(t_envnode **mini_env, char **cmd_args, t_envnode *ne
 		return (0);
 }
 
-static int fuck_export(t_envnode **mini_env, char **cmd_args)
+static int export(t_envnode **mini_env, char **cmd_args)
 {
 		char	*new_key;
 		char	*new_value;
 		// char	*new_content;
 		int		i;
 		int j;
-		// int k = 0;
+		int k = 1;
 		// t_envnode *new_env_var = NULL;
 		i = 0;
-		char	*new_content = cmd_args[1];
+		char	*new_content = cmd_args[k];
 		printf(R "new_content %s\n" RS, new_content);
 		// while (cmd_args[1][k])
 		// {
 		// 	k++;
 		// }
 		// new_content = ft_substr((char *)cmd_args[1], 0, k);
-		while (cmd_args[1][i] != '=')
+		while (*cmd_args[k])
 		{
-			printf(BLUE "*cmd_args[1] %c\n"RS, cmd_args[1][i]);
-			printf(R"there is == sign in key\n"RS);
+			while (cmd_args[k][i] != '=')
+			{
+				printf(BLUE "*cmd_args[k] %c\n"RS, cmd_args[k][i]);
+				printf(R"there is == sign in key\n"RS);
+				i++;
+			}
+			new_key = ft_substr((char *)cmd_args[k], 0, i);
 			i++;
+			j = 0;
+			while (cmd_args[k][j] != '\0')
+			{
+				printf(GREEN"*cmd_args[1] %c\n"RS, cmd_args[1][j]);
+				printf(OR"there is == sign in value\n"RS);
+				j++;
+			}
+			new_value = ft_substr((char *)cmd_args[k], i, j);
+			k++;
+			if (!ft_setenv(new_key, new_value, new_content, mini_env))
+				return (-1);
+			
 		}
-		new_key = ft_substr((char *)cmd_args[1], 0, i);
-		i++;
-		j = 0;
-		while (cmd_args[1][j] != '\0')
-		{
-			printf(GREEN"*cmd_args[1] %c\n"RS, cmd_args[1][j]);
-			printf(OR"there is == sign in value\n"RS);
-			j++;
-		}
-		new_value = ft_substr((char *)cmd_args[1], i, j);
-		if (!ft_setenv(new_key, new_value, new_content, mini_env))
-			return (-1);
-		free(new_key);
-		free(new_content);
-		free(new_value);
-
-
+		
+		my_free(new_key);
+		my_free(new_content);
+		my_free(new_value);
 		return (0);
 }
 
-static int fuck_only_key(t_envnode **mini_env, char **cmd_args)
+static int only_key(t_envnode **mini_env, char **cmd_args)
 {
 	char	*new_key;
 	char	*new_value;
@@ -159,17 +155,17 @@ int ft_export(char **cmd_args, t_envnode **mini_env)
 	// i = 0;
 	if (cmd_args[1] == NULL && mini_env)
 	{ // export
-		if (!ft_export_noargs(mini_env, cmd_args, new_env_var))
+		if (ft_export_noargs(mini_env, cmd_args, new_env_var) != 0)
 			return (-1);
 	}
 	if (cmd_args[1] && ft_strchr(cmd_args[1], '=')) //ft_strchr(const char	*s, int c)
 	{ // export with key and value
-		if (!fuck_export(mini_env, cmd_args))
+		if (!export(mini_env, cmd_args))
 			return (-1);
 	}
 	if (cmd_args[1] && !ft_strchr(cmd_args[1], '='))
 	{ // export with key, without value
-		if (!fuck_only_key(mini_env, cmd_args))
+		if (!only_key(mini_env, cmd_args))
 			return (-1);
 
 		// printf("cmd_argher: %c\n", cmd_args[1][i]);

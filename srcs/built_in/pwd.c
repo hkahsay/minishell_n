@@ -29,7 +29,7 @@ int ft_pwd(char **args, t_envnode **mini_env)
 			}
 			else
 			{
-				free(curr_var->value);
+				my_free(curr_var->value);
 				curr_var->value = strdup(cwd);
 				printf("%s\n", curr_var->value);
 				return(0);

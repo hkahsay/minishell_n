@@ -78,6 +78,7 @@ int	my_free(void *ptr)
 	while (current)
 	{
 		next = current->next;
+		// printf("current->content%s\n", current->content);
 		if (current->content == ptr)
 		{
 			free(ptr);
@@ -105,6 +106,7 @@ void	destroy_all(void)
 	while (current)
 	{
 		next = current->next;
+		// printf("current->content22%s\n", current->content);
 		free(current->content);
 		free(current);
 		current = next;
@@ -120,13 +122,13 @@ void ft_putchar(char c)
 
 int    ft_putstr(char *str)
 {
-int i;
+	int i;
 
-i = 0;
-while (str[i])
-{
-	ft_putchar(str[i]);
-	i++;
-}
-return(i);
+	i = 0;
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+	return(i);
 }

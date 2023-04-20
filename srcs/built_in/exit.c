@@ -5,6 +5,7 @@
 	int	i;
 
 	i = 0;
+	(void)mini_env;
 	if (args != NULL)
 	{
 		i = ft_atoi(*args);
@@ -15,8 +16,8 @@
 	}
 	else
 	{
-		// free_mini_envp(*mini_env);
-		free(mini_env);
+		// free(mini_env);
+		destroy_all();
 		// exit (g_status);
 	}
 	return (0);

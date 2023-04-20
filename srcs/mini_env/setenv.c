@@ -7,9 +7,9 @@ int ft_setenv(char *name, char *value, char *content, t_envnode **env)
     if (var)
     {
         // Variable already exists, update its value
-        free(var->value);
+        my_free(var->value);
         var->value = ft_strdup(value);
-        free(var->content);
+        my_free(var->content);
         var->content = ft_strdup(content);
     } 
     else 

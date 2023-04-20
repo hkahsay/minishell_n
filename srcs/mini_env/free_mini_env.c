@@ -8,10 +8,10 @@ void free_mini_envp(t_envnode *head)
 	{
 		temp = head;
 		head = head->next;
-		free(temp->key);
-		free(temp->value);
-		free(temp->content);
-		free(temp);
+		my_free(temp->key);
+		my_free(temp->value);
+		my_free(temp->content);
+		my_free(temp);
 	}
 }
 
@@ -79,9 +79,9 @@ t_envnode *duplicate_env(char **envp) // fnct returns a starting address of the 
 			node->prev = temp;
 			temp = node;
 		}
-		free(key);
-		free(value);
-		free(content);
+		my_free(key);
+		my_free(value);
+		my_free(content);
 		i++;
 	}
 	// printf("envp[i] i: %d\n", i);

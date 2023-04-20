@@ -6,7 +6,7 @@
 /*   By: hkahsay <hkahsay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 15:28:03 by hkahsay           #+#    #+#             */
-/*   Updated: 2021/12/09 15:38:08 by hkahsay          ###   ########.fr       */
+/*   Updated: 2023/04/20 15:07:46 by hkahsay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 	if (lst)
 	{
 		(*del)(lst->content);
-		free(lst);
+		my_free(lst);
 	}
 }

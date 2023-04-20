@@ -6,7 +6,7 @@
 /*   By: hkahsay <hkahsay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 20:34:32 by vgejno            #+#    #+#             */
-/*   Updated: 2023/04/19 16:17:14 by hkahsay          ###   ########.fr       */
+/*   Updated: 2023/04/20 14:23:49 by hkahsay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ static void	ft_free_words(size_t i, char **ptr)
 {
 	while (i > 0)
 	{
-		free(ptr[i - 1]);
+		my_free(ptr[i - 1]);
 		i--;
 	}
-	free(ptr);
+	my_free(ptr);
 }
 
 char	**ft_split(char const *s, char c)

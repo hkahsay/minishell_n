@@ -120,9 +120,9 @@ static int	ft_handle_redir_all(t_ppline **new_ppline, t_token *ptr_cmd_red)
 static void	free_ppline(t_ppline **new_ppline, int *i)
 {
 	for (int j = 0; j < *i; j++)
-		free((*new_ppline)->ppline_cmd[j]);
-	free((*new_ppline)->ppline_cmd);
-	free((*new_ppline));
+		my_free((*new_ppline)->ppline_cmd[j]);
+	my_free((*new_ppline)->ppline_cmd);
+	my_free((*new_ppline));
 	// return (0);
 }
 
@@ -138,7 +138,7 @@ static void	*ft_handle_word(t_ppline **new_ppline, t_token *cmd_word)
 	(*new_ppline)->ppline_cmd = (char **)my_malloc(sizeof(char *) * (ft_count_args_cmd_word(cmd_word) + 1));
 	if ((*new_ppline)->ppline_cmd == NULL)
 	{
-		free(new_ppline);
+		my_free(new_ppline);
 		return NULL;
 	}
 	i = 0;

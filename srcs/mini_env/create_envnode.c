@@ -12,7 +12,7 @@ t_envnode *create_mini_envvar_node(char *key, char *value, char *content)//, int
 	if (!my_node->key)
 	{
 		// free(my_node->key);
-		free(my_node);
+		my_free(my_node);
 		return (NULL);
 	}
 	// if (my_node->content == NULL)
@@ -22,8 +22,8 @@ t_envnode *create_mini_envvar_node(char *key, char *value, char *content)//, int
 	my_node->content = ft_strdup(content);
 	if (!my_node->content)
 	{
-		free(my_node->content);
-		free(my_node);
+		my_free(my_node->content);
+		my_free(my_node);
 		return (NULL);
 	}
 	// }
@@ -38,8 +38,8 @@ t_envnode *create_mini_envvar_node(char *key, char *value, char *content)//, int
 	// printf("nodes OK %s = %s\n", my_node->key, my_node->value);
 	if (!my_node->value)
 	{
-		free(my_node->value);
-		free(my_node);
+		my_free(my_node->value);
+		my_free(my_node);
 		return (NULL);
 	}
 	my_node->prev = NULL;

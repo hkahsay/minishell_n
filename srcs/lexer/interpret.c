@@ -10,9 +10,9 @@ t_token    *lexer(char *input_str)
 
     token = NULL;
     head = NULL;
+	current = NULL;
     p = input_str;
 	space = " ";
-	current = ft_substr(p, 0, get_wordlen(p));
     init_token(token);
     while (p && *p)
     {
@@ -33,8 +33,9 @@ t_token    *lexer(char *input_str)
 		{
 			while (!ft_isspace(*p))
 			{
+				current = ft_substr(p, 0, get_wordlen(p));
 				add_token(&head, current, TOK_WORD);
-				free(current);
+				my_free(current);
 				p = p + get_wordlen(p);
 				break ;
 			}

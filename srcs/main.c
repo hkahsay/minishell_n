@@ -26,7 +26,8 @@ void	prompt(char	*line, t_envnode *mini_env) //t_envnode *my_envp,
 	{
 		printf("exit\n");	
 		// free(line);
-		free_mini_envp(mini_env);
+		destroy_all();
+		// free_mini_envp(mini_env);
 		exit(0);
 		return ;
 	}
@@ -43,7 +44,7 @@ void	prompt(char	*line, t_envnode *mini_env) //t_envnode *my_envp,
 		// cmd = parse(line, cmd);
 
 	}
-	free(line);
+	my_free(line);
 }
 
 int main(int argc, char **argv, char **envp)

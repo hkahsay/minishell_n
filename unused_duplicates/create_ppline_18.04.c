@@ -111,7 +111,7 @@ t_ppline	*create_ppline_array(t_cmd **cmd_head, int cmd_n, char	**mini_env_arr)
 		if (new_ppline->ppline_cmd == NULL)
 		{
 			// handle memory allocation error
-			free(new_ppline);
+			my_free(new_ppline);
 			return NULL;
 		}
 
@@ -124,9 +124,9 @@ t_ppline	*create_ppline_array(t_cmd **cmd_head, int cmd_n, char	**mini_env_arr)
 			{
 				// handle memory allocation error
 				for (int j = 0; j < i; j++)
-					free(new_ppline->ppline_cmd[j]);
-				free(new_ppline->ppline_cmd);
-				free(new_ppline);
+					my_free(new_ppline->ppline_cmd[j]);
+				my_free(new_ppline->ppline_cmd);
+				my_free(new_ppline);
 				return NULL;
 			}
 			i++;

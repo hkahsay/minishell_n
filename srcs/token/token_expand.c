@@ -73,7 +73,7 @@ void    *expand_token_list(t_token **token_head, t_envnode *mini_env)
 			if (curr->id == TOK_D_QUOTE)
 			{
 				d_trimmed = ft_strtrim(curr->content, "\""); //d_quote
-				free(curr->content);
+				my_free(curr->content);
 				curr->content = d_trimmed;
 				curr->id = TOK_D_QUOTE;
 			}
@@ -85,7 +85,7 @@ void    *expand_token_list(t_token **token_head, t_envnode *mini_env)
 		if (curr->id == TOK_S_QUOTE)
 		{
 			s_trimmed = ft_strtrim(curr->content, "\'"); //s_quote
-			free(curr->content);
+			my_free(curr->content);
 			curr->content = s_trimmed;
 			curr->id = TOK_S_QUOTE;
 		}
