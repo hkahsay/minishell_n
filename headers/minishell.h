@@ -133,7 +133,7 @@ void		print_cmd_list(t_cmd *cmd_list);
 void		print_ppline_list(t_ppline *ppline_list, int ppline_idx);
 void 		print_mini_envp(t_envnode *temp);
 void 		print_ex_envp(t_envnode *temp);
-void		print_ex_sorted_envp(t_envnode *mini_env, char **cmd_arg);
+void		print_ex_sorted_envp(t_envnode *mini_env); //, char **cmd_arg
 void		printf_mini_env_array(char **mini_env_array);
 // void		print_cmd(t_cmd *cmd);
 // void		print_cmd_list1(t_token **cmd_list);
